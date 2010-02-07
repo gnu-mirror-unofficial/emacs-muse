@@ -1,0 +1,132 @@
+<html lang="en">
+<head>
+<title>Images - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Implicit-Links.html#Implicit-Links" title="Implicit Links">
+<link rel="next" href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors" title="Horizontal Rules and Anchors">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Images"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors">Horizontal Rules and Anchors</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Implicit-Links.html#Implicit-Links">Implicit Links</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">8.11 Publishing and displaying images</h3>
+
+<p><a name="index-images-70"></a><a name="index-links_002c-with-images-71"></a>
+
+<h4 class="subheading">Image links</h4>
+
+<p>Links to images may be used in either the target or the description, or
+both.  Thus, the following code will publish as a clickable image that
+points to <a href="http://mwolson.org/">http://mwolson.org/</a>.
+
+<pre class="example">     [[http://mwolson.org/][/static/logos/site-logo.png]]
+</pre>
+   <p>Normally, images in the link part will be inlined.
+
+   <p>If you want these images to be published as links instead, place the
+text &ldquo;URL:&rdquo; immediately in front of the link text.  An example
+follows.
+
+<pre class="example">     [[URL:http://mwolson.org/static/logos/site-logo.png]]
+</pre>
+   <p><a name="index-images_002c-displaying-72"></a><a name="index-images_002c-local-73"></a>
+
+<h4 class="subheading">Displaying images in Muse mode</h4>
+
+<p>If a link to a locally-available image is encountered in the link
+description, Muse mode will attempt to display it if your version of
+Emacs permits this.
+
+   <p>This behavior may be toggled with <kbd>C-c C-i</kbd>, or disabled permanently
+by setting the <code>muse-colors-inline-images</code> option to <code>nil</code>.
+
+   <p>The method for finding images may be altered by customizing the
+<code>muse-colors-inline-image-method</code> option.  One useful value for
+this option is <code>muse-colors-use-publishing-directory</code>, which tells
+Muse mode to look in the directory where the current file will be
+published.  The default is to look in the current directory.  Relative
+paths like &lsquo;<samp><span class="samp">../pics/</span></samp>&rsquo; should work for either setting.
+
+   <p>Eventually, it is hoped that Muse will be able to copy images from the a
+&ldquo;source&rdquo; directory to a publishing directory by customizing
+<code>muse-project-alist</code>, but this has not been implemented yet.
+
+   <p><a name="index-images_002c-without-descriptions-74"></a><a name="index-images_002c-inlined-75"></a>
+
+<h4 class="subheading">Publishing simple images</h4>
+
+<p>The following example will display correctly and publish correctly if a
+<acronym>PNG</acronym> file called <samp><span class="file">TestLogo.png</span></samp> exists in the
+<samp><span class="file">../pics/</span></samp> directory.  If text is on the same line as the picture,
+it will remain so in the output.
+
+<pre class="example">     [[../myimage.png]]
+</pre>
+   <p><a name="index-images_002c-captions-76"></a>
+
+<h4 class="subheading">Publishing images with captions</h4>
+
+<p>If you want to add a caption to an image, use the following syntax. 
+This will center the image (if the output format supports it) and add a
+centered caption below the picture.  Formats that do not support
+centering the image will instead leave it against the left margin.
+
+<pre class="example">     [[../pics/mycat.png][My cat Dexter]]
+</pre>
+   <p>Images with captions may only occur in their own paragraphs, with no
+text on the same line.  Otherwise, the published output will not be
+syntactically correct.
+
+   </body></html>
+

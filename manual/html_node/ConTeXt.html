@@ -1,0 +1,180 @@
+<html lang="en">
+<head>
+<title>ConTeXt - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="Book.html#Book" title="Book">
+<link rel="next" href="DocBook.html#DocBook" title="DocBook">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="ConTeXt"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="DocBook.html#DocBook">DocBook</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Book.html#Book">Book</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.3 Publishing ConTeXt documents</h3>
+
+<p>This publishing style is capable of producing ConTeXt or PDF documents.
+
+   <p>If you wish to publish PDF documents based on ConTeXt, you will need to
+have it installed.  For Debian and Ubuntu, this can be accomplished by
+installing the &ldquo;texlive&rdquo; package.
+
+<h4 class="subheading">Styles provided</h4>
+
+     
+<a name="index-publishing-styles_002c-context-97"></a>
+<dl><dt><code>context</code><dd>Publish a ConTeXt document.
+
+     <p><a name="index-publishing-styles_002c-context_002dpdf-98"></a><br><dt><code>context-pdf</code><dd>Publish a PDF document, using an external ConTeXt document conversion
+tool.
+
+     <p><a name="index-publishing-styles_002c-context_002dslides-99"></a><br><dt><code>context-slides</code><dd>Produce slides from a ConTeXt document.
+
+     <p>Here is an example of a slide.
+
+     <pre class="example">          * First Slide
+          
+          [[Some-sort-of-cute-image.png]]
+          
+          ** A subheading
+          
+           - A bullet point.
+           - Another bullet point.
+          
+          * Second Slide
+          
+          ... and so on
+</pre>
+     <p><a name="index-publishing-styles_002c-context_002dslides_002dpdf-100"></a><br><dt><code>context-slides-pdf</code><dd>Publish a PDF document of ConTeXt slides.
+
+</dl>
+
+<h4 class="subheading">Options provided</h4>
+
+     <dl>
+<dt><code>muse-context-extension</code><dd>Default file extension for publishing ConTeXt files.
+
+     <br><dt><code>muse-context-pdf-extension</code><dd>Default file extension for publishing ConTeXt files to PDF.
+
+     <br><dt><code>muse-context-pdf-program</code><dd>The program that is called to generate PDF content from ConTeXt content.
+
+     <br><dt><code>muse-context-pdf-cruft</code><dd>Extensions of files to remove after generating PDF output successfully.
+
+     <br><dt><code>muse-context-header</code><dd>Header used for publishing ConTeXt files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-context-footer</code><dd>Footer used for publishing ConTeXt files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-context-markup-regexps</code><dd>List of markup regexps for identifying regions in a Muse page.
+
+     <p>For more on the structure of this list,
+See <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>.
+
+     <br><dt><code>muse-context-markup-functions</code><dd>An alist of style types to custom functions for that kind of text.
+
+     <p>For more on the structure of this list,
+See <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>.
+
+     <br><dt><code>muse-context-markup-strings</code><dd>Strings used for marking up text.
+
+     <p>These cover the most basic kinds of markup, the handling of which
+differs little between the various styles.
+
+     <br><dt><code>muse-context-slides-header</code><dd>Header for publishing a presentation (slides) using ConTeXt.
+
+     <p>Any of the predefined modules, which are available in the
+tex/context/base directory, can be used by writing a "module" directive
+at the top of the Muse file; if no such directive is provided, module
+pre-01 is used.  Alternatively, you can use your own style ("mystyle",
+in this example) by replacing "\usemodule[]" with "\input mystyle".
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-context-slides-markup-strings</code><dd>Strings used for marking up text in ConTeXt slides.
+
+     <br><dt><code>muse-context-markup-specials-document</code><dd>A table of characters which must be represented specially. 
+These are applied to the entire document, sans already-escaped
+regions.
+
+     <br><dt><code>muse-context-markup-specials-example</code><dd>A table of characters which must be represented specially. 
+These are applied to <tt>example></tt> regions.
+
+     <p>With the default interpretation of <tt>&lt;example></tt> regions, no
+specials need to be escaped.
+
+     <br><dt><code>muse-context-markup-specials-literal</code><dd>A table of characters which must be represented specially. 
+This applies to =monospaced text= and <tt>&lt;code></tt> regions.
+
+     <br><dt><code>muse-context-markup-specials-url</code><dd>A table of characters which must be represented specially. 
+These are applied to URLs.
+
+     <br><dt><code>muse-context-markup-specials-image</code><dd>A table of characters which must be represented specially. 
+These are applied to image filenames.
+
+     <br><dt><code>muse-context-permit-contents-tag</code><dd>If nil, ignore <tt>&lt;contents></tt> tags.  Otherwise, insert table of
+contents.
+
+     <p>Most of the time, it is best to have a table of contents on the
+first page, with a new page immediately following.  To make this
+work with documents published in both HTML and ConTeXt, we need to
+ignore the <tt>&lt;contents></tt> tag.
+
+     <p>If you don't agree with this, then set this option to non-nil,
+and it will do what you expect.
+
+</dl>
+
+   </body></html>
+

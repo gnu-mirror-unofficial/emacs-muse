@@ -1,0 +1,132 @@
+<html lang="en">
+<head>
+<title>Ikiwiki - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="HTML.html#HTML" title="HTML">
+<link rel="next" href="Journal.html#Journal" title="Journal">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Ikiwiki"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Journal.html#Journal">Journal</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="HTML.html#HTML">HTML</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.6 Integrating with ikiwiki</h3>
+
+<p>Note: Support for Ikiwiki is not yet complete.  Use at your own risk.
+
+   <p>Ikiwiki is a wiki compiler (<a href="http://ikiwiki.info/">http://ikiwiki.info/</a>).  Emacs Muse can
+(not yet) be used as a source format for Ikiwiki pages with the plugin
+<samp><span class="file">IkiWiki::Plugin::muse</span></samp>.
+
+   <p>The <samp><span class="file">lisp/muse-ikiwiki.el</span></samp> file provides publishing functions and
+styles for Ikiwiki.  The plugin for Ikiwiki to recognize Muse files is
+provided by the <samp><span class="file">contrib/ikiwiki/IkiWiki/Plugin/muse.pm</span></samp> file.  Two
+sample init files are available in the <samp><span class="file">examples/ikiwiki</span></samp>
+directory.  Configure your <samp><span class="file">ikiwiki.setup</span></samp> file so that the
+<code>muse_init</code> variable has the location of your Muse init file.
+
+   <p>If you are using CGI, The directory <samp><span class="file">contrib/ikiwiki/IkiWiki</span></samp> must
+be copied to the same directory as the CGI script that Ikiwiki
+generates.  When publishing your wiki, the <var>PERL5LIB</var> environment
+variable must contain the path to the <samp><span class="file">contrib/ikiwiki/IkiWiki</span></samp>
+directory.
+
+<h4 class="subheading">Styles provided</h4>
+
+     
+<a name="index-publishing-styles_002c-ikiwiki-103"></a>
+<dl><dt><code>ikiwiki</code><dd>Supports publishing XHTML output that Ikiwiki can understand.
+
+</dl>
+
+<h4 class="subheading">Options provided</h4>
+
+     <dl>
+<dt><code>muse-ikiwiki-header</code><dd>Header used for publishing Ikiwiki output files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-ikiwiki-footer</code><dd>Footer used for publishing Ikiwiki output files.
+
+     <p>This may be text or a filename.
+
+</dl>
+
+<h4 class="subheading">Other relevant options</h4>
+
+     <dl>
+<dt><code>muse-colors-evaluate-lisp-tags</code><dd>Specify whether to evaluate the contents of <tt>&lt;lisp></tt> tags at
+display time.  If nil, don't evaluate them.  If non-nil, evaluate
+them.
+
+     <p>The actual contents of the buffer are not changed, only the
+displayed text.
+
+     <br><dt><code>muse-html-src-allowed-modes</code><dd>Modes that we allow the <tt>&lt;src></tt> tag to colorize.  If <code>t</code>,
+permit the <tt>&lt;src></tt> tag to colorize any mode.
+
+     <p>If a list of mode names, such as <code>'("html" "latex")</code>, and the lang
+argument to <tt>&lt;src></tt> is not in the list, then use fundamental mode
+instead.
+
+     <br><dt><code>muse-publish-enable-dangerous-tags</code><dd>If non-nil, publish tags like <tt>&lt;lisp></tt> and <tt>&lt;command></tt>
+that can call external programs or expose sensitive information. 
+Otherwise, ignore tags like this.
+
+     <p>This is useful to set to <code>nil</code> when the file to publish is coming
+from an untrusted source.
+
+</dl>
+
+   </body></html>
+

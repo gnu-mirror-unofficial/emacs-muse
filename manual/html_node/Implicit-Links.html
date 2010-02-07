@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+<title>Implicit Links - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Explicit-Links.html#Explicit-Links" title="Explicit Links">
+<link rel="next" href="Images.html#Images" title="Images">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Implicit-Links"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Images.html#Images">Images</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Explicit-Links.html#Explicit-Links">Explicit Links</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">8.10 Bare URLs, WikiNames, and InterWiki links</h3>
+
+<p><a name="index-links_002c-implicit-63"></a><a name="index-links_002c-raw-64"></a>
+<a name="index-URLs-65"></a><a name="index-Email-addresses-66"></a>
+A URL or email address encountered in the input text is published as a
+hyperlink.  These kind of links are called <dfn>implicit links</dfn> because
+they are not separated from the rest of the Muse document in any way.
+
+   <p>Some characters in URLs will prevent Muse from recognizing them as
+implicit links. If you want to link to a URL containing spaces or any of
+the characters &ldquo;][,"'`()&lt;&gt;^&rdquo;, you will have to make the link
+explicit. The punctuation characters &ldquo;.,;:&rdquo; are also not recognized as
+part of a URL when they appear at its end. For information on how to
+make an explicit link, see <a href="Explicit-Links.html#Explicit-Links">Hyperlinks and email addresses with descriptions</a>.
+
+   <p><a name="index-WikiNames-67"></a>If the <samp><span class="command">muse-wiki</span></samp> module is loaded, another form of implicit
+link will be made available.  WikiNames, which are typed in CamelCase,
+are highlighted and published as links, provided that the file they
+refer to exists.
+
+   <p>Customization of WikiName recognition may be accomplished by editing the
+<code>muse-wiki-wikiword-regexp</code> option and subsequently running
+<code>(muse-configure-highlighting 'muse-colors-markupmuse-colors-markup)</code>. 
+If you use the Customize interface, the latter will be done
+automatically.
+
+   <p><a name="index-InterWiki-links-68"></a><a name="index-inter_002dproject-links-69"></a>The <samp><span class="command">muse-wiki</span></samp> module also allows for InterWiki links.  These
+are similar to WikiWords, but they specify both the project and page of
+a file.  The names of your project entries in <code>muse-project-alist</code>
+will be used as InterWiki names by default.  Several examples follow.
+
+<pre class="example">     Blog::DocumentingMuse
+     Projects#EmacsMuse
+     Website
+</pre>
+   <p>In the first case, the interwiki delimiter is &lsquo;<samp><span class="samp">::</span></samp>&rsquo;, &lsquo;<samp><span class="samp">Blog</span></samp>&rsquo; is
+the project name, and &lsquo;<samp><span class="samp">DocumentingMuse</span></samp>&rsquo; is the page name.  In the
+second example, &lsquo;<samp><span class="samp">#</span></samp>&rsquo; is the interwiki delimiter.  If the name of a
+project occurs by itself in text, like the third case, it will be
+colorized and published as a link to the default page of the given
+project.
+
+   <p>Customization of interwiki links may be accomplished by editing the
+<code>muse-wiki-interwiki-alist</code> option.
+
+   <p>It is also possible to link to an anchor in an interwiki document.  This
+is called a &ldquo;three-part link&rdquo;.  Examples of this follow.
+
+<pre class="example">     Blog::DocumentingMuse#anchor1
+     Projects#EmacsMuse#anchor2
+</pre>
+   </body></html>
+

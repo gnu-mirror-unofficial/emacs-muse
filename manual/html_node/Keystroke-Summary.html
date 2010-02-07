@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+<title>Keystroke Summary - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Projects.html#Projects" title="Projects">
+<link rel="next" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Keystroke-Summary"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Projects.html#Projects">Projects</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h2 class="chapter">7 Keys Used in Muse Mode</h2>
+
+<p><a name="index-keystrokes-24"></a>
+This is a summary of keystrokes available in every Muse buffer.
+
+     <dl>
+<dt><kbd>C-c C-a (`muse-index')</kbd><dd>Display an index of all known Muse pages.
+
+     <br><dt><kbd>C-c C-b (`muse-find-backlinks')</kbd><dd>Find all pages that link to this page.
+
+     <br><dt><kbd>C-c C-e (`muse-edit-link-at-point')</kbd><dd>Edit link at point.
+
+     <br><dt><kbd>C-c C-f (`muse-project-find-file')</kbd><dd>Open another Muse page.  Prompt for the name.
+
+     <br><dt><kbd>C-c C-i l, C-c TAB l (`muse-insert-relative-link-to-file')</kbd><dd>Insert a link to a file interactively.
+
+     <br><dt><kbd>C-c C-i t, C-c TAB t (`muse-insert-tag')</kbd><dd>Insert a tag interactively.
+
+     <br><dt><kbd>C-c C-i u, C-c TAB u (`muse-insert-url')</kbd><dd>Insert a URL interactively.
+
+     <br><dt><kbd>C-c C-l (`font-lock-mode')</kbd><dd>Toggle font lock / highlighting for the current buffer.
+
+     <br><dt><kbd>C-c C-p (`muse-project-publish')</kbd><dd>Publish any Muse pages that have changed.
+
+     <br><dt><kbd>C-c C-s (`muse-search')</kbd><dd>Find text in all files of the current project.
+
+     <br><dt><kbd>C-c C-t (`muse-project-publish-this-file')</kbd><dd>Publish the currently-visited file.  Prompt for the style if the current
+file can be published using more than one style.
+
+     <br><dt><kbd>C-c C-S-t, or C-c C-M-t (`muse-publish-this-file')</kbd><dd>Publish the currently-visited file.  Prompt for both the style and
+output directory.
+
+     <br><dt><kbd>C-c C-v (`muse-browse-result')</kbd><dd>Show the published result of this page.
+
+     <br><dt><kbd>C-c = (`muse-what-changed')</kbd><dd>Diff this page against the last backup version.
+
+     <br><dt><kbd>TAB</kbd><dd>Move to the next Wiki reference.
+
+     <br><dt><kbd>S-TAB</kbd><dd>Move to the previous Wiki reference.
+
+     <br><dt><kbd>M-TAB</kbd><dd>Complete the name of a page from the current project at point.
+
+     <br><dt><kbd>M-RET</kbd><dd>Insert a new list item at point, indenting properly.
+
+     <br><dt><kbd>C-&lt;</kbd><dd>Decrease the indentation of the list item at point.
+
+     <br><dt><kbd>C-&gt;</kbd><dd>Increase the indentation of the list item at point.
+
+     <br><dt><kbd>M-x muse-colors-toggle-inline-images RET</kbd><dd>Toggle display of inlined images on/off.
+
+     <br><dt><kbd>M-x muse-update-values RET</kbd><dd>Update various values that are automatically generated.
+
+     <p>Call this after changing <code>muse-project-alist</code>. 
+</dl>
+
+   </body></html>
+

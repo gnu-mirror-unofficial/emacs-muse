@@ -1,0 +1,218 @@
+<html lang="en">
+<head>
+<title>LaTeX - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="Journal.html#Journal" title="Journal">
+<link rel="next" href="Poem.html#Poem" title="Poem">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="LaTeX"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Poem.html#Poem">Poem</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Journal.html#Journal">Journal</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.8 Publishing LaTeX documents</h3>
+
+<p>This publishing style is capable of producing LaTeX or PDF documents.
+
+   <p>If you wish to publish PDF documents, you will need to have a good LaTeX
+installation.  For Debian and Ubuntu, this can be accomplished by
+installing the &ldquo;tetex-bin&rdquo; and &ldquo;tetex-extra&rdquo; packages.  TeX fonts
+are also a must.
+
+   <p>If your LaTeX installation has the file <samp><span class="file">grffile.sty</span></samp>, which may be
+found in the <samp><span class="file">texlive-latex-recommended</span></samp> package for Debian and
+Ubuntu, then consider using it by adding the following to your header
+file.  This allows spaces in filenames to work.
+
+<pre class="example">     \usepackage{grffile}
+</pre>
+   <h4 class="subheading">Styles provided</h4>
+
+     
+<a name="index-publishing-styles_002c-latex-117"></a>
+<dl><dt><code>latex</code><dd>Publish a LaTeX document.
+
+     <p><a name="index-publishing-styles_002c-pdf-118"></a><br><dt><code>pdf</code><dd>Publish a PDF document, using an external LaTeX document conversion
+tool.
+
+     <p><a name="index-publishing-styles_002c-latexcjk-119"></a><br><dt><code>latexcjk</code><dd>Publish a LaTeX document with CJK (Chinese) encodings.
+
+     <p><a name="index-publishing-styles_002c-pdfcjk-120"></a><br><dt><code>pdfcjk</code><dd>Publish a PDF document with CJK (Chinese) encodings, using an external
+LaTeX document conversion tool.
+
+     <p><a name="index-publishing-styles_002c-slides-121"></a><br><dt><code>slides</code><dd>Publish a LaTeX document that uses the Beamer extension.  This is
+suitable for producing slides.
+
+     <p>Here is an example of a slide.
+
+     <pre class="example">          &lt;slide title="First Slide"&gt;
+          Everything between the slide tags composes this slide.
+          
+          [[Some-sort-of-cute-image.png]]
+          
+           - A bullet point.
+           - Another bullet point.
+          &lt;/slide&gt;
+</pre>
+     <p><a name="index-publishing-styles_002c-slides_002dpdf-122"></a><br><dt><code>slides-pdf</code><dd>Publish a PDF document of slides, using the Beamer extension.
+
+     <p><a name="index-publishing-styles_002c-lecture_002dnotes-123"></a><br><dt><code>lecture-notes</code><dd>Publish a LaTeX document that uses the Beamer extension.  This is
+suitable for producing lecture notes.
+
+     <p>This can also use the <tt>&lt;slide></tt> tag.
+
+     <p><a name="index-publishing-styles_002c-lecture_002dnotes_002dpdf-124"></a><br><dt><code>lecture-notes-pdf</code><dd>Publish a PDF document of lecture notes, using the Beamer extension.
+
+</dl>
+
+<h4 class="subheading">Options provided</h4>
+
+     <dl>
+<dt><code>muse-latex-extension</code><dd>Default file extension for publishing LaTeX files.
+
+     <br><dt><code>muse-latex-pdf-extension</code><dd>Default file extension for publishing LaTeX files to PDF.
+
+     <br><dt><code>muse-latex-pdf-browser</code><dd>The program to use when browsing a published PDF file.
+
+     <p>This should be a format string.
+
+     <br><dt><code>muse-latex-pdf-program</code><dd>The program that is called to generate PDF content from LaTeX content.
+
+     <br><dt><code>muse-latex-pdf-cruft</code><dd>Extensions of files to remove after generating PDF output successfully.
+
+     <br><dt><code>muse-latex-header</code><dd>Header used for publishing LaTeX files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-latex-footer</code><dd>Footer used for publishing LaTeX files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-latexcjk-header</code><dd>Header used for publishing LaTeX files (CJK).
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-latexcjk-footer</code><dd>Footer used for publishing LaTeX files (CJK).
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-latex-slides-header</code><dd>Header for publishing of slides using LaTeX.
+
+     <p>This may be text or a filename.
+
+     <p>You must have the Beamer extension for LaTeX installed for this to work.
+
+     <br><dt><code>muse-latex-lecture-notes-header</code><dd>Header publishing of lecture notes using LaTeX.
+
+     <p>This may be text or a filename.
+
+     <p>You must have the Beamer extension for LaTeX installed for this to work.
+
+     <br><dt><code>muse-latex-markup-regexps</code><dd>List of markup regexps for identifying regions in a Muse page.
+
+     <p>For more on the structure of this list,
+See <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>.
+
+     <br><dt><code>muse-latex-markup-functions</code><dd>An alist of style types to custom functions for that kind of text.
+
+     <p>For more on the structure of this list,
+See <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>.
+
+     <br><dt><code>muse-latex-markup-strings</code><dd>Strings used for marking up text.
+
+     <p>These cover the most basic kinds of markup, the handling of which
+differs little between the various styles.
+
+     <br><dt><code>muse-latex-slides-markup-tags</code><dd>A list of tag specifications, for specially marking up LaTeX slides.
+
+     <br><dt><code>muse-latexcjk-encoding-map</code><dd>An alist mapping emacs coding systems to appropriate CJK codings. 
+Use the base name of the coding system (ie, without the -unix).
+
+     <br><dt><code>muse-latexcjk-encoding-default</code><dd>The default Emacs buffer encoding to use in published files.
+
+     <p>This will be used if no special characters are found.
+
+     <br><dt><code>muse-latex-markup-specials-document</code><dd>A table of characters which must be represented specially. 
+These are applied to the entire document, sans already-escaped
+regions.
+
+     <br><dt><code>muse-latex-markup-specials-example</code><dd>A table of characters which must be represented specially. 
+These are applied to <tt>example></tt> regions.
+
+     <p>With the default interpretation of <tt>&lt;example></tt> regions, no
+specials need to be escaped.
+
+     <br><dt><code>muse-latex-markup-specials-literal</code><dd>A table of characters which must be represented specially. 
+This applies to =monospaced text= and <tt>&lt;code></tt> regions.
+
+     <br><dt><code>muse-latex-markup-specials-url</code><dd>A table of characters which must be represented specially. 
+These are applied to URLs.
+
+     <br><dt><code>muse-latex-markup-specials-image</code><dd>A table of characters which must be represented specially. 
+These are applied to image filenames.
+
+     <br><dt><code>muse-latex-permit-contents-tag</code><dd>If nil, ignore <tt>&lt;contents></tt> tags.  Otherwise, insert table of
+contents.
+
+     <p>Most of the time, it is best to have a table of contents on the
+first page, with a new page immediately following.  To make this
+work with documents published in both HTML and LaTeX, we need to
+ignore the <tt>&lt;contents></tt> tag.
+
+     <p>If you don't agree with this, then set this option to non-nil,
+and it will do what you expect.
+
+</dl>
+
+   </body></html>
+

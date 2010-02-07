@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+<title>Embedded Lisp - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors" title="Horizontal Rules and Anchors">
+<link rel="next" href="Citations.html#Citations" title="Citations">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Embedded-Lisp"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Citations.html#Citations">Citations</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors">Horizontal Rules and Anchors</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">8.13 Evaluating Emacs Lisp code in documents for extensibility</h3>
+
+<p><a name="index-lisp_002c-embedded-81"></a>
+Arbitrary kinds of markup can be achieved using the <tt>&lt;lisp></tt> tag. 
+With the <tt>&lt;lisp></tt> tag, you may generate whatever output text you
+wish.  The inserted output will get marked up if the <tt>&lt;lisp></tt>
+tag appears within the main text of the document.
+
+<pre class="example">     &lt;lisp&gt;(concat "This form gets " "inserted")&lt;/lisp&gt;
+</pre>
+   <p><a name="index-lisp_002c-and-insert-command-82"></a>Note that you should not use the <code>insert</code> command within a set of
+<tt>&lt;lisp></tt> tags, since the return value from the <tt>&lt;lisp></tt>
+tags will be automatically inserted into the document.
+
+   <p>It is also possible to treat the output as if it were surrounded by the
+<tt>&lt;example></tt>, <tt>&lt;src></tt>, or <tt>&lt;verse></tt> tags, by
+specifying &ldquo;example&rdquo;, &ldquo;src&rdquo;, or &ldquo;verse&rdquo; as the <samp><span class="option">markup</span></samp>
+attribute of the <tt>&lt;lisp></tt> tag.
+
+<pre class="example">     &lt;lisp markup="example"&gt;
+     (concat "Insert" " me")
+     &lt;/lisp&gt;
+</pre>
+   <p>Other languages also have tags that cause source code to be evaluated. 
+See <a href="Tag-Summary.html#Tag-Summary">Tag Summary</a>, for details.
+
+   </body></html>
+

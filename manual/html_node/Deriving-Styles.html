@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+<title>Deriving Styles - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extending-Muse.html#Extending-Muse" title="Extending Muse">
+<link rel="prev" href="Style-Elements.html#Style-Elements" title="Style Elements">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Deriving-Styles"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Style-Elements.html#Style-Elements">Style Elements</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extending-Muse.html#Extending-Muse">Extending Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">10.6 Deriving a new style from an existing one</h3>
+
+<p><a name="index-publishing-styles_002c-deriving-141"></a>
+To create a new style from an existing one, use <code>muse-derive-style</code>
+as follows.  This is a good way to fix something you don't like about a
+particular publishing style, or to personalize it.
+
+<div class="defun">
+&mdash; Function: <b>muse-derive-style</b><var> new-name base-name &amp;rest elements<a name="index-muse_002dderive_002dstyle-142"></a></var><br>
+        </div>
+
+   <p>The derived name is a string defining the new style, such as "my-html". 
+The base name must identify an existing style, such as "html" &ndash; if you
+have loaded <samp><span class="file">muse-html</span></samp>.  The style parameters are the same as
+those used to create a style, except that they override whatever
+definitions exist in the base style.  However, some definitions only
+partially override.  The following parameters support partial
+overriding.
+
+   <p>See <a href="Style-Elements.html#Style-Elements">Style Elements</a>, for a complete list of all parameters.
+
+     <dl>
+<dt><samp><span class="option">:functions</span></samp><dd>If a markup function is not found in the derived style's function list,
+the base style's function list will be queried.
+
+     <br><dt><samp><span class="option">:regexps</span></samp><dd>All regexps in the current style and the base style(s) will be used.
+
+     <br><dt><samp><span class="option">:strings</span></samp><dd>If a markup string is not found in the derived style's string list, the
+base style's string list will be queried.
+
+   </dl>
+
+   </body></html>
+

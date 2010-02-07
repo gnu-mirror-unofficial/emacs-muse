@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+<title>Markup Tags - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extending-Muse.html#Extending-Muse" title="Extending Muse">
+<link rel="prev" href="Markup-Strings.html#Markup-Strings" title="Markup Strings">
+<link rel="next" href="Style-Elements.html#Style-Elements" title="Style Elements">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Markup-Tags"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Style-Elements.html#Style-Elements">Style Elements</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Markup-Strings.html#Markup-Strings">Markup Strings</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extending-Muse.html#Extending-Muse">Extending Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">10.4 Tag specifications for special markup</h3>
+
+<p><a name="index-publishing_002c-markup-tags-138"></a>
+<a name="muse_002dpublish_002dmarkup_002dtags"></a><code>muse-publish-markup-tags</code>
+
+   <p>A list of tag specifications, for specially marking up text.
+
+   <p>XML-style tags are the best way to add custom markup to Muse.  This is
+easily accomplished by customizing this list of markup tags.
+
+   <p>For each entry, the name of the tag is given, whether it expects a
+closing tag and/or an optional set of attributes, whether it is
+nestable, and a function that performs whatever action is desired within
+the delimited region.
+
+   <p>The tags themselves are deleted during publishing, before the function
+is called.  The function is called with three arguments, the beginning
+and end of the region surrounded by the tags.  If properties are
+allowed, they are passed as a third argument in the form of an alist. 
+The `end' argument to the function is always a marker.
+
+   <p>Point is always at the beginning of the region within the tags, when the
+function is called.  Wherever point is when the function finishes is
+where tag markup will resume.
+
+   <p>These tag rules are processed once at the beginning of markup, and once
+at the end, to catch any tags which may have been inserted in-between.
+
+   </body></html>
+

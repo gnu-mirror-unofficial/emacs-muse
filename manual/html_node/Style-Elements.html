@@ -1,0 +1,152 @@
+<html lang="en">
+<head>
+<title>Style Elements - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extending-Muse.html#Extending-Muse" title="Extending Muse">
+<link rel="prev" href="Markup-Tags.html#Markup-Tags" title="Markup Tags">
+<link rel="next" href="Deriving-Styles.html#Deriving-Styles" title="Deriving Styles">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Style-Elements"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Deriving-Styles.html#Deriving-Styles">Deriving Styles</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Markup-Tags.html#Markup-Tags">Markup Tags</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extending-Muse.html#Extending-Muse">Extending Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">10.5 Parameters used for defining styles</h3>
+
+<p><a name="index-publishing_002c-style-elements-139"></a>
+Style elements are tags that define a style.  Use either
+<code>muse-define-style</code> or <code>muse-derive-style</code>
+(see <a href="Deriving-Styles.html#Deriving-Styles">Deriving Styles</a>) to create a new style.
+
+<div class="defun">
+&mdash; Function: <b>muse-define-style</b><var> name &amp;rest elements<a name="index-muse_002ddefine_002dstyle-140"></a></var><br>
+        </div>
+
+<h4 class="subheading">Usable elements</h4>
+
+     <dl>
+<dt><samp><span class="option">:suffix</span></samp><dd>File extension to use for publishing files with this style.
+
+     <br><dt><samp><span class="option">:link-suffix</span></samp><dd>File extension to use for publishing links to Muse files with this
+style.
+
+     <br><dt><samp><span class="option">:osuffix</span></samp><dd>File extension to use for publishing second-stage files with this style.
+
+     <p>For example, PDF publishing generates a LaTeX file first, then a PDF
+from that LaTeX file.
+
+     <br><dt><samp><span class="option">:regexps</span></samp><dd>List of markup rules for publishing a page with Muse. 
+See <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>.
+
+     <br><dt><samp><span class="option">:functions</span></samp><dd>An alist of style types to custom functions for that kind of text. 
+See <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>.
+
+     <br><dt><samp><span class="option">:strings</span></samp><dd>Strings used for marking up text with this style.
+
+     <p>These cover the most basic kinds of markup, the handling of which
+differs little between the various styles.
+
+     <br><dt><samp><span class="option">:tags</span></samp><dd>A list of tag specifications, used for handling extra tags. 
+See <a href="muse_002dpublish_002dmarkup_002dtags.html#muse_002dpublish_002dmarkup_002dtags">muse-publish-markup-tags</a>.
+
+     <br><dt><samp><span class="option">:specials</span></samp><dd>A table of characters which must be represented specially.
+
+     <br><dt><samp><span class="option">:before</span></samp><dd>A function that is to be executed on the newly-created publishing buffer
+(or the current region) before any publishing occurs.
+
+     <p>This is used to set extra parameters that direct the publishing process.
+
+     <br><dt><samp><span class="option">:before-end</span></samp><dd>A function that is to be executed on the publishing buffer (or the
+current region) immediately after applying all of the markup regexps.
+
+     <p>This is used to fix the order of table elements (header, footer, body)
+in XML-ish styles.
+
+     <br><dt><samp><span class="option">:after</span></samp><dd>A function that is to be executed on the publishing buffer after
+:before-end, and immediately after inserting the header and footer.
+
+     <p>This is used for generating the table of contents as well as setting the
+file coding system.
+
+     <br><dt><samp><span class="option">:final</span></samp><dd>A function that is to be executed after saving the published file, but
+while still in its buffer.
+
+     <p>This is used for generating second-stage documents like PDF files from
+just-published LaTeX files.
+
+     <p>The function must accept three arguments: the name of the muse source
+file, the name of the just-published file, and the name of the
+second-stage target file.  The name of the second-stage target file is
+the same as that of the just-published file if no second-stage
+publishing is required.
+
+     <br><dt><samp><span class="option">:header</span></samp><dd>Header used for publishing files of this style.
+
+     <p>This may be a variable, text, or a filename.  It is inserted at the
+beginning of a file, after evaluating the publishing markup.
+
+     <br><dt><samp><span class="option">:footer</span></samp><dd>Footer used for publishing files of this style.
+
+     <p>This may be a variable, text, or a filename.  It is inserted at the end
+of a file, after evaluating the publishing markup.
+
+     <br><dt><samp><span class="option">:style-sheet</span></samp><dd>Style sheet used for publishing files of this style.
+
+     <p>This may be a variable or text.  It is used in the header of HTML and
+XHTML based publishing styles.
+
+     <br><dt><samp><span class="option">:browser</span></samp><dd>The function used to browse the published result of files of this style.
+
+</dl>
+
+   </body></html>
+

@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+<title>Using Muse Mode - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Getting-Started.html#Getting-Started" title="Getting Started">
+<link rel="prev" href="Loading-Muse.html#Loading-Muse" title="Loading Muse">
+<link rel="next" href="Publishing-Files-Overview.html#Publishing-Files-Overview" title="Publishing Files Overview">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Using-Muse-Mode"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Publishing-Files-Overview.html#Publishing-Files-Overview">Publishing Files Overview</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Loading-Muse.html#Loading-Muse">Loading Muse</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Getting-Started.html#Getting-Started">Getting Started</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">5.2 How to Edit Files in Muse</h3>
+
+<p><a name="index-editing-Muse-files-15"></a>
+Muse Mode should automatically be activated when you visit a file with a
+&ldquo;.muse&rdquo; extension.  One such file is <samp><span class="file">QuickStart.muse</span></samp>, which is
+available in the <samp><span class="file">examples</span></samp> directory of the Muse distribution. 
+You can tell that Muse Mode has been activated by checking for the text
+&ldquo;Muse&rdquo; in your mode line.  If Muse Mode has not been activated, you
+may activate it by type <kbd>M-x muse-mode RET</kbd>.
+
+   <p>You will notice that Muse files are highlighted very simply.  Links are
+colored blue, headings are large and bold text, and <tt>&lt;example></tt>
+tags are colored in grey.
+
+   <p>There are several different ways to edit things like links, which hide
+the underlying Muse markup.  One way is to toggle font-locking off by
+hitting <kbd>C-c C-l</kbd>, which is also <kbd>M-x font-lock-mode</kbd>, make
+changes, and then hit <kbd>C-c C-l</kbd> again to toggle font-locking back
+on.  Another way is just to move into the text and edit it.  Markup can
+also be removed by normal deletion methods, though some side effects
+might require a second deletion.
+
+   <p>For the particular case of editing links, it is easiest to move to the
+link and do <kbd>C-c C-e</kbd>, which is also <kbd>M-x
+muse-edit-link-at-point</kbd>.  This prompts you for the link and its
+description, using the previous contents of the link as initial values. 
+A link to another Muse file may be created by hitting <kbd>C-c TAB l</kbd>. 
+A link to a URL may be created by hitting <kbd>C-c TAB u</kbd>.  Links may be
+followed by hitting <kbd>RET</kbd> on them.
+
+   <p>If you want to add a new list item, this may by accomplished by hitting
+<kbd>M-RET</kbd>.  This will put a dash and some spaces on the screen.  The
+dash is the Muse markup that indicates a list item.  It is also possible
+to created &ldquo;nested&rdquo; lists with this command, by adjusting the number
+of spaces in front of the dashes.  If you have lists with long lines,
+you can move to a list item and hit <kbd>M-q</kbd> to wrap it onto multiple
+lines.
+
+   </body></html>
+

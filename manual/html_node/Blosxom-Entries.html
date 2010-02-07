@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+<title>Blosxom Entries - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Blosxom.html#Blosxom" title="Blosxom">
+<link rel="prev" href="Blosxom-Requirements.html#Blosxom-Requirements" title="Blosxom Requirements">
+<link rel="next" href="Blosxom-Options.html#Blosxom-Options" title="Blosxom Options">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Blosxom-Entries"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Blosxom-Options.html#Blosxom-Options">Blosxom Options</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Blosxom-Requirements.html#Blosxom-Requirements">Blosxom Requirements</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Blosxom.html#Blosxom">Blosxom</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h4 class="subsection">9.1.2 Format of a Blosxom entry and automation</h4>
+
+<p>Each Blosxom file must include `#date yyyy-mm-dd', or optionally the
+longer `#date yyyy-mm-dd-hh-mm', a title (using the <code>#title</code>
+directive), plus whatever normal content is desired.
+
+   <p>The date directive is not used directly by <samp><span class="command">pyblosxom.cgi</span></samp> or
+this program.  You need to have the two additional items from the former
+section to make use of this feature.
+
+   <p>There is a function called <code>muse-blosxom-new-entry</code> that will
+automate the process of making a new blog entry.  To make use of it, do
+the following.
+
+     <ul>
+<li>Customize <code>muse-blosxom-base-directory</code> to the location that your
+blog entries are stored.
+
+     <li>Assign the <code>muse-blosxom-new-entry</code> function to a key sequence.  I
+use the following code to assign this function to <kbd>C-c p l'</kbd>.
+
+     <pre class="example">          (global-set-key "\C-cpl" 'muse-blosxom-new-entry)
+</pre>
+     <li>You should create your directory structure ahead of time under your base
+directory.  These directories, which correspond with category names, may
+be nested.
+
+     <li>When you enter this key sequence, you will be prompted for the category
+of your entry and its title.  Upon entering this information, a new file
+will be created that corresponds with the title, but in lowercase
+letters and having special characters converted to underscores.  The
+title and date directives will be inserted automatically. 
+</ul>
+
+   </body></html>
+

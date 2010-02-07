@@ -1,0 +1,178 @@
+<html lang="en">
+<head>
+<title>Options for Projects - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Projects.html#Projects" title="Projects">
+<link rel="prev" href="Projects-and-Subdirectories.html#Projects-and-Subdirectories" title="Projects and Subdirectories">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Options-for-Projects"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Projects-and-Subdirectories.html#Projects-and-Subdirectories">Projects and Subdirectories</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Projects.html#Projects">Projects</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">6.4 Listing of Available Options for Projects</h3>
+
+<p><a name="index-projects_002c-options-22"></a><a name="index-muse_002dproject_002dalist_002c-reference-23"></a>
+This is a listing of all of the various options (or, more accurately:
+attributes) that may be specified in <code>muse-project-alist</code>.
+
+   <p>Each muse-project-alist entry looks like this:
+
+<pre class="example">       (PROJECT-NAME (SOURCES)
+         OUTPUTS)
+</pre>
+   <p>We refer to these names below.
+
+   <p>&ldquo;Attributes&rdquo;, which compose SOURCES and OUTPUTS, are a pair of values. 
+The first value is a keyword, like <samp><span class="option">:default</span></samp>.  The second part
+is the value associated with that keyword, such as the text &ldquo;index&rdquo;. 
+If you are familiar with Emacs Lisp property lists, the concept is
+similar to that, except that in the SOURCES section, single directories
+can be interspersed with two-value attributes.
+
+<h4 class="subheading">Project Name</h4>
+
+<p>This is a string that indicates the name of the project.  It is
+primarily used for publishing interwiki links with the
+<samp><span class="file">muse-wiki.el</span></samp> module.
+
+<h4 class="subheading">Sources</h4>
+
+<p>This part of a muse-project-alist entry consists of two-value
+attributes, and also directory names.  If you are publishing a book, the
+order of directories and attributes is significant.
+
+   <p>The minimal content for the sources section is a list of directories.
+
+     <dl>
+<dt><samp><span class="option">:book-chapter</span></samp><dd>Indicates a new chapter of a book.  The text of the title of the chapter
+comes immediately after this keyword.
+
+     <br><dt><samp><span class="option">:book-end</span></samp><dd>Indicates the end of a book.  Directories listed after this one are
+ignored when publishing a book.  The value &ldquo;t&rdquo; (without quotes) should
+come immediately after this keyword.
+
+     <br><dt><samp><span class="option">:book-funcall</span></samp><dd>A function to call while publishing a book.  This is useful for doing
+something just after a particular chapter.
+
+     <br><dt><samp><span class="option">:book-part</span></samp><dd>Indicates the beginning of a new part of the book.  The text of the
+title should come immediately after this keyword.
+
+     <br><dt><samp><span class="option">:book-style</span></samp><dd>Indicate a particular publishing style to use for this part of the book. 
+If this is specified, it should come just after a <samp><span class="option">:part</span></samp>
+attribute.
+
+     <br><dt><samp><span class="option">:default</span></samp><dd>The default page to visit when browsing a project.  Also, if you are
+using the <samp><span class="file">muse-wiki.el</span></samp> module, publishing a link to just a
+project's name will cause it to link to this default file.
+
+     <br><dt><samp><span class="option">:force-publish</span></samp><dd>This specifies a list of pages which should be published every time a
+project is published (by using <kbd>C-c C-p</kbd>, for example), regardless
+of whether their contents have changed.  This is useful for updating
+Index pages, pages that use the <tt>&lt;include></tt> tag, and other pages
+that have dynamically-generated content.
+
+     <br><dt><samp><span class="option">:major-mode</span></samp><dd>This specifies the major mode to use when visiting files in this
+project.  The default is <code>muse-mode</code>.
+
+     <br><dt><samp><span class="option">:nochapters</span></samp><dd>This indicates that while publishing a book, do not automatically create
+chapters.  Values which may follow this are nil (the default, which
+means that we automatically create chapters), or non-nil, which means
+that we manually specify chapters with the <samp><span class="option">:book-chapter</span></samp>
+attribute,
+
+     <br><dt><samp><span class="option">:publish-project</span></samp><dd>Indicates which function we should call when publishing a project.
+
+     <br><dt><samp><span class="option">:set</span></samp><dd>This specifies a list of variables and values to set when publishing a
+project.  The list should be a property list, which is in the form:
+
+     <pre class="example">          (VAR1 VALUE1 VAR2 VALUE2 ...)
+</pre>
+     <br><dt><samp><span class="option">:visit-link</span></samp><dd>Specifies the function to call when visiting a link.  The default is
+<code>muse-visit-link-default</code>.  The arguments for that function should
+be (1) the link and (2) whether to visit the link in a new window.
+
+   </dl>
+
+<h4 class="subheading">Outputs</h4>
+
+<p>This part of a muse-project-alist entry is composed of lists of
+attributes.  Each list is called an &ldquo;output style&rdquo;.
+
+   <p>The minimal content for an output style is a <samp><span class="option">:base</span></samp> attribute
+and a <samp><span class="option">:path</span></samp> attribute.
+
+     <dl>
+<dt><samp><span class="option">:base</span></samp><dd>Publishing style to use, such as &ldquo;html&rdquo;, &ldquo;docbook&rdquo;, or &ldquo;pdf&rdquo;.
+
+     <br><dt><samp><span class="option">:base-url</span></samp><dd>An external URL which can be used to access published files.  This is
+mainly used by the <samp><span class="file">muse-wiki</span></samp> module when publishing links between
+two separate projects, if the projects are served on different domains.
+
+     <p>It is also used by the <samp><span class="file">muse-journal</span></samp> module to create the RSS or
+RDF output.
+
+     <br><dt><samp><span class="option">:exclude</span></samp><dd>Exclude items matching a regexp from being published.  The regexp should
+usually begin with "/".
+
+     <br><dt><samp><span class="option">:include</span></samp><dd>Only include items matching a regexp when publishing.  The regexp should
+usually begin with "/".
+
+     <br><dt><samp><span class="option">:path</span></samp><dd>The directory in which to store published files.
+
+     <br><dt><samp><span class="option">:timestamps</span></samp><dd>A file containing the timestamps (that is, time of creation) for files
+in this project.  It might eventually used by the <samp><span class="file">muse-blosxom</span></samp>
+module, but this option is not currently in use by any Muse code.
+
+   </dl>
+
+   </body></html>
+

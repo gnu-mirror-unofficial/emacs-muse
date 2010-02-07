@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+<title>Paragraphs - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="next" href="Headings.html#Headings" title="Headings">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Paragraphs"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Headings.html#Headings">Headings</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">8.1 Paragraphs: centering and quoting</h3>
+
+<p><a name="index-paragraphs-26"></a>
+Paragraphs in Muse must be separated by a blank line.
+
+   <p><a name="index-paragraphs_002c-centered-27"></a>
+
+<h4 class="subheading">Centered paragraphs and quotations</h4>
+
+<p>A line that begins with six or more columns of whitespace (either tabs
+or spaces) indicates a centered paragraph.  Alternatively, you can use
+the <tt>&lt;center></tt> tag to surround regions that are to be published
+as centered paragraphs.
+
+   <p><a name="index-paragraphs_002c-quoted-28"></a><a name="index-quotations-29"></a>But if a line begins with whitespace, though less than six columns, it
+indicates a quoted paragraph.  Alternatively, you can use the
+<tt>&lt;quote></tt> tag to surround regions that are to be published as
+quoted paragraphs.
+
+   <p><a name="index-examples-30"></a><a name="index-monospace_002c-rendering-blocks-31"></a><a name="index-HTML_002c-rendering-blocks-in-monospace-32"></a>
+
+<h4 class="subheading">Literal paragraphs</h4>
+
+<p>The <tt>&lt;example></tt> tag is used for examples, where whitespace should
+be preserved, the text rendered in monospace, and any characters special
+to the output style escaped.
+
+   <p><a name="index-literal-text-33"></a><a name="index-HTML_002c-inserting-a-raw-block-34"></a>There is also the <tt>&lt;literal></tt> tag, which causes a marked block to
+be entirely left alone.  This can be used for inserting a hand-coded
+HTML blocks into HTML output, for example.
+
+   <p>If you want some text to only be inserted when publishing to a
+particular publishing style, use the <samp><span class="option">style</span></samp> attribute for the
+<tt>&lt;literal></tt> tag.  An example follows.
+
+<pre class="example">     &lt;literal style="latex"&gt;
+     A LaTeX-based style was used in the publishing of this document.
+     &lt;/literal&gt;
+</pre>
+   <p>This will leave the region alone if the current publishing style is
+&ldquo;latex&rdquo; or based on &ldquo;latex&rdquo;, such as &ldquo;pdf&rdquo;, and delete the region
+otherwise.  It is also possible to leave the text alone only for one
+particular style, rather than its derivations, by adding
+<code>exact="t"</code> to the tag.
+
+   <p><a name="index-line-breaks-35"></a>
+
+<h4 class="subheading">Line breaks</h4>
+
+<p>If you need a line break, then use the &lsquo;<samp><span class="samp">&lt;br&gt;</span></samp>&rsquo; tag.  Most of the
+time this tag is unnecessary, because Muse will automatically detect
+paragraphs by means of blank lines.  If you want to preserve newlines in
+several lines of text, then use verse markup instead (see <a href="Verse.html#Verse">Verse</a>).
+
+   </body></html>
+

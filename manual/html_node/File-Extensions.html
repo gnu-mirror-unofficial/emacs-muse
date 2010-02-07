@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+<title>File Extensions - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Getting-Started.html#Getting-Started" title="Getting Started">
+<link rel="prev" href="Publishing-Files-Overview.html#Publishing-Files-Overview" title="Publishing Files Overview">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="File-Extensions"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Publishing-Files-Overview.html#Publishing-Files-Overview">Publishing Files Overview</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Getting-Started.html#Getting-Started">Getting Started</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">5.4 Using a Different File Extension</h3>
+
+<p><a name="index-file-extension_002c-specifying-17"></a>
+By default, Muse expects all project files to have the file extension
+<samp><span class="file">.muse</span></samp>. Files without this extension will not be associated with
+Muse mode and will not be considered part of any project, even if they
+are within a project directory.
+
+   <p>If you don't want to use <samp><span class="file">.muse</span></samp>, you can customize the extension
+by setting the value of <code>muse-file-extension</code>.
+
+   <p>If you don't want to use any extension at all, and want Muse to
+autodetect project files based on their location, then add the following
+to your Muse settings file.
+
+<pre class="lisp">     (setq muse-file-extension nil
+           muse-mode-auto-p t)
+</pre>
+   <p>Note that if you chose to have <code>muse-file-extension</code> set to
+<code>nil</code>, you may have trouble if your <samp><span class="file">.emacs</span></samp> file or other
+init scripts attempt to visit a Muse file.  (A very common example of
+this is if you use Planner with Muse and run <code>(plan)</code> from your
+<samp><span class="file">.emacs</span></samp>.)  If you wish to visit Muse files from your
+<samp><span class="file">.emacs</span></samp>, be sure to also add the following additional code before
+any such visits happen:
+
+<pre class="lisp">     (add-hook 'find-file-hooks 'muse-mode-maybe)
+</pre>
+   </body></html>
+

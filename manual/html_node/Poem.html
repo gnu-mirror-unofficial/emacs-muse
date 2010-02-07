@@ -1,0 +1,142 @@
+<html lang="en">
+<head>
+<title>Poem - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="LaTeX.html#LaTeX" title="LaTeX">
+<link rel="next" href="Texinfo.html#Texinfo" title="Texinfo">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Poem"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Texinfo.html#Texinfo">Texinfo</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="LaTeX.html#LaTeX">LaTeX</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.9 Publish a poem to LaTeX or PDF</h3>
+
+<p>The <code>muse-poem</code> module makes it easy to attractively publish and
+reference poems in the following format, using the "memoir" module for
+LaTeX publishing.  It will also markup poems for every other output
+style, though none are nearly as pretty.
+
+<pre class="example">     Title
+     
+     
+     Body of poem
+     
+     
+     Annotations, history, notes, etc.
+</pre>
+   <p>Once a poem is written in this format, just publish it to PDF using the
+<code>poem-pdf</code> style.  To make an inlined reference to a poem that
+you've written &ndash; for example, from a blog page &ndash; there is a "poem" tag
+defined by this module.
+
+<pre class="example">     &lt;poem title="name.of.poem.page"&gt;
+</pre>
+   <p>Let's assume the template above was called <samp><span class="file">name.of.poem.page</span></samp>;
+then the above tag would result in this inclusion.
+
+<pre class="example">     ** Title
+     
+     &gt; Body of poem
+</pre>
+   <p>John Wiegley uses this module for publishing all of the poems on his
+website, which are at
+<a href="http://www.newartisans.com/johnw/poems.html">http://www.newartisans.com/johnw/poems.html</a>.
+
+<h4 class="subheading">Styles provided</h4>
+
+     
+<a name="index-publishing-styles_002c-poem_002dlatex-125"></a>
+<dl><dt><code>poem-latex</code><dd>Publish a poem in LaTeX form.
+
+     <p><a name="index-publishing-styles_002c-poem_002dpdf-126"></a><br><dt><code>poem-pdf</code><dd>Publish a poem to a PDF document.
+
+     <p><a name="index-publishing-styles_002c-chapbook_002dlatex-127"></a><br><dt><code>chapbook-latex</code><dd>Publish a book of poems in LaTeX form.
+
+     <p><a name="index-publishing-styles_002c-chapbook_002dpdf-128"></a><br><dt><code>chapbook-pdf</code><dd>Publish a book of poems to a PDF document.
+
+</dl>
+
+<h4 class="subheading">Options provided</h4>
+
+     <dl>
+<dt><code>muse-poem-latex-header</code><dd>Header used for publishing LaTeX poems.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-poem-latex-footer</code><dd>Footer used for publishing LaTeX files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-poem-markup-strings</code><dd>Strings used for marking up poems.
+
+     <p>These cover the most basic kinds of markup, the handling of which
+differs little between the various styles.
+
+     <br><dt><code>muse-chapbook-latex-header</code><dd>Header used for publishing a book of poems in LaTeX form.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-chapbook-latex-footer</code><dd>Footer used for publishing a book of poems in LaTeX form.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-poem-chapbook-strings</code><dd>Strings used for marking up books of poems.
+
+     <p>These cover the most basic kinds of markup, the handling of which
+differs little between the various styles.
+
+</dl>
+
+   </body></html>
+

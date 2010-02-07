@@ -1,0 +1,149 @@
+<html lang="en">
+<head>
+<title>Blosxom Requirements - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Blosxom.html#Blosxom" title="Blosxom">
+<link rel="prev" href="Blosxom.html#Blosxom" title="Blosxom">
+<link rel="next" href="Blosxom-Entries.html#Blosxom-Entries" title="Blosxom Entries">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Blosxom-Requirements"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Blosxom-Entries.html#Blosxom-Entries">Blosxom Entries</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Blosxom.html#Blosxom">Blosxom</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Blosxom.html#Blosxom">Blosxom</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h4 class="subsection">9.1.1 Other tools needed for the Blosxom style</h4>
+
+<p>You will need to have <samp><span class="command">pyblosxom.cgi</span></samp> or <samp><span class="command">blosxom.cgi</span></samp>
+installed on a machine that you have upload access to.
+
+   <p>The major difficulty in both of these programs is specifying the date of
+the entries.  Both programs rely on the file modification time rather
+than any data contained in the entries themselves.  A plugin is needed
+in order for these programs to be able to get the correct date.
+
+<h4 class="subheading">PyBlosxom</h4>
+
+<p>There are two different ways of accomplishing this in pyblosxom.  The
+first way involves gathering the timestamps (as specified by the
+<code>#date</code> directive) into one file and then sending that file along
+with published entries to the webserver.
+
+   <p>The second will read each file at render time and parse the
+<code>#postdate</code> directive.  Muse will translate the <code>#date</code>
+directive into <code>#postdate</code> at publish time, so you don't have to do
+any extra work.
+
+<h5 class="subsubheading">Placing timestamps in one file</h5>
+
+<p>The following additional components are required in order to make the
+date of blog entries display as something sensible.
+
+     <ol type=1 start=1>
+<li>A script to gather date directives from the entire blog tree into a
+single file.  The file must associate a blog entry with a date.
+
+     <li>A plugin for (py)blosxom that reads this file.
+        </ol>
+
+   <p>These 2 things are provided for <samp><span class="command">pyblosxom.cgi</span></samp> in the
+<samp><span class="file">contrib/pyblosxom</span></samp> subdirectory.  <samp><span class="file">getstamps.py</span></samp> provides the
+former service, while <samp><span class="file">hardcodedates.py</span></samp> provides the latter
+service.
+
+   <p>Here is a sample listing from my <samp><span class="file">timestamps</span></samp> file, which maps
+each file to a date.  This can really be in any format, as long as your
+date-gathering script and your plugin can both understand it.
+
+<pre class="example">     2005-04-01-14-16 personal/paper_cranes
+     2005-03-21 personal/spring_break_over
+     2004-10-24 personal/finished_free_culture
+</pre>
+   <p>The script <samp><span class="file">contrib/pyblosxom/make-blog</span></samp> demonstrates how to call
+<samp><span class="file">getstamps.py</span></samp>.  Note that you will need to set the current
+directory to where your Muse files are, execute <samp><span class="file">getstamps.py</span></samp>, and
+then move the generated timestamps file to your publishing directory.
+
+<h5 class="subsubheading">Getting timestamp from entry while rendering</h5>
+
+<p>Alternately, the pyblosxom metadate plugin may be used.  On the plus
+side, there is no need to run a script to gather the date.  On the
+downside, each entry is read twice rather than once when the page is
+rendered.  Set the value of <code>muse-blosxom-use-metadate</code> to non-nil
+to enable adding a <code>#postdate</code> directive to all published files. 
+You can do this by:
+
+<pre class="example">     M-x customize-variable RET muse-blosxom-use-metadate RET
+</pre>
+   <p>With the metadate plugin installed in pyblosxom, the date set in this
+directive will be used instead of the file's modification time.  The
+plugin is included with Muse at <samp><span class="file">contrib/pyblosxom/metadate.py</span></samp>.
+
+<h4 class="subheading">Blosxom</h4>
+
+<p>It is also possible to use Blosxom, which is written in Perl, to serve
+blog entries that were published with Muse.  The steps are as follows.
+
+     <ol type=1 start=1>
+<li>Download and install blosxom from <a href="http://blosxom.sourceforge.net/">http://blosxom.sourceforge.net/</a>.
+
+     <li>Install the metadate plugin.  It is available in
+<samp><span class="file">contrib/blosxom/metadate_0_0_3</span></samp>.
+
+     <li>Every time you make a new blog entry, change to the blosxom data
+directory and execute the <samp><span class="file">contrib/blosxom/getstamps.pl</span></samp> script. 
+This script has only recently been made, and may still have some bugs,
+so use with caution.
+
+        </ol>
+
+   </body></html>
+

@@ -1,0 +1,270 @@
+<html lang="en">
+<head>
+<title>Tag Summary - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Comments.html#Comments" title="Comments">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Tag-Summary"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Comments.html#Comments">Comments</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">8.16 Tags that Muse recognizes</h3>
+
+<p><a name="index-tags-87"></a><a name="index-inserting-files-at-publish-time-88"></a><a name="index-publishing_002c-including-markup-in-headers-and-footers-89"></a><a name="index-publishing_002c-inserting-files-90"></a>
+Muse has several built-in tags that may prove useful during publishing. 
+See <a href="muse_002dpublish_002dmarkup_002dtags.html#muse_002dpublish_002dmarkup_002dtags">muse-publish-markup-tags</a>, to see how to customize the tags that
+Muse uses, as well as make your own tags.
+
+   <p>Only a small subset of these tags are available in header and footer
+text.  The <code>muse-publish-markup-header-footer-tags</code> option lists
+the tags that are allowed in headers and footers.
+
+<h4 class="subheading">Syntax</h4>
+
+<p>If a tag takes arguments, it will look like this, where &ldquo;tagname&rdquo; is
+the name of the tag.
+
+<pre class="example">     &lt;tagname arg1="string1" arg2="string2"&gt;
+</pre>
+   <p>If you want the tag to look like it came straight from an XHTML
+document, you can alternatively do the following.
+
+<pre class="example">     &lt;tagname arg1="string1" arg2="string2" /&gt;
+</pre>
+   <p>If a tag surrounds some text, it will look like this.
+
+<pre class="example">     &lt;tagname&gt;Some text&lt;/tagname&gt;
+</pre>
+   <p>If a tag surrounds a large region, it will look like this.
+
+<pre class="example">     &lt;tagname&gt;
+     Some text.
+     Some more text.
+     &lt;/tagname&gt;
+</pre>
+   <h4 class="subheading">Tag listing</h4>
+
+<p>This is the complete list of tags that Muse accepts, including those
+that were mentioned in previous sections.
+
+     <dl>
+<dt>&lsquo;<samp><span class="samp">&lt;br&gt;</span></samp>&rsquo;<dd>Insert a line break.
+
+     <p>Muse will automatically detect paragraphs when publishing by means of
+blank lines, so this tag is usually unnecessary.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;cite&gt;</span></samp>&rsquo;<dd>Insert a citation to another source.
+
+     <p>This takes the argument <samp><span class="option">type</span></samp>, which indicates the type of
+citation.  The valid types are "author" and "year".  If this argument is
+omitted, include both author and year in the citation.
+
+     <p>The bibliography to use for the citation may be specified by the
+<samp><span class="option">#bibsource</span></samp> directive.
+
+     <p>See <a href="Citations.html#Citations">Citations</a>, for additional information.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;class&gt;</span></samp>&rsquo;<dd>If publishing to HTML, surround the given text with a <tt>&lt;span></tt>
+tag.  It takes one argument called &ldquo;name&rdquo; that specifies the &ldquo;class&rdquo;
+attribute of the <tt>&lt;span></tt> tag.
+
+     <p>If publishing to a different format, do nothing extra to the text.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;code&gt;</span></samp>&rsquo;<dd>Treat the text surrounded by the tag as if they were enclosed in equal
+signs, that is, make it monospace.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;command&gt;</span></samp>&rsquo;<dd>Run a command on the region, replacing the region with the result of the
+command.  The command is specified with the &ldquo;interp&rdquo; argument.  If no
+value for &ldquo;interp&rdquo; is given, pass the entire region to the shell.
+
+     <p>The &ldquo;markup&rdquo; argument controls how this section is marked up.
+
+     <p>If it is omitted, publish the region with the normal Muse rules.
+
+     <p>If "nil", do not mark up the region at all, but prevent Muse from
+further interpreting it.
+
+     <p>If "example", treat the region as if it was surrounded by the
+<tt>&lt;example></tt> tag.
+
+     <p>If "src", treat the included text as if it was surrounded by the
+<tt>&lt;src></tt> tag.  You should also specify the &ldquo;lang&rdquo; attribute if
+doing this.
+
+     <p>If "verse", treat the region as if it was surrounded by the
+<tt>&lt;verse></tt> tag, to preserve newlines.
+
+     <p>Otherwise, it should be the name of a function to call, with the buffer
+narrowed to the region.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;comment&gt;</span></samp>&rsquo;<dd>Treat the entire region as a comment.  If the option
+<var>muse-publish-comments-p</var> is nil, delete the region, otherwise
+publish it using the comment syntax of the current publishing style.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;contents&gt;</span></samp>&rsquo;<dd>Publish a Table of Contents.  This will either be inserted in-place or
+at the beginning of the document, depending on your publishing style. 
+It does not have a delimiting tag.
+
+     <p>By default, only 2 levels of headings will be included in the generated
+Table of Contents.  To change this globally, customize the
+<var>muse-publish-contents-depth</var> option.  To change this only for the
+current tag, use the &ldquo;depth&rdquo; argument.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;div&gt;</span></samp>&rsquo;<dd>Insert a &lt;div&gt; tag into HTML documents, and do not insert anything
+special for other non-HTML publishing formats.
+
+     <p>If the &ldquo;style&rdquo; argument is provided, include it with the published
+<tt>&lt;div></tt> tag.  Likewise for the &ldquo;id&rdquo; argument.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;example&gt;</span></samp>&rsquo;<dd>Publish the region in monospace, preserving the newlines in the region. 
+This is useful for snippets of code.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;include&gt;</span></samp>&rsquo;<dd>Insert the given file at the current location during publishing.  The
+basic use of this tag is as follows, replacing &ldquo;included_file&rdquo; with
+the name of the file that you want to include.
+
+     <pre class="example">          &lt;include file="included_file"&gt;
+</pre>
+     <p>The &ldquo;markup&rdquo; argument controls how this section is marked up.
+
+     <p>If it is omitted, publish the included text with the normal Muse
+rules.
+
+     <p>If "nil", do not mark up the included text at all.
+
+     <p>If "example", treat the included text as if it was surrounded by the
+<tt>&lt;example></tt> tag.
+
+     <p>If "src", treat the included text as if it was surrounded by the
+<tt>&lt;src></tt> tag.  You should also specify the &ldquo;lang&rdquo; attribute if
+doing this.
+
+     <p>If "verse", treat the included text as if it was surrounded by the
+<tt>&lt;verse></tt> tag, to preserve newlines.
+
+     <p>Otherwise, it should be the name of a function to call after inserting
+the file with the buffer narrowed to the section inserted.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;lisp&gt;</span></samp>&rsquo;<dd>Evaluate the Emacs Lisp expressions between the initial and ending tags. 
+The result is then inserted into the document, so you do not need to
+explicitly call <code>insert</code>.  All text properties are removed from the
+resulting text.
+
+     <p>This tag takes the &ldquo;markup&rdquo; argument.  See the description of
+<tt>&lt;command></tt> for details.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;literal&gt;</span></samp>&rsquo;<dd>Make sure that the text enclosed by this tag is published without
+escaping it in any way.  This is useful for inserting markup directly
+into the published document, when Muse does not provide the desired
+functionality.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;markup&gt;</span></samp>&rsquo;<dd>Mark up the text between the initial and ending tags.  The markup
+command to use may be specified by the &ldquo;function&rdquo; argument.  The
+standard Muse markup routines are used by default if no &ldquo;function&rdquo;
+argument is provided.
+
+     <p>This is useful for marking up regions in headers and footers.  One
+example that comes to mind is generating a published index of all of the
+files in the current project by doing the following.
+
+     <pre class="example">          &lt;markup&gt;&lt;lisp&gt;(muse-index-as-string t t)&lt;/lisp&gt;&lt;/markup&gt;
+</pre>
+     <br><dt>&lsquo;<samp><span class="samp">&lt;perl&gt;</span></samp>&rsquo;<dd>Run the <samp><span class="command">perl</span></samp> language interpreter on the region, replacing the
+region with the result of the command.
+
+     <p>This tag takes the &ldquo;markup&rdquo; argument.  See the description of
+<tt>&lt;command></tt> for details.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;python&gt;</span></samp>&rsquo;<dd>Run the <samp><span class="command">python</span></samp> language interpreter on the region, replacing
+the region with the result of the command.
+
+     <p>This tag takes the &ldquo;markup&rdquo; argument.  See the description of
+<tt>&lt;command></tt> for details.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;quote&gt;</span></samp>&rsquo;<dd>Publish the region as a blockquote.  This will either be inserted
+in-place or at the beginning of the document, depending on your
+publishing style.  It does not have a delimiting tag.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;ruby&gt;</span></samp>&rsquo;<dd>Run the <samp><span class="command">ruby</span></samp> language interpreter on the region, replacing the
+region with the result of the command.
+
+     <p>This tag takes the &ldquo;markup&rdquo; argument.  See the description of
+<tt>&lt;command></tt> for details.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;src&gt;</span></samp>&rsquo;<dd>Publish the region using htmlize. 
+The language to use may be specified by the &ldquo;lang&rdquo; attribute.
+
+     <p>Muse will look for a function named <var>lang</var>-mode, where <var>lang</var> is
+the value of the &ldquo;lang&rdquo; attribute.
+
+     <p>This tag requires htmlize 1.34 or later in order to work.  If this is
+not satisfied, or the current publishing style is not HTML-based, Muse
+will publish the region like an <tt>&lt;example></tt> tag.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;verbatim&gt;</span></samp>&rsquo;<dd>This is used when you want to prevent Muse from trying to interpret some
+markup.  Surround the markup in <tt>&lt;verbatim></tt> and
+<tt>&lt;/verbatim></tt>, and it will not be interpreted.
+
+     <p>This tag was used often in previous versions of Muse because they did
+not support whole-document escaping of specials.  Now, it will only be
+needed for other tags, and perhaps footnotes as well.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;verse&gt;</span></samp>&rsquo;<dd>Preserve the newlines in the region.  In formats like HTML, newlines are
+removed by default, hence the need for this tag.  In other publishing
+styles, this tag may cause the text to be indented slightly in a way
+that looks nice for poetry and prose.
+
+   </dl>
+
+   </body></html>
+

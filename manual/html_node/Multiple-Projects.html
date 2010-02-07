@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+<title>Multiple Projects - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Projects.html#Projects" title="Projects">
+<link rel="prev" href="Single-Project.html#Single-Project" title="Single Project">
+<link rel="next" href="Projects-and-Subdirectories.html#Projects-and-Subdirectories" title="Projects and Subdirectories">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Multiple-Projects"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Projects-and-Subdirectories.html#Projects-and-Subdirectories">Projects and Subdirectories</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Single-Project.html#Single-Project">Single Project</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Projects.html#Projects">Projects</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">6.2 A Multiple-Project Example</h3>
+
+<p><a name="index-projects_002c-multiple-20"></a>
+It is possible to specify multiple projects.  Here is an example of
+three projects: a generic website, a projects area, and a day-planner
+(the day-planner part requires Planner Mode&mdash;see
+<a href="http://wjsullivan.net/PlannerMode.html">http://wjsullivan.net/PlannerMode.html</a> to get it).
+
+<pre class="lisp">     (setq muse-project-alist
+           '(("Website" ("~/Pages" :default "index")
+              (:base "html" :path "~/public_html"))
+             (("Projects" ("~/Projects" :default "index")
+              (:base "xhtml"
+                     :path "~/public_html/projects"
+                     :exclude "/TopSecret")
+              (:base "pdf"
+                     :path "~/public_html/projects/pdf"
+                     :exclude "/TopSecret")))
+             ("Plans" ("~/Plans"
+                       :default "TaskPool"
+                       :major-mode planner-mode
+                       :visit-link planner-visit-link)
+              (:base "planner-xhtml"
+                     :path "~/public_html/plans"))))
+</pre>
+   <p>The <samp><span class="option">:major-mode</span></samp> attribute specifies which major to use when
+visiting files in this directory.
+
+   <p>The <samp><span class="option">:visit-link</span></samp> attribute specifies the function to call when
+visiting links.
+
+   <p>The <samp><span class="option">:exclude</span></samp> attribute has a regexp that matches files to never
+publish.
+
+   </body></html>
+

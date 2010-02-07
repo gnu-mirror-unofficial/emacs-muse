@@ -1,0 +1,171 @@
+<html lang="en">
+<head>
+<title>HTML - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="DocBook.html#DocBook" title="DocBook">
+<link rel="next" href="Ikiwiki.html#Ikiwiki" title="Ikiwiki">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="HTML"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Ikiwiki.html#Ikiwiki">Ikiwiki</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="DocBook.html#DocBook">DocBook</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.5 Publishing in HTML or XHTML form</h3>
+
+<p>This publishing style is capable of producing HTML or XHTML documents.
+
+<h4 class="subheading">Styles provided</h4>
+
+     
+<a name="index-publishing-styles_002c-html-102"></a>
+<dl><dt><code>html</code><dd>Supports publishing to HTML 4.0 and HTML 4.01, Strict or Transitional.
+
+     <br><dt><code>xhtml</code><dd>Supports publishing to XHTML 1.0 and XHTML 1.1, Strict or Transitional.
+
+</dl>
+
+<h4 class="subheading">Options provided</h4>
+
+<p>If an HTML option does not have a corresponding XHTML option, it will
+be used for both of these publishing styles.
+
+   <p>These publishing styles use the same options for markup up special
+characters as the &ldquo;xml&rdquo; publishing style.  See <a href="XML.html#XML">XML</a>, for details.
+
+     <dl>
+<dt><code>muse-html-extension</code><dd>Default file extension for publishing HTML files.
+
+     <br><dt><code>muse-xhtml-extension</code><dd>Default file extension for publishing XHTML files.
+
+     <br><dt><code>muse-html-style-sheet</code><dd>Store your stylesheet definitions here.
+
+     <p>This is used in <code>muse-html-header</code>.  You can put raw CSS in here or
+a <tt>&lt;link></tt> tag to an external stylesheet.  This text may contain
+<tt>&lt;lisp></tt> markup tags.
+
+     <p>If you are publishing to XHTML, then customize the
+<code>muse-xhtml-style-sheet</code> option instead.
+
+     <br><dt><code>muse-xhtml-style-sheet</code><dd>Store your stylesheet definitions here.
+
+     <p>This is used in <code>muse-xhtml-header</code>.  You can put raw CSS in here
+or a <tt>&lt;link></tt> tag to an external stylesheet.  This text may
+contain <tt>&lt;lisp></tt> markup tags.
+
+     <br><dt><code>muse-html-header</code><dd>Header used for publishing HTML files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-html-footer</code><dd>Footer used for publishing HTML files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-xhtml-header</code><dd>Header used for publishing XHTML files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-xhtml-footer</code><dd>Footer used for publishing XHTML files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-html-anchor-on-word</code><dd>When true, anchors surround the closest word.
+
+     <p>This allows you to select them in a browser (i.e. for pasting), but has
+the side-effect of marking up headers in multiple colors if your header
+style is different from your link style.
+
+     <br><dt><code>muse-html-table-attributes</code><dd>The attribute to be used with HTML <tt>&lt;table></tt> tags.
+
+     <p>If you want to make more-complicated tables in HTML, surround the HTML
+with the <tt>literal</tt> tag, so that it does not get escaped.
+
+     <br><dt><code>muse-html-markup-regexps</code><dd>List of markup rules for publishing a Muse page to HTML.
+
+     <br><dt><code>muse-html-markup-functions</code><dd>An alist of style types to custom functions for that kind of text.
+
+     <br><dt><code>muse-html-markup-strings</code><dd>Strings used for marking up text as HTML.
+
+     <p>These cover the most basic kinds of markup, the handling of which
+differs little between the various styles.
+
+     <br><dt><code>muse-xhtml-markup-strings</code><dd>Strings used for marking up text as XHTML.
+
+     <p>These cover the most basic kinds of markup, the handling of which
+differs little between the various styles.
+
+     <br><dt><code>muse-html-markup-tags</code><dd>A list of tag specifications, for specially marking up HTML. 
+See <a href="muse_002dpublish_002dmarkup_002dtags.html#muse_002dpublish_002dmarkup_002dtags">muse-publish-markup-tags</a>, for more information.
+
+     <br><dt><code>muse-html-meta-http-equiv</code><dd>The http-equiv attribute used for the HTML <tt>&lt;meta></tt> tag.
+
+     <br><dt><code>muse-html-meta-content-type</code><dd>The content type used for the HTML <tt>&lt;meta></tt> tag.
+
+     <p>If you are striving for XHTML 1.1 compliance, you may want to change
+this to &ldquo;application/xhtml+xml&rdquo;.
+
+     <br><dt><code>muse-html-meta-content-encoding</code><dd>The charset to append to the HTML <tt>&lt;meta></tt> tag.
+
+     <p>If set to the symbol 'detect, use <code>muse-xml-encoding-map</code> to try
+and determine the HTML charset from emacs's coding.  If set to a string,
+this string will be used to force a particular charset.
+
+     <br><dt><code>muse-html-charset-default</code><dd>The default HTML meta charset to use if no translation is found in
+<code>muse-xml-encoding-map</code>.
+
+     <br><dt><code>muse-html-encoding-default</code><dd>The default Emacs buffer encoding to use in published files. 
+This will be used if no special characters are found.
+
+   </dl>
+
+   </body></html>
+

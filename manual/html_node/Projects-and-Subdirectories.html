@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+<title>Projects and Subdirectories - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Projects.html#Projects" title="Projects">
+<link rel="prev" href="Multiple-Projects.html#Multiple-Projects" title="Multiple Projects">
+<link rel="next" href="Options-for-Projects.html#Options-for-Projects" title="Options for Projects">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Projects-and-Subdirectories"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Options-for-Projects.html#Options-for-Projects">Options for Projects</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Multiple-Projects.html#Multiple-Projects">Multiple Projects</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Projects.html#Projects">Projects</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">6.3 Publishing Subdirectories in Projects</h3>
+
+<p><a name="index-projects_002c-subdirectories-21"></a>
+If you want to publish a directory and all of its subdirectories, Muse
+provides two convenience functions that together generate the proper
+rules for you.  Note that we use the backtick to begin this
+muse-project-alist definition, rather than a single quote.
+
+<pre class="lisp">     (setq muse-project-alist
+           `(("Website" ("~/Pages" :default "index")
+              (:base "html" :path "~/public_html"))
+             ("Blog" (,@(muse-project-alist-dirs "~/Blog")
+                      :default "index")
+              ;; Publish this directory and its subdirectories.  Arguments
+              ;; are as follows.  The above `muse-project-alist-dirs' part
+              ;; is also needed.
+              ;;   1. Source directory
+              ;;   2. Output directory
+              ;;   3. Publishing style
+              ;;   remainder: Other things to put in every generated style
+              ,@(muse-project-alist-styles "~/Blog"
+                                           "~/public_html/blog"
+                                           "blosxom"))))
+</pre>
+   <p>The <code>muse-project-alist-dirs</code> function takes a directory and
+returns it and all of its subdirectories in a list.
+
+   <p>The <code>muse-project-alist-styles</code> function is explained by the
+comments above.
+
+   <p>The &ldquo;blosxom&rdquo; text is the name of another publishing style, much like
+&ldquo;html&rdquo;.  See <a href="Blosxom.html#Blosxom">Blosxom</a>, for further information about it.  You can
+use any publishing style you like for the third argument to
+<code>muse-project-alist-styles</code>.
+
+   </body></html>
+

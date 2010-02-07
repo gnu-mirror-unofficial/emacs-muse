@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+<title>Tables - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Lists.html#Lists" title="Lists">
+<link rel="next" href="Explicit-Links.html#Explicit-Links" title="Explicit Links">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Tables"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Explicit-Links.html#Explicit-Links">Explicit Links</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Lists.html#Lists">Lists</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">8.8 Generation of data tables</h3>
+
+<p><a name="index-tables-58"></a>
+<a name="index-tables_002c-simple-59"></a>Only very simple tables are supported.  The syntax is as follows.
+
+<pre class="example">     Double bars  || Separate header fields
+     
+     Single bars   | Separate body fields
+     Here are more | body fields
+     
+     Triple bars ||| Separate footer fields
+</pre>
+   <p>Some publishing styles require header fields to come first, then footer
+fields, and then the body fields.  You can use any order for these
+sections that you like, and Muse will re-order them for you at
+publish-time.
+
+   <p>If you wish to disable table generation for one Muse file, add the
+directive &lsquo;<samp><span class="samp">#disable-tables t</span></samp>&rsquo; to the top of the file.
+
+<h4 class="subheading">Other table formats</h4>
+
+<p><a name="index-tables_002c-orgtbl_002dmode-style-60"></a>It is possible to publish very basic Orgtbl-mode style tables.
+
+<pre class="example">     | org  | style | table |
+     |------+-------+-------|
+     | one  |       | one   |
+     | two  | two   |       |
+     |      | three | three |
+     |------+-------+-------|
+     | more | stuff |       |
+</pre>
+   <p>If you are used to the way that Org Mode publishes these tables, then
+customize `muse-html-table-attributes' to the following, in order to get
+a similar kind of output.
+
+<pre class="example">     border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"
+</pre>
+   <p><a name="index-tables_002c-table_002eel-style-61"></a><samp><span class="file">table.el</span></samp> style tables are also supported, as long as
+<samp><span class="file">table.el</span></samp> itself supports outputting tables for a particular
+publishing style.  At the time of this writing, the &ldquo;html&rdquo;, &ldquo;latex&rdquo;,
+and &ldquo;docbook&rdquo; styles are supported by <samp><span class="file">table.el</span></samp>.  Styles derived
+from these styles will also work.
+
+<pre class="example">     +---+-----+---+
+     |   | one | 1 |
+     +---+-----+---+
+     | b | two |   |
+     +---+-----+---+
+     | c |     | 3 |
+     +---+-----+---+
+</pre>
+   </body></html>
+

@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+<title>Lists - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Verse.html#Verse" title="Verse">
+<link rel="next" href="Tables.html#Tables" title="Tables">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Lists"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Tables.html#Tables">Tables</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Verse.html#Verse">Verse</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">8.7 Lists of items</h3>
+
+<p><a name="index-lists-52"></a>
+Lists are given using special characters at the beginning of a line. 
+Whitespace must occur before bullets or numbered items, to distinguish
+from the possibility of those characters occurring in a real sentence.
+
+   <p><a name="index-lists_002c-bullets-53"></a>These are rendered as a bullet list.
+
+<pre class="example">     Normal text.
+     
+      - bullet item one
+      - bullet item two
+</pre>
+   <p><a name="index-lists_002c-enumerated-54"></a>An enumerated list follows.
+
+<pre class="example">     Normal text.
+     
+      1. Enum item one
+      2. Enum item two
+</pre>
+   <p><a name="index-lists_002c-definitions-55"></a>Here is a definition list.
+
+<pre class="example">     Term1 ::
+       This is a first definition
+       And it has two lines;
+       no, make that three.
+     
+     Term2 :: This is a second definition
+</pre>
+   <h4 class="subheading">Nested lists</h4>
+
+<p><a name="index-lists_002c-nested-56"></a>It is possible to nest lists of the same or different kinds.  The
+&ldquo;level&rdquo; of the list is determined by the amount of initial whitespace.
+
+<pre class="example">     Normal text.
+     
+      - Level 1, bullet item one
+        1. Level 2, enum item one
+        2. Level 2, enum item two
+      - Level 1, bullet item two
+        1. Level 2, enum item three
+        2. Level 2, enum item four
+           term :: definition
+</pre>
+   <h4 class="subheading">Breaking list items</h4>
+
+<p><a name="index-lists_002c-breaking-lines-57"></a>If you want to break up a line within any list type, just put one blank
+line between the end of the previous line and the beginning of the next
+line, using the same amount of initial indentation.
+
+<pre class="example">      - bullet item 1, line 1
+     
+        bullet item 1, line 2
+     
+        1. Enum line 1
+     
+           Enum line 2
+     
+      - bullet item 2, line 1
+     
+        bullet item 2, line 2
+</pre>
+   </body></html>
+

@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+<title>XML - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="Texinfo.html#Texinfo" title="Texinfo">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="XML"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Texinfo.html#Texinfo">Texinfo</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.11 Publish entries to XML</h3>
+
+<p>Muse is capable of publishing XML documents, with the help of the
+<samp><span class="file">muse-xml.el</span></samp> module.
+
+   <p>A RelaxNG schema is available as part of the Muse distribution in the
+<samp><span class="file">etc/muse.rnc</span></samp> file.
+
+<h4 class="subheading">Styles provided</h4>
+
+     
+<a name="index-publishing-styles_002c-xml-132"></a>
+<dl><dt><code>xml</code><dd>Publish a file in XML form.
+
+</dl>
+
+<h4 class="subheading">Options provided</h4>
+
+     
+<a name="index-muse_002dxml_002dencoding_002dmap-133"></a>
+<dl><dt><code>muse-xml-encoding-map</code><dd>An alist mapping Emacs coding systems to appropriate XML charsets. 
+Use the base name of the coding system (i.e. without the -unix).
+
+     <br><dt><code>muse-xml-markup-specials</code><dd>A table of characters which must be represented specially in all
+XML-like markup formats.
+
+     <br><dt><code>muse-xml-markup-specials-url-extra</code><dd>A table of characters which must be represented specially in all
+XML-like markup formats.
+
+     <p>These are extra characters that are escaped within URLs.
+
+     <br><dt><code>muse-xml-extension</code><dd>Default file extension used for publishing XML files.
+
+     <br><dt><code>muse-xml-header</code><dd>Header used for publishing XML files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-xml-footer</code><dd>Footer used for publishing XML files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-xml-markup-regexps</code><dd>List of markup rules for publishing a Muse page to XML.
+
+     <p>For more on the structure of this list,
+See <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>.
+
+     <br><dt><code>muse-xml-markup-functions</code><dd>An alist of style types to custom functions for that kind of text.
+
+     <p>For more on the structure of this list,
+See <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>.
+
+     <br><dt><code>muse-xml-markup-strings</code><dd>Strings used for marking up text.
+
+     <p>These cover the most basic kinds of markup, the handling of which
+differs little between the various styles.
+
+     <br><dt><code>muse-xml-encoding-default</code><dd>The default Emacs buffer encoding to use in published files.
+
+     <p>This will be used if no special characters are found.
+
+     <br><dt><code>muse-xml-charset-default</code><dd>The default XML charset to use if no translation is found in
+<code>muse-xml-encoding-map</code>.
+
+</dl>
+
+   </body></html>
+

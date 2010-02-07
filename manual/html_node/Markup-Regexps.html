@@ -1,0 +1,200 @@
+<html lang="en">
+<head>
+<title>Markup Regexps - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extending-Muse.html#Extending-Muse" title="Extending Muse">
+<link rel="prev" href="Markup-Functions.html#Markup-Functions" title="Markup Functions">
+<link rel="next" href="Markup-Strings.html#Markup-Strings" title="Markup Strings">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Markup-Regexps"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Markup-Strings.html#Markup-Strings">Markup Strings</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Markup-Functions.html#Markup-Functions">Markup Functions</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extending-Muse.html#Extending-Muse">Extending Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">10.2 Markup rules for publishing</h3>
+
+<p><a name="index-publishing_002c-markup-regexps-135"></a><a name="index-publishing_002c-rules-136"></a>
+<a name="muse_002dpublish_002dmarkup_002dregexps"></a><code>muse-publish-markup-regexps</code>
+
+   <p>List of markup rules for publishing a page with Muse.
+
+   <p>The rules given in this variable are invoked first, followed by whatever
+rules are specified by the current style.
+
+   <p>Each member of the list is either a function, or a list of the following
+form.
+
+<pre class="example">     (REGEXP/SYMBOL TEXT-BEGIN-GROUP REPLACEMENT-TEXT/FUNCTION/SYMBOL)
+</pre>
+     <ul>
+<li>REGEXP
+A regular expression, or symbol whose value is a regular expression,
+which is searched for using `re-search-forward'.
+
+     <li>TEXT-BEGIN-GROUP
+The matching group within that regexp which denotes the beginning of the
+actual text to be marked up.
+
+     <li>REPLACEMENT-TEXT
+A string that will be passed to `replace-match'.
+
+     <p>If it is not a string, but a function, it will be called to determine
+what the replacement text should be (it must return a string).  If it is
+a symbol, the value of that symbol should be a string. 
+</ul>
+
+   <p>The replacements are done in order, one rule at a time.  Writing
+the regular expressions can be a tricky business.  Note that case
+is never ignored.  `case-fold-search' is always bound to nil
+while processing the markup rules.
+
+<h4 class="subheading">Publishing order</h4>
+
+<p>This is the order that the publishing rules are consulted, by default. 
+This may be changed by customizing <code>muse-publish-markup-regexps</code>.
+
+     <dl>
+<dt><code>trailing and leading whitespace</code><dd>Remove trailing and leading whitespace from a file.
+
+     <br><dt><code>directive</code><dd>&lsquo;<samp><span class="samp">#directive</span></samp>&rsquo;
+
+     <p>This is only recognized at the beginning of a file.
+
+     <br><dt><code>comment</code><dd>&lsquo;<samp><span class="samp">; a commented line</span></samp>&rsquo;
+
+     <br><dt><code>tag</code><dd>&lsquo;<samp><span class="samp">&lt;tag&gt;</span></samp>&rsquo;
+
+     <br><dt><code>comment</code><dd>&lsquo;<samp><span class="samp">; comment</span></samp>&rsquo;
+
+     <br><dt><code>explicit links</code><dd>Prevent emphasis characters in explicit links from being marked up.
+
+     <p>Don't actually publish them here, just add a special no-emphasis text
+property.
+
+     <br><dt><code>word</code><dd>Whitespace-delimited word, possibly with emphasis characters
+
+     <p>This function is responsible for marking up emphasis and escaping some
+specials.
+
+     <br><dt><code>heading</code><dd>&lsquo;<samp><span class="samp">** Heading</span></samp>&rsquo;
+
+     <p>Outline-mode style headings.
+
+     <br><dt><code>enddots</code><dd>&lsquo;<samp><span class="samp">....</span></samp>&rsquo;
+
+     <p>These are ellipses with a dot at end.
+
+     <br><dt><code>dots</code><dd>&lsquo;<samp><span class="samp">...</span></samp>&rsquo;
+
+     <p>Ellipses.
+
+     <br><dt><code>rule</code><dd>&lsquo;<samp><span class="samp">----</span></samp>&rsquo;
+
+     <p>Horizontal rule or section separator.
+
+     <br><dt><code>no-break-space</code><dd>&lsquo;<samp><span class="samp">~~</span></samp>&rsquo;
+
+     <p>Prevent lines from being split before or after these characters.
+
+     <br><dt><code>line-break</code><dd>&lsquo;<samp><span class="samp">&lt;br&gt;</span></samp>&rsquo;
+
+     <p>Break a line at point.
+
+     <br><dt><code>fn-sep</code><dd>&lsquo;<samp><span class="samp">Footnotes:</span></samp>&rsquo;
+
+     <p>Beginning of footnotes section.
+
+     <br><dt><code>footnote</code><dd>&lsquo;<samp><span class="samp">[1]</span></samp>&rsquo;
+
+     <p>Footnote definition or reference.  If at beginning of line, it is a
+definition.
+
+     <br><dt><code>list</code><dd>
+          <ul>
+<li>&lsquo;<samp><span class="samp"> 1. </span></samp>&rsquo;
+
+          <li>&lsquo;<samp><span class="samp"> - </span></samp>&rsquo;
+
+          <li>&lsquo;<samp><span class="samp">term :: </span></samp>&rsquo;
+</ul>
+
+     <p>Numbered list, item list, or term definition list.
+
+     <br><dt><code>table-el</code><dd>
+<samp><span class="file">table.el</span></samp> style tables
+
+     <br><dt><code>table</code><dd>&lsquo;<samp><span class="samp">table | cells</span></samp>&rsquo;
+
+     <p>Muse tables or orgtbl-mode style tables.
+
+     <br><dt><code>quote</code><dd>spaces before beginning of text
+
+     <p>Blockquotes.
+
+     <br><dt><code>emdash</code><dd>&lsquo;<samp><span class="samp">--</span></samp>&rsquo;
+
+     <p>2-wide dash
+
+     <br><dt><code>verse</code><dd>&lsquo;<samp><span class="samp">&gt; verse text</span></samp>&rsquo;
+
+     <br><dt><code>anchor</code><dd>&lsquo;<samp><span class="samp">#anchor</span></samp>&rsquo;
+
+     <br><dt><code>link</code><dd>&lsquo;<samp><span class="samp">[[explicit][links]]</span></samp>&rsquo;
+
+     <br><dt><code>url</code><dd>&lsquo;<samp><span class="samp">http://example.com/</span></samp>&rsquo;
+
+     <br><dt><code>email</code><dd>&lsquo;<samp><span class="samp">bare-email@example.com</span></samp>&rsquo;
+
+   </dl>
+
+   </body></html>
+

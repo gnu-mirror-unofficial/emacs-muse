@@ -1,0 +1,250 @@
+<html lang="en">
+<head>
+<title>Journal - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="Ikiwiki.html#Ikiwiki" title="Ikiwiki">
+<link rel="next" href="LaTeX.html#LaTeX" title="LaTeX">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Journal"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="LaTeX.html#LaTeX">LaTeX</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Ikiwiki.html#Ikiwiki">Ikiwiki</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.7 Keeping a journal or blog</h3>
+
+<p><a name="index-journal-104"></a><a name="index-blog_002c-journal-style-105"></a>
+The module facilitates the keeping and publication of a journal.  When
+publishing to HTML, it assumes the form of a web log, or blog.
+
+   <p>The input format for each entry is as follows.
+
+<pre class="example">     * 20040317: Title of entry
+     
+     text for the entry.
+     
+     &lt;qotd&gt;
+     "You know who you are. It comes down to a simple gut check: You
+     either love what you do or you don't. Period." -- P. Bronson
+     &lt;/qotd&gt;
+</pre>
+   <p>The "qotd", or Quote of the Day, is entirely optional.  When generated
+to HTML, this entry is rendered as the following.
+
+<pre class="example">     &lt;div class="entry"&gt;
+       &lt;div class="entry-qotd"&gt;
+         &lt;h3&gt;Quote of the Day:&lt;/h3&gt;
+         &lt;p&gt;"You know who you are. It comes down to a simple gut
+           check: You either love what you do or you don't. Period."
+           -- P. Bronson&lt;/p&gt;
+       &lt;/div&gt;
+       &lt;div class="entry-body"&gt;
+         &lt;div class="entry-head"&gt;
+           &lt;div class="entry-date"&gt;
+             &lt;span class="date"&gt;March 17, 2004&lt;/span&gt;
+           &lt;/div&gt;
+           &lt;div class="entry-title"&gt;
+             &lt;h2&gt;Title of entry&lt;/h2&gt;
+           &lt;/div&gt;
+         &lt;/div&gt;
+         &lt;div class="entry-text"&gt;
+           &lt;p&gt;Text for the entry.&lt;/p&gt;
+         &lt;/div&gt;
+       &lt;/div&gt;
+     &lt;/div&gt;
+</pre>
+   <p>The plurality of "div" tags makes it possible to display the entries in
+any form you wish, using a CSS style.
+
+   <p>Also, an .RDF file can be generated from your journal by publishing it
+with the "rdf" style.  It uses the first two sentences of the first
+paragraph of each entry as its "description", and auto-generates tags
+for linking to the various entries.
+
+<h4 class="subheading">muse-project-alist considerations</h4>
+
+<p>If you wish to publish an RDF or RSS feed, it is important to include
+the <samp><span class="option">:base-url</span></samp> attribute in your <code>muse-project-alist</code> entry
+for your Journal projects.  An example follows.
+
+<pre class="example">     (setq muse-project-alist
+           '(("Journal" ("~/Journal/"
+                         :default "journal")
+             (:base "journal-rss"
+                    :base-url "http://example.org/journal/"
+                    :path "~/public_html/journal"))))
+</pre>
+   <h4 class="subheading">Styles provided</h4>
+
+     
+<a name="index-publishing-styles_002c-journal_002dhtml-106"></a>
+<dl><dt><code>journal-html</code><dd>Publish journal entries as an HTML document.
+
+     <p><a name="index-publishing-styles_002c-journal_002dxhtml-107"></a><br><dt><code>journal-xhtml</code><dd>Publish journal entries as an XHTML document.
+
+     <p><a name="index-publishing-styles_002c-journal_002dlatex-108"></a><br><dt><code>journal-latex</code><dd>Publish journal entries as a LaTeX document.
+
+     <p><a name="index-publishing-styles_002c-journal_002dpdf-109"></a><br><dt><code>journal-pdf</code><dd>Publish journal entries as a PDF document.
+
+     <p><a name="index-publishing-styles_002c-journal_002dbook_002dlatex-110"></a><br><dt><code>journal-book-latex</code><dd>Publish journal entries as a LaTeX book.
+
+     <p><a name="index-publishing-styles_002c-journal_002dbook_002dpdf-111"></a><br><dt><code>journal-book-pdf</code><dd>Publish journal entries as a PDF book.
+
+     <p><a name="index-publishing-styles_002c-journal_002drdf-112"></a><a name="index-publishing-styles_002c-RSS-1_002e0-113"></a><br><dt><code>journal-rdf</code><dd>Publish journal entries as an RDF file (RSS 1.0).
+
+     <p><a name="index-publishing-styles_002c-journal_002drss-114"></a><a name="index-publishing-styles_002c-RSS-2_002e0-115"></a><br><dt><code>journal-rss</code><dd>Publish journal entries as an RSS file (RSS 2.0).
+
+     <p><a name="index-publishing-styles_002c-journal_002drss_002dentry-116"></a><br><dt><code>journal-rss-entry</code><dd>Used internally by <code>journal-rss</code> and <code>journal-rdf</code> for
+publishing individual entries.
+
+</dl>
+
+<h4 class="subheading">Options provided</h4>
+
+     <dl>
+<dt><code>muse-journal-heading-regexp</code><dd>A regexp that matches a journal heading.
+
+     <p>Paren group 1 is the ISO date, group 2 is the optional category, and
+group 3 is the optional heading for the entry.
+
+     <br><dt><code>muse-journal-date-format</code><dd>Date format to use for journal entries.
+
+     <br><dt><code>muse-journal-html-heading-regexp</code><dd>A regexp that matches a journal heading from an HTML document.
+
+     <p>Paren group 1 is the ISO date, group 2 is the optional category, and
+group 3 is the optional heading for the entry.
+
+     <br><dt><code>muse-journal-html-entry-template</code><dd>Template used to publish individual journal entries as HTML.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-journal-latex-section</code><dd>Template used to publish a LaTeX section.
+
+     <br><dt><code>muse-journal-latex-subsection</code><dd>Template used to publish a LaTeX subsection.
+
+     <br><dt><code>muse-journal-markup-tags</code><dd>A list of tag specifications, for specially marking up Journal entries.
+
+     <p>See <a href="muse_002dpublish_002dmarkup_002dtags.html#muse_002dpublish_002dmarkup_002dtags">muse-publish-markup-tags</a>, for more information.
+
+     <p>This is used by <code>journal-latex</code> and its related styles, as well as
+the <code>journal-rss-entry</code> style, which both <code>journal-rdf</code> and
+<code>journal-rss</code> use.
+
+     <br><dt><code>muse-journal-rdf-extension</code><dd>Default file extension for publishing RDF (RSS 1.0) files.
+
+     <br><dt><code>muse-journal-rdf-base-url</code><dd>The base URL of the website referenced by the RDF file.
+
+     <br><dt><code>muse-journal-rdf-header</code><dd>Header used for publishing RDF (RSS 1.0) files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-journal-rdf-footer</code><dd>Footer used for publishing RDF (RSS 1.0) files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-journal-rdf-date-format</code><dd>Date format to use for RDF entries.
+
+     <br><dt><code>muse-journal-rdf-entry-template</code><dd>Template used to publish individual journal entries as RDF.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-journal-rdf-summarize-entries</code><dd>If non-nil, include only summaries in the RDF file, not the full data.
+
+     <p>The default is nil, because this annoys some subscribers.
+
+     <br><dt><code>muse-journal-rss-heading-regexp</code><dd>A regexp that matches a journal heading from an HTML document.
+
+     <p>Paren group 1 is the ISO date, group 2 is the optional category,
+and group 3 is the optional heading for the entry.
+
+     <br><dt><code>muse-journal-rss-extension</code><dd>Default file extension for publishing RSS 2.0 files.
+
+     <br><dt><code>muse-journal-rss-base-url</code><dd>The base URL of the website referenced by the RSS file.
+
+     <br><dt><code>muse-journal-rss-header</code><dd>Header used for publishing RSS 2.0 files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-journal-rss-footer</code><dd>Footer used for publishing RSS 2.0 files.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-journal-rss-date-format</code><dd>Date format to use for RSS 2.0 entries.
+
+     <br><dt><code>muse-journal-rss-entry-template</code><dd>Template used to publish individual journal entries as RSS 2.0.
+
+     <p>This may be text or a filename.
+
+     <br><dt><code>muse-journal-rss-enclosure-types-alist</code><dd>File types that are accepted as RSS enclosures.
+
+     <p>This is an alist that maps file extension to content type.
+
+     <p>Useful for podcasting.
+
+     <br><dt><code>muse-journal-rss-summarize-entries</code><dd>If non-nil, include only summaries in the RSS file, not the full data.
+
+     <p>The default is nil, because this annoys some subscribers.
+
+     <br><dt><code>muse-journal-rss-markup-regexps</code><dd>List of markup rules for publishing a Muse journal page to RSS.
+
+     <p>For more information on the structure of this list,
+See <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>.
+
+     <br><dt><code>muse-journal-rss-markup-functions</code><dd>An alist of style types to custom functions for that kind of text.
+
+     <p>For more on the structure of this list,
+See <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>.
+
+</dl>
+
+   </body></html>
+

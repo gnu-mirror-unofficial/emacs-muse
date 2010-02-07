@@ -1,0 +1,297 @@
+<html lang="en">
+<head>
+<title>Markup Strings - Muse</title>
+<meta http-equiv="Content-Type" content="text/html">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.12">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extending-Muse.html#Extending-Muse" title="Extending Muse">
+<link rel="prev" href="Markup-Regexps.html#Markup-Regexps" title="Markup Regexps">
+<link rel="next" href="Markup-Tags.html#Markup-Tags" title="Markup Tags">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+This manual is for Emacs Muse version 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007,
+2008, 2009, 2010  Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     All Emacs Lisp code contained in this document may be used,
+     distributed, and modified without restriction.
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Markup-Strings"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="Markup-Tags.html#Markup-Tags">Markup Tags</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Markup-Regexps.html#Markup-Regexps">Markup Regexps</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extending-Muse.html#Extending-Muse">Extending Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">10.3 Strings specific to a publishing style</h3>
+
+<p><a name="index-publishing_002c-markup-strings-137"></a>
+<dfn>Markup strings</dfn> are strings used for marking up text for a
+particular style.
+
+   <p>These cover the most basic kinds of markup, the handling of which
+differs little between the various styles.
+
+<h4 class="subheading">Available markup strings</h4>
+
+     <dl>
+<dt><code>image-with-desc</code><dd>An image and a description.
+
+     <p>Argument 1: image without extension.  Argument 2: image extension. 
+Argument 3: description.
+
+     <br><dt><code>image</code><dd>An inlined image.
+
+     <p>Argument 1: image without extension.  Argument 2: image extension.
+
+     <br><dt><code>image-link</code><dd>An image with a link around it.
+
+     <p>Argument 1: link.  Argument 2: image without extension. 
+Argument 3: image extension.
+
+     <br><dt><code>anchor-ref</code><dd>A reference to an anchor on the current page.
+
+     <p>Argument 1: anchor name.  Argument 2: description if one exists, or the
+original link otherwise.
+
+     <br><dt><code>url</code><dd>A URL without a description.
+
+     <p>Argument 1: URL.
+
+     <br><dt><code>link</code><dd>A link to a Muse page with a description.
+
+     <p>Argument 1: link.  Argument 2: description if one exists, or the
+original link otherwise.
+
+     <br><dt><code>link-and-anchor</code><dd>A link to a Muse page with an anchor, and a description.
+
+     <p>Argument 1: link.  Argument 2: anchor name. 
+Argument 3: description if one exists, or the original link otherwise. 
+Argument 4: link without an extension.
+
+     <br><dt><code>email-addr</code><dd>A link to an email address.
+
+     <p>Argument 1: email address.  Argument 2: email address.
+
+     <br><dt><code>anchor</code><dd>An anchor.
+
+     <p>Argument 1: name of anchor.
+
+     <br><dt><code>emdash</code><dd>A 2-length dash.
+
+     <p>Argument 1: Initial whitespace.  Argument 2: Terminating whitespace.
+
+     <br><dt><code>comment-begin</code><dd>Beginning of a comment.
+
+     <br><dt><code>comment-end</code><dd>End of a comment.
+
+     <br><dt><code>rule</code><dd>A horizontal line or space.
+
+     <br><dt><code>no-break-space</code><dd>A space that separates two words which are not to be separated.
+
+     <br><dt><code>footnote</code><dd>Beginning of footnote.
+
+     <br><dt><code>footnote-end</code><dd>End of footnote.
+
+     <br><dt><code>footnotemark</code><dd>Mark a reference for the current footnote.
+
+     <p>Argument 1: number of this footnote.
+
+     <br><dt><code>footnotemark-end</code><dd>End of a reference for the current footnote.
+
+     <br><dt><code>footnotetext</code><dd>Indicate the text of the current footnote.
+
+     <p>Argument 1: number of this footnote.
+
+     <br><dt><code>footnotetext-end</code><dd>End of a footnote text line.
+
+     <br><dt><code>fn-sep</code><dd>Text used to replace &ldquo;Footnotes:&rdquo; line.
+
+     <br><dt><code>dots</code><dd>3 dots.
+
+     <br><dt><code>enddots</code><dd>4 dots.
+
+     <br><dt><code>part</code><dd>Beginning of a part indicator line.  This is used by book publishing.
+
+     <br><dt><code>part-end</code><dd>End of a part indicator line.  This is used by book publishing.
+
+     <br><dt><code>chapter</code><dd>Beginning of a chapter indicator line.  This is used by book publishing.
+
+     <br><dt><code>chapter-end</code><dd>End of a chapter indicator line.  This is used by book publishing.
+
+     <br><dt><code>section</code><dd>Beginning of level 1 section indicator line.
+
+     <p>Argument 1: level of section; always 1.
+
+     <br><dt><code>section-end</code><dd>End of level 1 section indicator line.
+
+     <p>Argument 1: level of section; always 1.
+
+     <br><dt><code>subsection</code><dd>Beginning of level 2 section indicator line.
+
+     <p>Argument 1: level of section; always 2.
+
+     <br><dt><code>subsection-end</code><dd>End of level 2 section indicator line.
+
+     <p>Argument 1: level of section; always 2.
+
+     <br><dt><code>subsubsection</code><dd>Beginning of level 3 section indicator line.
+
+     <p>Argument 1: level of section; always 3.
+
+     <br><dt><code>subsubsection-end</code><dd>End of level 3 section indicator line.
+
+     <p>Argument 1: level of section; always 3.
+
+     <br><dt><code>section-other</code><dd>Beginning of section indicator line, where level is greater than 3.
+
+     <p>Argument 1: level of section.
+
+     <br><dt><code>section-other-end</code><dd>End of section indicator line, where level is greater than 3.
+
+     <p>Argument 1: level of section.
+
+     <br><dt><code>begin-underline</code><dd>Beginning of underlined text.
+
+     <br><dt><code>end-underline</code><dd>End of underlined text.
+
+     <br><dt><code>begin-literal</code><dd>Beginning of verbatim text.  This includes <tt>&lt;code></tt> tags and
+=teletype text=.
+
+     <br><dt><code>end-literal</code><dd>End of verbatim text.  This includes <tt>&lt;code></tt> tags and =teletype
+text=.
+
+     <br><dt><code>begin-emph</code><dd>Beginning of the first level of emphasized text.
+
+     <br><dt><code>end-emph</code><dd>End of the first level of emphasized text.
+
+     <br><dt><code>begin-more-emph</code><dd>Beginning of the second level of emphasized text.
+
+     <br><dt><code>end-more-emph</code><dd>End of the second level of emphasized text.
+
+     <br><dt><code>begin-most-emph</code><dd>Beginning of the third (and final) level of emphasized text.
+
+     <br><dt><code>end-most-emph</code><dd>End of the third (and final) level of emphasized text.
+
+     <br><dt><code>begin-verse</code><dd>Beginning of verse text.
+
+     <br><dt><code>verse-space</code><dd>String used to each space that is further indented than the beginning of
+the verse.
+
+     <br><dt><code>begin-verse-line</code><dd>Beginning of a line of verse.
+
+     <br><dt><code>empty-verse-line</code><dd>End of a line of verse.
+
+     <br><dt><code>begin-last-stanza-line</code><dd>Beginning of the last line of a verse stanza.
+
+     <br><dt><code>end-last-stanza-line</code><dd>End of the last line of a verse stanza.
+
+     <br><dt><code>end-verse</code><dd>End of verse text.
+
+     <br><dt><code>begin-example</code><dd>Beginning of an example region.  To make use of this, an
+&lsquo;<samp><span class="samp">&lt;example&gt;</span></samp>&rsquo; tag is needed.
+
+     <br><dt><code>end-example</code><dd>End of an example region.  To make use of this, an &lsquo;<samp><span class="samp">&lt;/example&gt;</span></samp>&rsquo; tag
+is needed.
+
+     <br><dt><code>begin-center</code><dd>Begin a centered line.
+
+     <br><dt><code>end-center</code><dd>End a centered line.
+
+     <br><dt><code>begin-quote</code><dd>Begin a quoted region.
+
+     <br><dt><code>end-quote</code><dd>End a quoted region.
+
+     <br><dt><code>begin-quote-item</code><dd>Begin a quote paragraph.
+
+     <br><dt><code>end-quote-item</code><dd>End a quote paragraph.
+
+     <br><dt><code>begin-uli</code><dd>Begin an unordered list.
+
+     <br><dt><code>end-uli</code><dd>End an unordered list.
+
+     <br><dt><code>begin-uli-item</code><dd>Begin an unordered list item.
+
+     <br><dt><code>end-uli-item</code><dd>End an unordered list item.
+
+     <br><dt><code>begin-oli</code><dd>Begin an ordered list.
+
+     <br><dt><code>end-oli</code><dd>End an ordered list.
+
+     <br><dt><code>begin-oli-item</code><dd>Begin an ordered list item.
+
+     <br><dt><code>end-oli-item</code><dd>End an ordered list item.
+
+     <br><dt><code>begin-dl</code><dd>Begin a definition list.
+
+     <br><dt><code>end-dl</code><dd>End a definition list.
+
+     <br><dt><code>begin-dl-item</code><dd>Begin a definition list item.
+
+     <br><dt><code>end-dl-item</code><dd>End a definition list item.
+
+     <br><dt><code>begin-ddt</code><dd>Begin a definition list term.
+
+     <br><dt><code>end-ddt</code><dd>End a definition list term.
+
+     <br><dt><code>begin-dde</code><dd>Begin a definition list entry.
+
+     <br><dt><code>end-dde</code><dd>End a definition list entry.
+
+     <br><dt><code>begin-table</code><dd>Begin a table.
+
+     <br><dt><code>end-table</code><dd>End a table.
+
+     <br><dt><code>begin-table-group</code><dd>Begin a table grouping.
+
+     <br><dt><code>end-table-group</code><dd>End a table grouping.
+
+     <br><dt><code>begin-table-row</code><dd>Begin a table row.
+
+     <br><dt><code>end-table-row</code><dd>End a table row.
+
+     <br><dt><code>begin-table-entry</code><dd>Begin a table entry.
+
+     <br><dt><code>end-table-entry</code><dd>End a table entry.
+
+</dl>
+
+   </body></html>
+
