@@ -1,0 +1,189 @@
+<html lang="es">
+<head>
+<title>Development - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Obtaining-Muse.html#Obtaining-Muse" title="Obtaining Muse">
+<link rel="prev" href="Releases.html#Releases" title="Releases">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español `gnu.manticore.es'.
+La empresa cede el copyright a la FSF.
+
+La traducción ha finalizado la fase beta.  Aún le falta revisiones
+técnicas y estilísticas.  Se agradecen las sugerencias.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Development"></a>
+<p>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Releases.html#Releases">Releases</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Obtaining-Muse.html#Obtaining-Muse">Obtaining Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">3.2 Últimos cambios en el desarrollo, no publicados</h3>
+
+<p><a name="index-desarrollo-6"></a>
+Cuando se desea vivir en el límite probar nuevas características antes
+de su publicación, se elige la versión en desarrollo de Muse.
+
+   <p><a name="index-git_002c-sistema-de-control-de-versiones-7"></a>El sistema de control de versiones git permite mantenerse actualizado
+con respecto a los últimos cambios en la versión de desarrollo de
+Muse.  También permite contribuir cambios (compulsándolos si se tiene
+acceso de desarrollador al repositorio o, si no, por medio de
+parches).  Si se quiere contribuir al desarrollo de Muse, se
+recomienda encarecidamente el uso de git.
+
+   <p>El usuario nuevo en git puede encontrar de utilidad esta guía:
+
+   <p><a href="http://www.kernel.org/pub/software/scm/git/docs/tutorial.html">http://www.kernel.org/pub/software/scm/git/docs/tutorial.html</a>.
+
+   <p>La descarga del módulo Muse con git y mantenerse actualizado implica
+los siguientes pasos.
+
+     <ol type=1 start=1>
+<li>Instalación de git.
+
+          <ul>
+<li>Debian y Ubuntu: <kbd>apt-get install git-core</kbd>. 
+<li>Windows: <a href="http://git.or.cz/gitwiki/WindowsInstall">http://git.or.cz/gitwiki/WindowsInstall</a>. 
+<li>Otros sistemas operativos: descargar, compilar e instalar las
+fuentes de <a href="http://www.kernel.org/pub/software/scm/git/">http://www.kernel.org/pub/software/scm/git/</a> o
+encontrar un paquete git para el sistema operativo en cuestión. 
+</ul>
+
+     <li>Descarga de la rama de desarrollo de Muse.
+
+     <p>Si se tiene acceso de desarrollador a Muse, se hace:
+
+     <pre class="example">          git clone ssh://repo.or.cz/srv/git/muse-el.git muse
+</pre>
+     <p>De lo contrario:
+
+     <pre class="example">          git clone git://repo.or.cz/muse-el.git muse
+</pre>
+     <p>El usuario que se encuentre detrás de un cortafuegos restrictivo y no
+tenga acceso de desarrollador puede hacer esto otro:
+
+     <pre class="example">          git clone http://repo.or.cz/r/muse-el.git muse
+</pre>
+     <li>Listado de los cambios principales que faltan en la copia local. 
+Esto se hace siempre que se quiera ver si hay nuevos cambios
+compulsados en Muse.  Si se desea, este paso se puede saltar y
+proceder directamente al paso de &ldquo;actualización&rdquo;.
+
+     <pre class="example">          # Cambio al directorio de fuentes en el que se está interesado.
+          cd muse
+          
+          # Obtención de los cambios nuevos en el repositorio, pero sin
+          # aplicarlos aún.
+          git fetch origin
+          
+          # Visualización de los mensajes de log de los nuevos cambios
+          git log HEAD..origin
+</pre>
+     <p>El &ldquo;origen&rdquo; es el nombre que le da git a la ubicación desde donde se
+obtuvo Muse originalmente.  Esta ubicación se puede cambiar en
+cualquier momento editando el fichero <samp><span class="file">.git/config</span></samp> en el
+directorio donde se pusieron las fuentes de Muse.
+
+     <p><a name="index-actualizaci_00c3_00b3n-de-Muse-con-git-8"></a><li>Actualización a la última versión mediante la inclusión de
+cualquier cambio ausente.
+
+     <pre class="example">          cd muse
+          git pull origin
+</pre>
+     <p>git mostrará la cantidad de ficheros que hayan cambiado y
+proporcionará una muestra visual de cuántas líneas se cambiaron en
+cada fichero.
+
+        </ol>
+
+   <p>Hay otras vías para interactuar con el repositorio Muse.
+
+     <ul>
+<li>Navegación del repositorio git:
+
+     <p><a href="http://repo.or.cz/w/muse-el.git">http://repo.or.cz/w/muse-el.git</a>
+<li>Última instantánea del desarrollo:
+
+     <p><a href="http://mwolson.org/static/dist/muse-latest.tar.gz">http://mwolson.org/static/dist/muse-latest.tar.gz</a>
+<li>Ídem (archivo zip):
+
+     <p><a href="http://mwolson.org/static/dist/muse-latest.zip">http://mwolson.org/static/dist/muse-latest.zip</a>
+</ul>
+
+   <p>La última instantánea del desarrollo puede demorarse bajo el
+repositorio git hasta 20 minutos, pero nunca más de eso.
+
+<h4 class="subheading">Cómo convertirse en desarrollador Muse</h4>
+
+<p><a name="index-desarrollo_002c-c_00c3_00b3mo-colaborar-9"></a>
+Quien desee compulsar cambios en el repositorio compartido de Muse,
+entonces hay que registrar una cuenta en <a href="http://repo.or.cz">http://repo.or.cz</a> (y
+también asegurarse de añadir una clave SSH), y contactar al mantenedor
+actual.  Sería mejor enviar primero algunos parches a la lista de
+correo <a href="mailto:muse-el-discuss@gna.org">muse-el-discuss@gna.org</a>, tal que el mantenedor
+compruebe que el usuario sabe lo que está haciendo.  See <a href="Getting-Help-and-Reporting-Bugs.html#Getting-Help-and-Reporting-Bugs">Getting Help and Reporting Bugs</a>, para las instrucciones para suscribirse a la
+lista de correo.
+
+   <p>También es necesario firmar la asignación de copyright para los
+cambios que se hagan a Muse, ya que Muse es un proyecto GNU.  El
+mantenedor actual proporciona asistencia en esta materia si se ponen
+en contacto con él.
+
+   <p>Para obtener información acerca de la compulsa de cambios en Muse y la
+realización de tareas de desarrollo, consúltese
+<a href="http://emacswiki.org/cgi-bin/wiki/MuseDevelopment">http://emacswiki.org/cgi-bin/wiki/MuseDevelopment</a>.
+
+   </body></html>
+

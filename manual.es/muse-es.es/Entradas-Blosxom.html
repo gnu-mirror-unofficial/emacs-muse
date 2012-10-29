@@ -1,0 +1,112 @@
+<html lang="es">
+<head>
+<title>Entradas Blosxom - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Blosxom.html#Blosxom" title="Blosxom">
+<link rel="prev" href="Requisitos-de-Blosxom.html#Requisitos-de-Blosxom" title="Requisitos de Blosxom">
+<link rel="next" href="Opciones-de-Blosxom.html#Opciones-de-Blosxom" title="Opciones de Blosxom">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Entradas-Blosxom"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Opciones-de-Blosxom.html#Opciones-de-Blosxom">Opciones de Blosxom</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Requisitos-de-Blosxom.html#Requisitos-de-Blosxom">Requisitos de Blosxom</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Blosxom.html#Blosxom">Blosxom</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h4 class="subsection">9.1.2 Formato de las entradas Blosxom y automoción</h4>
+
+<p>Cada fichero Blosxom debe incluir `#date yyyy-mm-dd', o a discreción
+el formato largo `#date yyyy-mm-dd-hh-mm', un título (usando la
+directiva <code>#title</code>), además de cualquier contenido normal que se
+desee.
+
+   <p>La directiva de fecha no se usa directamente por
+<samp><span class="command">pyblosxom.cgi</span></samp> o este programa.  Se necesita tener los dos
+elementos adicionales de la sección anterior para hacer uso de esta
+característica.
+
+   <p>Hay una función llamada <code>muse-blosxom-new-entry</code> que automatiza
+el proceso de crear una nueva entrada de blog.  Para hacer uso de
+ella, se hace lo siguiente.
+
+     <ul>
+<li>Se configura <code>muse-blosxom-base-directory</code> a la ubicación en la
+que se almacena las entradas de blog.
+
+     <li>Se asigna la función <code>muse-blosxom-new-entry</code> a una secuencia de
+teclas.  Yo uso el siguiente código para asignar esta función a
+<kbd>C-c p l'</kbd>.
+
+     <pre class="example">          (global-set-key "\C-cpl" 'muse-blosxom-new-entry)
+</pre>
+     <li>Se debe crear la estructura del directorio aparte de la hora bajo el
+directorio base.  Estos directorios, que se corresponden con los
+nombres de categorías, pueden estar anidados.
+
+     <li>Cuando se introduce la secuencia de teclas, se pedirá la categoría de
+la entrada y su título.  Después de introducir esta información, se
+creará un nuevo fichero que se corresponda con el título, pero en
+minúsculas y convirtiendo los caracteres especiales en guiones bajos. 
+Las directivas de título y de fecha se insertarán automáticamente. 
+</ul>
+
+   </body></html>
+

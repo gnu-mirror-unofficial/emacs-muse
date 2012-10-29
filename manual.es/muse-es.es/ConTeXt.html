@@ -1,0 +1,199 @@
+<html lang="es">
+<head>
+<title>ConTeXt - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Estilos-de-publicaci_00c3_00b3n.html#Estilos-de-publicaci_00c3_00b3n" title="Estilos de publicación">
+<link rel="prev" href="Libros.html#Libros" title="Libros">
+<link rel="next" href="DocBook.html#DocBook" title="DocBook">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="ConTeXt"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="DocBook.html#DocBook">DocBook</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Libros.html#Libros">Libros</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Estilos-de-publicaci_00c3_00b3n.html#Estilos-de-publicaci_00c3_00b3n">Estilos de publicación</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.3 Publicación de documentos ConTeXt</h3>
+
+<p>Este estilo de publicación es capaz de producir documentos ConTeXt o
+PDF.
+
+   <p>Si se desea publicar documentos PDF basados en ConTeXt, habrá de
+instalarse este último.  En Debian y Ubuntu se puede conseguir
+instalando el paquete &ldquo;texlive&rdquo;.
+
+<h4 class="subheading">Estilos proporcionados para ConTeXt</h4>
+
+     
+<a name="index-publicaci_00c3_00b3n-de-estilos_002c-ConTeXt-97"></a>
+<dl><dt><code>context</code><dd>Publica un documento ConTeXt.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-ConTeXt_002dpdf-98"></a><br><dt><code>context-pdf</code><dd>Publica un documento PDF, empleando una herramienta de conversión
+externa para documentos ConTeXt.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-context_002dslides-99"></a><br><dt><code>context-slides</code><dd>Produce pases a partir de un documento ConTeXt.
+
+     <p>Este es un ejemplo de un pase.
+
+     <pre class="example">          * Primer pase
+          
+          [[Alguna-imagen-guapa-aquí.png]]
+          
+          ** Sub-cabecera
+          
+           - Una entrada.
+           - Otra entrada.
+          
+          * Segundo pase
+          
+          ... y así sucesivamente
+</pre>
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-context_002dslides_002dpdf-100"></a><br><dt><code>context-slides-pdf</code><dd>Publica un documento PDF compuesto de pases ConTeXt.
+
+</dl>
+
+<h4 class="subheading">Opciones proporcionadas para ConTeXt</h4>
+
+     <dl>
+<dt><code>muse-context-extension</code><dd>Extensión de fichero predeterminada para la publicación de ficheros
+ConTeXt.
+
+     <br><dt><code>muse-context-pdf-extension</code><dd>Extensión de fichero predeterminada para la publicación de ficheros
+ConTeXt en PDF.
+
+     <br><dt><code>muse-context-pdf-program</code><dd>El programa que se llamará para generar el contenido PDF a partir del
+ConTeXt.
+
+     <br><dt><code>muse-context-pdf-cruft</code><dd>Extensiones de los ficheros a remover después de la generación
+correcta de la salida en PDF.
+
+     <br><dt><code>muse-context-header</code><dd>Cabecera para la publicación de ficheros ConTeXt.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-context-footer</code><dd>Pie usado para la publicación de ficheros ConTeXt.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-context-markup-regexps</code><dd>Lista de expresiones regulares de marcado para identificar regiones en
+una página Muse.
+
+     <p>Para más información acerca de la estructura de esta lista,
+See <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>.
+
+     <br><dt><code>muse-context-markup-functions</code><dd>Una a-lista de tipos de estilos para personalizar funciones para ese
+tipo de texto.
+
+     <p>Para más información acerca de la estructura de esta lista,
+See <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>.
+
+     <br><dt><code>muse-context-markup-strings</code><dd>Cadenas usadas para el marcado del texto.
+
+     <p>Cubren los tipos de marcado más básicos, cuya manipulación difiere
+poco entre los distintos estilos.
+
+     <br><dt><code>muse-context-slides-header</code><dd>Cabecera para la publicación de una presentación (pase) empleando
+ConTeXt.
+
+     <p>Se puede usar cualesquier de los módulos predefinidos, disponibles en
+el directorio tex/context/base, para la escritura de una directiva
+"module" al comienzo del fichero Muse; si no se proporciona dicha
+directiva, se usará el módulo pre-01.  También se puede usar un estilo
+propio ("miestilo", en este ejemplo) reemplazando "\usemodule[]" con
+"\input miestilo".
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-context-slides-markup-strings</code><dd>Cadenas usadas para el marcado de texto en los pases ConTeXt.
+
+     <br><dt><code>muse-context-markup-specials-document</code><dd>Tabla de los caracteres que deban representarse de manera especial. 
+Se aplican al documento entero, sin regiones ya escapadas.
+
+     <br><dt><code>muse-context-markup-specials-example</code><dd>Tabla de los caracteres que deban representarse de manera especial. 
+Se aplican a las regiones <tt>&lt;example></tt>.
+
+     <p>Con la interpretación predeterminada de las regiones
+<tt>&lt;example></tt>, no hay necesidad especial de escapes.
+
+     <br><dt><code>muse-context-markup-specials-literal</code><dd>Tabla de los caracteres que deban representarse de manera especial. 
+Esto se aplica a =monospaced text= y a las regiones <tt>&lt;code></tt>.
+
+     <br><dt><code>muse-context-markup-specials-url</code><dd>Tabla de los caracteres que deban representarse de manera especial. 
+Se aplica a los URL.
+
+     <br><dt><code>muse-context-markup-specials-image</code><dd>Tabla de los caracteres que deban representarse de manera especial. 
+Se aplica a los nombres de ficheros de imágenes.
+
+     <br><dt><code>muse-context-permit-contents-tag</code><dd>Si es <code>nil</code>, se ignoran las etiquetas <tt>&lt;contents></tt>.  De lo
+contrario, inserta el índice de contenidos.
+
+     <p>La mayor parte de las veces, es mejor tener el índice de contenidos en
+la primera página, a la que le siga inmediatamente una nueva página. 
+Para hacer que esto funcione con documentos publicados tanto en HTML
+como en ConTeXt, necesitamos ignorar la etiqueta <tt>&lt;contents></tt>.
+
+     <p>Si el lector no está de acuerdo con esto, entonces puede poner esta
+opción en no-<code>nil</code>, y hará lo que se espera.
+
+</dl>
+
+   </body></html>
+

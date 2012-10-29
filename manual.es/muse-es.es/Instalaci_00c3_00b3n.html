@@ -1,0 +1,145 @@
+<html lang="es">
+<head>
+<title>Instalación - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Obtenci_00c3_00b3n-de-Muse.html#Obtenci_00c3_00b3n-de-Muse" title="Obtención de Muse">
+<link rel="next" href="Comienzo.html#Comienzo" title="Comienzo">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Instalaci%c3%b3n"></a>
+<a name="Instalaci_00c3_00b3n"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Comienzo.html#Comienzo">Comienzo</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Obtenci_00c3_00b3n-de-Muse.html#Obtenci_00c3_00b3n-de-Muse">Obtención de Muse</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h2 class="chapter">4 Compilación e instalación de Muse</h2>
+
+<p>Muse puede ser compilado e instalado en la máquina local.
+
+<h4 class="subheading">Compilación</h4>
+
+<p><a name="index-compilaci_00c3_00b3n-de-Muse-10"></a>
+Este es un paso optativo, ya que el código fuente de Emacs Lisp no ha
+de ser necesariamente byte-compilado.  Sin embargo, eso permitirá un
+incremento de velocidad.
+
+   <p>Se necesita una copia operativa de Emacs o XEmacs para poder compilar
+Emacs Muse.  Por omisión se usará el programa que esté instalado con
+el nombre <samp><span class="command">emacs</span></samp>.
+
+   <p>Si se quiere compilar usando el binario <samp><span class="command">xemacs</span></samp>, se debe
+copiar <samp><span class="file">Makefile.defs.default</span></samp> en <samp><span class="file">Makefile.defs</span></samp> en el
+directorio de máximo nivel y después editar <samp><span class="file">Makefile.defs</span></samp> como
+sigue.  Se puede poner ya sea una ruta completa a un binario Emacs o
+XEmacs o simplemente el nombre del comando, siempre que esté en la
+<samp><span class="env">PATH</span></samp>.
+
+<pre class="example">     EMACS    = xemacs
+     SITEFLAG = -no-site-file
+     # Se edita la sección según sea necesario
+     install_info = install-info --section "XEmacs 21.4" $(1).info \
+             $(INFODIR)/dir || :
+</pre>
+   <p>La ejecución de <code>make</code> en el directorio de máximo nivel debería
+compilar los ficheros fuente Muse en el directorio <samp><span class="file">lisp</span></samp> y
+generar un fichero de auto-carga en <samp><span class="file">lisp/muse-autoloads.el</span></samp>.
+
+<h4 class="subheading">Instalación</h4>
+
+<p><a name="index-instalaci_00c3_00b3n-de-Muse-11"></a>
+Muse puede instalarse en la jerarquía de ficheros haciendo lo
+siguiente.
+
+   <p>Se copia <samp><span class="file">Makefile.defs.default</span></samp> de <samp><span class="file">Makefile.defs</span></samp> en el
+directorio de máximo nivel, si aún no se ha hecho.  Entonces se edita
+el fichero <samp><span class="file">Makefile.defs</span></samp> tal que <samp><span class="env">ELISPDIR</span></samp> apunte a donde
+se quiera instalar los ficheros fuente y compilados de Muse e
+<samp><span class="env">INFODIR</span></samp> indica dónde hay que poner el manual de Muse.  Se puede
+usar una combinación de <samp><span class="env">DESTDIR</span></samp> y de <samp><span class="env">PREFIX</span></samp> para
+determinar dónde deben ser puestos los ficheros instalados.  Como se
+mencionó antes, se querrá editar <samp><span class="env">EMACS</span></samp> y <samp><span class="env">SITEFLAG</span></samp> como se
+muestra en la sección de Compilación si se está usando XEmacs.
+
+   <p>Si se está instalando Muse en un sistema Debian o Ubuntu, es posible
+que se quiera modificar el valor de <samp><span class="env">INSTALLINFO</span></samp> como se
+especifica en <samp><span class="file">Makefile.defs</span></samp>.
+
+   <p>Si se desea instalar Muse en ubicaciones diferentes a las
+especificadas por defecto, se edita <samp><span class="file">Makefile.defs</span></samp> adecuadamente.
+
+   <p>Se ejecuta <code>make</code> como usuario normal, si no se ha hecho aún.
+
+   <p>Se ejecuta <code>make install</code> como usuario root si se han elegido
+ubicaciones para la instalación que lo requieran.
+
+<h4 class="subheading">ELPA</h4>
+
+<p><a name="index-ELPA_002c-paquete-Muse-para-12"></a>
+Para aquellos acostumbrados a instalar paquetes de software, habrá
+disponible un paquete <code>muse</code> en el Emacs Lisp Package Archive
+(abreviado en &ldquo;ELPA&rdquo;) a partir de la publicación de la versión 3.10
+de Muse.  Este paquete se compilará e instalará automáticamente en una
+ubicación específica del usuario.  Para más información acerca de
+ELPA, véase <a href="http://tromey.com/elpa/">http://tromey.com/elpa/</a>.
+
+   </body></html>
+

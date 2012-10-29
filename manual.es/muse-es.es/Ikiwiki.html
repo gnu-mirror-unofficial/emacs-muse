@@ -1,0 +1,141 @@
+<html lang="es">
+<head>
+<title>Ikiwiki - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Estilos-de-publicaci_00c3_00b3n.html#Estilos-de-publicaci_00c3_00b3n" title="Estilos de publicación">
+<link rel="prev" href="HTML.html#HTML" title="HTML">
+<link rel="next" href="Diarios.html#Diarios" title="Diarios">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Ikiwiki"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Diarios.html#Diarios">Diarios</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="HTML.html#HTML">HTML</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Estilos-de-publicaci_00c3_00b3n.html#Estilos-de-publicaci_00c3_00b3n">Estilos de publicación</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.6 Integración con ikiwiki</h3>
+
+<p>Ikiwiki es un compilador wiki (<a href="http://ikiwiki.info/">http://ikiwiki.info/</a>).  Emacs
+Muse puede usarse como formato fuente de páginas Ikiwiki con el
+complemento <samp><span class="file">IkiWiki::Plugin::muse</span></samp>.
+
+   <p>El fichero <samp><span class="file">lisp/muse-ikiwiki.el</span></samp> proporciona funciones y estilos
+de publicación para Ikiwiki.  El complemento para Ikiwiki que reconoce
+los ficheros Muse se proporciona en el fichero
+<samp><span class="file">contrib/ikiwiki/IkiWiki/Plugin/muse.pm</span></samp>.  Hay disponibles dos
+ficheros de inicialización en el directorio <samp><span class="file">examples/ikiwiki</span></samp>. 
+Se configura el fichero <samp><span class="file">ikiwiki.setup</span></samp> tal que la variable
+<code>muse_init</code> tenga la ubicación de fichero init de Muse.
+
+   <p>Si se está usando, el directorio <samp><span class="file">contrib/ikiwiki/IkiWiki</span></samp> debe
+copiarse en el mismo directorio que el script CGI que genera Ikiwiki. 
+Cuando se publica la wiki, la variable de entorno <var>PERL5LIB</var> debe
+contener la ruta al directorio <samp><span class="file">contrib/ikiwiki/IkiWiki</span></samp>.
+
+<h4 class="subheading">Estilos proporcionados para Ikiwiki</h4>
+
+     
+<a name="index-publicaci_00c3_00b3n-de-estilos_002c-ikiwiki-103"></a>
+<dl><dt><code>ikiwiki</code><dd>Le da soporte a la publicación en XHTML que Ikiwiki pueda comprender.
+
+</dl>
+
+<h4 class="subheading">Opciones proporcionadas para Ikiwiki</h4>
+
+     <dl>
+<dt><code>muse-ikiwiki-header</code><dd>Cabecera para la publicación de ficheros de salida Ikiwiki.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-ikiwiki-footer</code><dd>Pie para la publicación de ficheros de salida Ikiwiki.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+</dl>
+
+<h4 class="subheading">Otras opciones importantes</h4>
+
+     <dl>
+<dt><code>muse-colors-evaluate-lisp-tags</code><dd>Especifica si hay que evaluar el contenido de las etiquetas
+<tt>&lt;lisp></tt> en el momento de la visualización.  Si es <code>nil</code>,
+no las evalúa.  Si es no-<code>nil</code>, las evalúa.
+
+     <p>El contenido del búfer no cambia, sólo el texto mostrado.
+
+     <br><dt><code>muse-html-src-allowed-modes</code><dd>Modos donde permitimos que la etiqueta <tt>&lt;src></tt> los colorice. 
+Si es <code>t</code>, permite que dicha etiqueta colorice cualquier modo.
+
+     <p>Si es una lista de nombres de modos, tales como <code>'("html"
+"latex")</code>, y el argumento lang de <tt>&lt;src></tt> no está en la lista,
+entonces empleará en su lugar el modo fundamental.
+
+     <br><dt><code>muse-publish-enable-dangerous-tags</code><dd>Si es no-<code>nil</code>, publica etiquetas como <tt>&lt;lisp></tt> y
+<tt>&lt;command></tt> que pueden llamar a programas externos o exponer
+información sensible.  De lo contrario, ignora las etiquetas como
+estas.
+
+     <p>Es útil poner esto en <code>nil</code> cuando el fichero que se publica
+proviene de un origen no confiable.
+
+</dl>
+
+   </body></html>
+

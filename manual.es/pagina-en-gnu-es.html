@@ -1,0 +1,388 @@
+<!-- Parent-Version: 1.52 -->
+
+<!-- 2. Replace "baz" with the name of your project.
+     You should be able to do this with search and replace;
+     making sure that the search is case insensitive and
+     that the case of the replacement matches the case
+     of the string found. In Emacs, query-replace will do this
+     when case-fold-search and case-replace are both non-nil
+     and both search and replacement string are given in lower case. -->
+
+<!-- 3. Of course update the actual information according to your project,
+     such as mailing lists, project locations, and maintainer name.  -->
+
+<!-- 4. You can use the patch-from-parent script to semi-automate
+     merging future changes to the boilerplate with your file:
+     http://web.cvs.savannah.gnu.org/viewvc/*checkout*/www/server/standards/patch-from-parent?root=www&content-type=text%2Fplain
+  -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<BASE HREF="http://www.gnu.org/software/emacs-muse/">
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:webmasters@gnu.org" />
+<link rel="icon" type="image/png" href="/graphics/gnu-head-mini.png" />
+<meta name="ICBM" content="42.256233,-71.006581" />
+<meta name="DC.title" content="gnu.org" />
+
+
+<title>Emacs Muse - GNU Project - Free Software Foundation</title>
+<!-- start of banner.html -->
+<!-- start of head-include-2.html -->
+
+<link rel="stylesheet" href="/combo.css" media="screen" />
+<link rel="stylesheet" href="/layout.css" media="screen" />
+
+<link rel="stylesheet" href="/mini.css" media="handheld" />
+
+<link rel="stylesheet" href="/print.css" media="print" />
+<!-- end of head-include-2.html -->
+
+</head>
+<body>
+<div id="toplinks"><span class="netscape4"><a href="#content">Skip to content</a> | <a href="#navigation">Skip to navigation</a> | <a href="#searcher">Skip to search</a>| </span><a href="#translations">Translations of this page</a> | <a href="/accessibility/">Accessibility</a></div>
+
+
+<div id="null-wrapper">
+
+<!-- begin of body-include-2 -->
+      <div id="header">
+        <div class="inner" style="position: relative;">
+
+        <h1 id="logo"><a href="/">El Sistema Operativo GNU</a></h1>
+
+
+
+	<div id="fssbox">
+	  <h4>Suscríbase a <em>Free Software Supporter</em></h4>
+	  <p>Un boletín mensual acerca de GNU y de la FSF</p>
+	  <form action="http://lists.fsf.org/mailman/subscribe/info-fsf" method="post">
+	  <p><input type="text" id="frmEmail" name="email" size="15" maxlength="80" value="you@example.com" onfocus="this.value=''" /> &nbsp; <input type="submit" value="Ok" /></p>
+	  </form>
+	</div>
+	</div>
+      </div>
+
+<div id="navigation">
+ <div class="inner">
+
+  <div id="searcher">
+   <form method="get" action="http://www.gnu.org/cgi-bin/estseek.cgi">
+    <div><label class="netscape4" for="phrase">Buscar:</label>
+    <input name="phrase" id="phrase" type="text" size="18" accesskey="s"
+           value="Why GNU/Linux?" onfocus="this.value=''" />
+    <input type="submit" value="Search" /></div><!-- unnamed label -->
+   </form>
+  </div><!-- /searcher -->
+
+  <ul>
+   <li id="tabPhilosophy"><a href=
+                           "/philosophy/philosophy.html">Filosofía</a></li>
+   <li id="tabLicenses"><a href="/licenses/licenses.html">Licencias</a></li>
+   <li id="tabSoftware"><a href="/software/software.html">Descargas</a></li>
+   <li id="tabDoc"><a href="/doc/doc.html">Documentación</a></li>
+   <li id="tabHelp"><a href="/help/help.html">Ayude a GNU</a></li>
+   <li id="joinfsftab"><a href="https://www.fsf.org/associate/support_freedom?referrer=4052">¡Únase a la FSF!</a></li>
+  </ul>
+
+ </div><!-- /inner -->
+</div><!--  /navigation -->
+<!-- end of body-include-2 -->
+
+
+<div id="content" class="inner">
+
+<p style="text-align: center;"><img style="margin-bottom: 10px; " src="http://static.fsf.org/nosvn/appeal2010/fsf-1.png" usemap="#fsf-peterb" width="975" height="90" alt="" /></p> 
+<map id="fsf-peterb" name="fsf-peterb"> 
+<area shape="rect" coords="650,0,970,85" href="http://www.fsf.org/appeal/2010/" alt="An appeal from Peter Brown" title="An appeal from Peter Brown" /> 
+<area shape="rect" coords="0,0,647,85" href="http://www.fsf.org/appeal/2010/join" alt="Help us reach our target of raising over $500,000 -- Join Now" title="Help us reach our target of raising over $500,000 -- Join Now" /> 
+</map> 
+	  
+  
+<!-- end of banner.html -->
+
+<h2>Emacs Muse</h2>
+
+<p>Emacs Muse (también conocido como "Muse" o "Emacs-Muse") es un
+  entorno de autor y publicación para Emacs.  Simplifica el proceso de
+  escritura de documentos y su publicación en varios formatos de
+  salida.</p>
+
+
+<h3>Obtención de Emacs Muse</h3>
+
+<p class="first">Muse se desarrolla
+  con <a href="http://git.or.cz">git</a>.  Las instrucciones de cómo
+  obtener la última versión de desarrollo,
+  consúltese <a href="manual/es/Development.html#Development">el
+  capítulo pertinente del Manual de Muse</a>.</p>
+
+<p>La última versión de desarrollo también se puede descargar
+  en <a href="http://github.com/alexott/muse/">GitHub</a>.</p>
+
+<p>Las versiones estables están
+  en <a href="http://download.gna.org/muse-el">la zona de descargas de
+  la página de proyecto de Muse-el en GNA</a>.</p>
+
+<p>También hay paquetes de Muse para Debian y Ubuntu.  Se
+  llaman <code>muse-el</code>.  Véase la página de
+  los <a href="http://mwolson.org/projects/DebianPackages.html">Paquetes
+  Debian</a> para leer las instrucciones acerca del uso de los
+  repositorios de paquetes Debian y Ubuntu del anterior
+  mantenedor.</p>
+
+<h3>Documentación</h3>
+
+<p><a href="es/manual/">La documentación de Emacs Muse</a> está en
+  línea, como la de <a href="/manual/">la documentación de la mayoría
+  del software GNU</a>.  También se puede obtener más información
+  acerca de Emacs Muse ejecutando <em>info muse</em>.</p>
+
+<h3>Listas de correo</h3>
+
+<p>Para reportar problemas, pedir ayuda, conversar acerca de asuntos
+  diversos en cuanto al mundo de la publicación (entre otras cosas),
+  mantenerse informado de los anuncios o seguir el desarrollo de Muse,
+  hay disponibles unas cuantas listas de correo.  Como medida de
+  prevención contra el spam, primero hay que suscribirse a la lista de
+  correo antes de poder enviar mensajes a ella.</p>
+
+<dl>
+<dt><strong>muse-el-announce@gna.org</strong></dt>
+<dd>Es una lista de tráfico bajo para los anuncios relativos a
+Muse.</dd>
+<dd><em>URL</em>: <a href="http://mail.gna.org/listinfo/muse-el-announce/">http://mail.gna.org/listinfo/muse-el-announce/</a></dd>
+
+<dd><em>Gmane</em>: <code>gmane.emacs.muse.announce</code></dd>
+
+<dt><strong>muse-el-discuss@gna.org</strong></dt>
+<dd>Debates, correcciones de fallos, sugerencias, consejos y asuntos
+  similares para Muse.  Esta lista de correo también incluye el
+  contenido de la lista de Anuncios.</dd>
+<dd><em>URL</em>: <a href="http://mail.gna.org/listinfo/muse-el-discuss/">http://mail.gna.org/listinfo/muse-el-discuss/</a></dd>
+<dd><em>Gmane</em>: <code>gmane.emacs.muse.general</code></dd>
+
+<dt><strong>muse-el-logs@gna.org</strong></dt>
+<dd>Mensajes de registro (Log) para las compulsas de código realizadas
+  a Muse.</dd>
+<dd><em>URL</em>:  <a href="http://mail.gna.org/listinfo/muse-el-logs/">http://mail.gna.org/listinfo/muse-el-logs/</a></dd>
+<dd><em>Gmane</em>: <code>gmane.emacs.muse.scm</code></dd>
+
+<dt><strong>muse-el-commits@gna.org</strong></dt>
+<dd>Informes de fallos generados para Emacs Muse.</dd>
+
+<dd><em>URL</em>: <a href="http://mail.gna.org/listinfo/muse-el-commits/">http://mail.gna.org/listinfo/muse-el-commits/</a></dd>
+<dd><em>Gmane</em>: <code>gmane.emacs.muse.cvs</code></dd>
+
+<dt><strong>muse-el-internationalization@gna.org</strong></dt>
+<dd>Debates sobre la traducción del sitio web de the y de su
+  documentación en muchos idiomas.</dd>
+<dd><em>URL</em>: <a href="http://mail.gna.org/listinfo/muse-el-internationalization/">http://mail.gna.org/listinfo/muse-el-internationalization/</a></dd>
+
+<dd><em>Gmane</em>: <code>gmane.emacs.muse.internationalization</code></dd>
+</dl>
+
+<p>El sitio web de <a href="http://gmane.org">Gmane</a> permite al
+  usuario acceder a las listas de correo de varias útiles maneras,
+  tales como: canales RSS, una interfaz de estilo blog y como grupo de
+  noticias.</p>
+
+
+<h3>Desarrollo</h3>
+
+<p class="first">Para infomar de un fallo o sugerir un cambio, es
+  conveniente revisar
+  el <a href="http://gna.org/projects/muse-el">Registro de fallos</a>.
+  Todos los fallos enviados a este registro aparecerán igualmente en
+  la lista de correo <code>muse-el-commits</code>.</p>
+
+<h3>Mantenedor</h3>
+
+<p>El mantenedor actual de Emacs Muse es Alex Ott.  Para contactar con
+  él, por favor, es preferible usar las listas de correo.</p>
+
+<h3>Licencias</h3>
+
+<p>Emacs Muse es Software Libre; puede redistribuirlo y/o modificarlo
+  bajo los términos de
+  la <a href="http://www.gnu.org/licenses/gpl.html"
+  rel="license">Licencia Pública General de GNU</a> tal y como la
+  publicó la Free Software Foundation; ya sea en la versión 3 de la
+  Licencia o en cualquier versión posterir.</p>
+
+</div><!-- for id="content", starts in the include above -->
+
+              
+<div class="inner">
+    
+<div class="yui-g" id="fsf-links">
+    <div class="yui-g first">
+
+        <div class="yui-u first" id="sitemap-1">
+
+          <p class="netscape4"><a href="#footer">Skip sitemap</a> or <a href="#sitemap-2">skip to licensing items</a></p>
+
+      <ul>
+	<li><a href="/gnu/gnu-history.html">GNU History</a></li>
+        <li><a href="/help/">Get involved</a>
+
+        <ul>
+
+          <li><a href="http://savannah.gnu.org/people/?type_id=1">Projects that need help</a></li>
+          <li><a href="/server/standards/translations/priorities.html#Languages">Help translate this website</a></li>
+        </ul></li>
+        <li><a href="/server/takeaction.html#unmaint">Take over an unmaintained package</a></li>
+        <li><a href="/server/takeaction.html#gnustep">Use GNUstep</a></li>
+	  <li><a href="/distros/free-distros.html">Download GNU</a></li>
+	  <li><a href="http://directory.fsf.org/GNU/">GNU packages</a></li>
+	  <li><a href="/manual/manual.html">Free documentation</a></li>
+	  <li><a href="http://lists.gnu.org/">GNU mailing lists</a></li>
+	  <li><a href="http://savannah.gnu.org/">GNU savannah</a></li>
+        <li><a href="http://libreplanet.org/">Connect with free software users</a></li>
+	<li><a href="/people/">GNU's Who?</a></li>
+	<li><a href="http://planet.gnu.org/">Planet GNU</a></li>
+	<li><a href="/contact/gnu-advisory.html">GNU Advisory Committee</a></li>
+      </ul>
+
+    </div>
+
+    <div class="yui-u" id="sitemap-2">
+
+          <p class="netscape4"><a href="#sitemap-3">Skip to general items</a></p>
+
+       <ul>
+        <li><a href="http://www.fsf.org/licensing">Software licensing</a>
+        <ul>
+        <li><a href="http://www.fsf.org/licensing/education">Licensing education</a></li>
+        <li><a href="/licenses">Free software licenses</a>
+        <ul>
+        <li><a href="/licenses/gpl.html">GNU GPL</a></li>
+
+        <li><a href="/licenses/agpl.html">GNU AGPL</a></li>
+        <li><a href="/licenses/lgpl.html">GNU LGPL</a></li>
+        <li><a href="/licenses/fdl.html">GNU FDL</a></li></ul></li>
+        <li><a href="/licenses/gpl-faq.html">Software licensing FAQ</a></li>
+        <li><a href="/licenses/gpl-faq.html">Licensing compliance</a></li>
+        <li><a href="/licenses/gpl-faq.html">How to use GNU licenses for your own software</a></li></ul></li>
+	<li><a href="http://www.fsf.org/resources/service/">GNU Service Directory</a></li>
+	<li><a href="/fun/fun.html">GNU Fun</a></li>
+	<li><a href="/graphics/graphics.html">GNU Art</a></li>
+	<li><a href="/music/music.html">Music &amp; Songs</a></li>
+
+      </ul>
+
+    
+    </div>
+    </div>
+    <div class="yui-g first">
+        <div class="yui-u first" id="sitemap-3">
+
+          <p class="netscape4"><a href="#sitemap-4">Skip to philosophical items</a></p>
+    
+      <ul>
+
+      <li><a href="http://www.fsf.org/news/">Latest News</a><ul>
+        <li><a href="http://www.fsf.org/events/">Upcoming Events</a></li>
+      <li><a href="http://www.fsf.org/blogs/">FSF Blogs</a></li></ul></li>
+      <li><a href="http://www.fsf.org/volunteer">Volunteering and internships</a></li>
+      <li><a href="http://www.fsf.org/resources/hw">Hardware Database</a></li>
+      <li><a href="http://directory.fsf.org">Free Software Directory</a></li>
+
+        <li><a href="http://www.fsf.org/resources/">Free Software Resources</a></li>
+      <li><a href="http://www.fsf.org/associate/">Associate Members</a></li>
+      <li><a href="http://www.fsf.org/associate/account/">My FSF Account</a></li>
+      <li class="noright"><a href="http://www.fsf.org/about/contact.html">Contact the FSF</a></li>
+      <li><a href="http://audio-video.gnu.org/">GNU Audio/Video</a></li>
+<li><a href="/accessibility/accessibility.html">Accessibility Statement</a></li>
+<li><a href="http://ftp.gnu.org/gnu/">GNU FTP Site</a>
+    and <a href="/prep/ftp.html">mirrors</a></li>
+<li><a href="/people/speakers.html">GNU Speakers</a></li>
+<li><a href="http://www.fsf.org/jobs">Free software jobs</a></li>
+      </ul>
+
+      
+    </div>
+        <div class="yui-u" id="sitemap-4">
+
+          <p class="netscape4"><a href="#ft">Skip list</a></p>
+
+      <ul>
+            <li><a href="http://donate.fsf.org">Donate to the FSF</a></li>
+        <li><a href="http://www.fsf.org/jfb">Join the FSF</a></li>
+
+        <li><a href="/philosophy/">Free software philosophy</a><ul>
+        <li><a href="/philosophy/free-sw.html">The Free Software Definition</a></li>
+        <li><a href="/philosophy/pragmatic.html">Copyleft: Pragmatic Idealism</a></li>
+        <li><a href="/philosophy/free-doc.html">Free Software and Free Manuals</a></li>
+        <li><a href="/philosophy/selling.html">Selling Free Software</a></li>
+        <li><a href="/philosophy/fs-motives.html">Motives for Writing Free Software</a></li>
+
+        <li><a href="/philosophy/right-to-read.html">The Right To Read</a></li>
+        <li><a href="/philosophy/open-source-misses-the-point.html">Why Open Source Misses the Point of Free Software</a></li></ul></li>
+      <li><a href="/software/for-windows.html">Free software for Windows</a></li>
+        <li><a href="http://defectivebydesign.org/">Defective by Design &mdash; Fight DRM</a></li>
+  <li><a href="http://windows7sins.org/">Windows 7 Sins</a></li>
+  <li><a href="http://playogg.org/">Support free media formats</a></li>
+        </ul>
+    </div>
+    </div>
+</div>
+
+<div class="yui-g" id="mission-statement">
+
+<p><small>The <a href="http://www.fsf.org">Free Software
+Foundation</a> is the principal organizational sponsor of the <a
+href="http://www.gnu.org/">GNU Operating System</a>. <strong>Our
+mission is to preserve, protect and promote the freedom to use, study,
+copy, modify, and redistribute computer software, and to defend the
+rights of Free Software users.</strong></small></p>
+
+<p><small><strong>Support GNU and the FSF by <a
+href="http://shop.fsf.org/">buying manuals and gear</a>, <a
+href="http://www.fsf.org/join">joining the FSF as an associate
+member</a> or by <a href="http://donate.fsf.org/">making a
+donation</a>.</strong></small></p>
+
+<p id="backtotop"><a href="#header">back to top</a></p>
+
+
+
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+
+  <p>Please send general FSF &amp; GNU inquiries
+  to <a href="mailto:gnu@gnu.org">&lt;gnu@gnu.org&gt;</a>.  There are
+  also <a href="/contact/">other ways to contact</a> the FSF.<br />  Please send broken
+  links and other corrections or suggestions
+  to <a href="mailto:muse-el-discuss@gna.org">&lt;muse-el-discuss@gna.org&gt;</a>.</p>
+
+  <p>Please see the <a href="/server/standards/README.translations.html">Translations
+  README</a> for information on coordinating and submitting translations of this
+  article.</p>
+
+  <p>Copyright &copy; 2010 Free Software Foundation, Inc.</p>
+
+  <p>Verbatim copying and distribution of this entire article are permitted worldwide,
+  without royalty, in any medium, provided this notice, and the copyright notice, are
+  preserved.</p>
+
+  <p>Updated:
+    <!-- timestamp start -->
+    $Date: 2012/10/29 17:45:46 $
+    <!-- timestamp end -->
+  </p>
+</div>
+
+</div>
+</body>
+</html>

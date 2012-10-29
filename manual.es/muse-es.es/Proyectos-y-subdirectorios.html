@@ -1,0 +1,111 @@
+<html lang="es">
+<head>
+<title>Proyectos y subdirectorios - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Proyectos.html#Proyectos" title="Proyectos">
+<link rel="prev" href="M_00c3_00baltiples-proyectos.html#M_00c3_00baltiples-proyectos" title="Múltiples proyectos">
+<link rel="next" href="Opciones-de-proyectos.html#Opciones-de-proyectos" title="Opciones de proyectos">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Proyectos-y-subdirectorios"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Opciones-de-proyectos.html#Opciones-de-proyectos">Opciones de proyectos</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="M_00c3_00baltiples-proyectos.html#M_00c3_00baltiples-proyectos">Múltiples proyectos</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Proyectos.html#Proyectos">Proyectos</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">6.3 Publicación de sub-directorios de proyectos</h3>
+
+<p><a name="index-proyectos_002c-subdirectorios-21"></a>
+Si se quiere publicar un directorio y todos sus sub-directorios, Muse
+proporciona dos funciones de conveniencia que, juntas, generan las
+reglas apropiadas.  Véase que empleamos la comilla trasera para
+empezar esta definición de <code>muse-project-alist</code>, en vez del
+apóstrofo.
+
+<pre class="lisp">     (setq muse-project-alist
+           `(("Sitio-Web" ("~/Páginass" :default "index")
+              (:base "html" :path "~/public_html"))
+             ("Blog" (,@(muse-project-alist-dirs "~/Blog")
+                      :default "index")
+              ;; Publica este directorio y sus sub-directorios.  Los
+              ;; argumentos son como sigue.  También se necesita la parte
+              ;; `muse-project-alist-dirs' de arriba.
+              ;;   1. Directorio de origen
+              ;;   2. Directorio de salida
+              ;;   3. Estilo de publicación
+              ;;   recordatorio: otras cosas a poner en cada estilo generado
+              ,@(muse-project-alist-styles "~/Blog"
+                                           "~/public_html/blog"
+                                           "blosxom"))))
+</pre>
+   <p>La función <code>muse-project-alist-dirs</code> toma un directorio y lo
+devuelve con todos sus sub-directorios en una lista.
+
+   <p>La función <code>muse-project-alist-styles</code> se explica en los
+comentarios de arriba.
+
+   <p>El texto &ldquo;blosxom&rdquo; es el nombre de otro estilo de publicación, muy
+parecido a &ldquo;html&rdquo;.  See <a href="Blosxom.html#Blosxom">Blosxom</a>, para mayor información acerca de
+él.  Se puede usar cualquier estilo de publicación que se desee para
+el tercer argumento de <code>muse-project-alist-styles</code>.
+
+   </body></html>
+

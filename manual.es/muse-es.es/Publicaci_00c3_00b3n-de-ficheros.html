@@ -1,0 +1,101 @@
+<html lang="es">
+<head>
+<title>Publicación de ficheros - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Comienzo.html#Comienzo" title="Comienzo">
+<link rel="prev" href="Uso-del-modo-Muse.html#Uso-del-modo-Muse" title="Uso del modo Muse">
+<link rel="next" href="Extensiones-de-ficheros.html#Extensiones-de-ficheros" title="Extensiones de ficheros">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Publicaci%c3%b3n-de-ficheros"></a>
+<a name="Publicaci_00c3_00b3n-de-ficheros"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Extensiones-de-ficheros.html#Extensiones-de-ficheros">Extensiones de ficheros</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Uso-del-modo-Muse.html#Uso-del-modo-Muse">Uso del modo Muse</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Comienzo.html#Comienzo">Comienzo</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">5.3 Publicación de un solo fichero o proyecto</h3>
+
+<p><a name="index-edici_00c3_00b3n-de-ficheros-Muse-16"></a>
+El comando <kbd>M-x muse-project-publish-this-file</kbd> publica el
+documento en uso en alguno de los estilos de publicación disponibles
+(los estilos de publicación son formatos de salida, como HTML o
+Docbook), poniendo la salida generada en el directorio en curso.  Si
+se está en modo Muse, este comando quedará asociado a <kbd>C-c C-t</kbd>. 
+Si el fichero ha sido publicado recientemente y su contenido no ha
+cambiado, la ejecución de nuevo de <kbd>C-c C-t</kbd> no publicará el
+fichero.  Para forzar la publicación en estos casos, se hace <kbd>C-u
+C-c C-t</kbd>.
+
+   <p>Si se han establecido proyectos y se está visitando un fichero que es
+parte de un proyecto, entonces <kbd>C-c C-t</kbd> restringirá los formatos
+de salida a aquellos empleados por el proyecto y lo publicará
+automáticamente en el directorio de salida definido por el proyecto. 
+Si se lo quiere publicar en un directorio diferente o emplear un
+formato distinto, entonces se usa <kbd>C-c M-C-t</kbd>, que también es
+<kbd>M-x muse-publish-this-file</kbd>.
+
+   <p>Si el fichero visitado es parte de un proyecto definido en
+<code>muse-project-alist</code>, puede ser publicado (y el resto de los
+ficheros cambiados en el proyecto) empleando <kbd>C-c C-p</kbd>.
+
+   </body></html>
+

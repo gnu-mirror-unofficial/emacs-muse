@@ -1,0 +1,165 @@
+<html lang="es">
+<head>
+<title>Requisitos de Blosxom - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Blosxom.html#Blosxom" title="Blosxom">
+<link rel="prev" href="Blosxom.html#Blosxom" title="Blosxom">
+<link rel="next" href="Entradas-Blosxom.html#Entradas-Blosxom" title="Entradas Blosxom">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Requisitos-de-Blosxom"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Entradas-Blosxom.html#Entradas-Blosxom">Entradas Blosxom</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Blosxom.html#Blosxom">Blosxom</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Blosxom.html#Blosxom">Blosxom</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h4 class="subsection">9.1.1 Otras herramientas necesarias para el estilo Blosxom</h4>
+
+<p>Se necesitará tener <samp><span class="command">pyblosxom.cgi</span></samp> o <samp><span class="command">blosxom.cgi</span></samp>
+instalado en una máquina a la que se tenga acceso de subida.
+
+   <p>La mayor dificultad con estos dos programas es la especificación de
+las fechas de las entradas.  Ambos se basan en la hora de modificación
+del fichero en vez de en los datos contenidos en las propias entradas. 
+Se necesitará un complemento para que estos programas sean capaces de
+obtener la fecha correcta.
+
+<h4 class="subheading">PyBlosxom</h4>
+
+<p>Hay dos maneras de conseguirlo con pyblosxom.  La primera implica la
+recolección de las marcas de tiempo (como se especifique en la
+directiva <code>#date</code>) en un fichero y después el envío de ese
+fichero junto con las entradas publicadas al servidor web.
+
+   <p>La segunda leerá cada fichero en el momento de su procesamiento y
+analizará la directiva <code>#postdate</code>.  Muse traducirá la directiva
+<code>#date</code> en <code>#postdate</code> en el momento de la publicación, tal
+que el usuario no tenga que realizar ningún trabajo extra.
+
+<h5 class="subsubheading">Cómo poner marcas de tiempo en los ficheros</h5>
+
+<p>Hacen falta los siguientes componentes adicionales para hacer que la
+fecha de las entradas de blog se muestren como algo sensible.
+
+     <ol type=1 start=1>
+<li>Un script para recopilar directivas de fecha desde el blog completo en
+un único fichero.  El fichero debe asociar una entrada de blog con una
+fecha.
+
+     <li>Un plugin para (py)blosxom que lea este fichero.
+        </ol>
+
+   <p>Estas 2 cosas las proporciona <samp><span class="command">pyblosxom.cgi</span></samp> en el
+subdirectorio <samp><span class="file">contrib/pyblosxom</span></samp>.  <samp><span class="file">getstamps.py</span></samp>
+proporciona el primer servicio, mientras que <samp><span class="file">hardcodedates.py</span></samp>
+proporciona el segundo.
+
+   <p>Aquí ponemos una lista de ejemplo de mi fichero <samp><span class="file">timestamps</span></samp>, que
+mapea cada fichero hacia una fecha.  Realmente pueden estar en
+cualquier formato, en la medida en que el script de recopilación de
+fecha y el plugin puedan entenderlo ambos.
+
+<pre class="example">     2005-04-01-14-16 personal/paper_cranes
+     2005-03-21 personal/spring_break_over
+     2004-10-24 personal/finished_free_culture
+</pre>
+   <h5 class="subsubheading">Obtención de la marca de tiempo de la entrada durante su procesamiento</h5>
+
+<p>Como alternativa se puede usar el complemento metadate para pyblosxom. 
+Entre las ventajas, no hay necesidad de ejecutar un script para
+recoger la fecha.  Entre las desventajas, cada entrada se lee dos
+veces en vez de sólo una cuando se procesa la página.  Se pone el
+valor de <code>muse-blosxom-use-metadate</code> en no-<code>nil</code> para
+activar el añadido de la directiva <code>#postdate</code> a todos los
+ficheros publicados.  Esto se puede hacer con:
+
+<pre class="example">     M-x customize-variable RET muse-blosxom-use-metadate RET
+</pre>
+   <p>Con el complemento metadate instalado en pyblosxom, se usará el
+conjunto de fechas de esta directiva en vez de la hora de modificación
+del fichero.  El complemento va incluido en Muse en
+<samp><span class="file">contrib/pyblosxom/metadate.py</span></samp>.
+
+<h4 class="subheading">Blosxom</h4>
+
+<p>También es posible usar Blosxom, escrito en Perl, para servir entradas
+de blog que hayan sido publicadas con Muse.  Los pasos son los
+siguientes.
+
+     <ol type=1 start=1>
+<li>Se descarga e instala blosxom desde
+
+     <p><a href="http://blosxom.sourceforge.net/">http://blosxom.sourceforge.net/</a>.
+
+     <li>Se instala el complemento <samp><span class="command">metadate</span></samp>.  Está disponible en
+
+     <p><samp><span class="file">contrib/blosxom/metadate_0_0_3</span></samp>.
+
+     <li>Cada vez que se hace una nueva entrada de blog, se cambia al
+directorio de datos de blosxom y se ejecuta el script
+<samp><span class="file">contrib/blosxom/getstamps.pl</span></samp>.  Este script hace poco que está
+creado y puede contener algunos fallos, así que hay que usarlo con
+precaución.
+
+        </ol>
+
+   </body></html>
+

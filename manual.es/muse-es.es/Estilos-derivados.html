@@ -1,0 +1,109 @@
+<html lang="es">
+<head>
+<title>Estilos derivados - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extensi_00c3_00b3n-de-Muse.html#Extensi_00c3_00b3n-de-Muse" title="Extensión de Muse">
+<link rel="prev" href="Elementos-de-estilo.html#Elementos-de-estilo" title="Elementos de estilo">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Estilos-derivados"></a>
+<p>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Elementos-de-estilo.html#Elementos-de-estilo">Elementos de estilo</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extensi_00c3_00b3n-de-Muse.html#Extensi_00c3_00b3n-de-Muse">Extensión de Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">10.6 Derivación de estilos nuevos a partir de otro existente</h3>
+
+<p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-derivados-142"></a>
+Para crear un estilo nuevo a partir de otro existente se usa
+<code>muse-derive-style</code> como sigue.  Esta es una buena vía para
+modificar algo que no guste en un estilo de publicación particular o
+para personalizarlo.
+
+<div class="defun">
+&mdash; Function: <b>muse-derive-style</b><var> nombre-nuevo nombre-base &amp;rest elementos<a name="index-muse_002dderive_002dstyle-143"></a></var><br>
+        </div>
+
+   <p>El nombre derivado es una cadena que define el estilo nuevo, como
+"mi-html".  El <var>nombre-base</var> debe identificar un estilo existente,
+tal como "html", si se ha cargado <samp><span class="file">muse-html</span></samp>.  Los parámetros de
+estilo son los mismos que aquellos que se usan para crear un estilo,
+excepto que sobre-escriben cualquier definición que exista en el
+estilo base.  Sin embargo, algunas definiciones sólo se sobre-escriben
+parcialmente.  Los parámetros siguientes admiten la sobre-escritura
+parcial.
+
+   <p>See <a href="Elementos-de-estilo.html#Elementos-de-estilo">Elementos de estilo</a>, para la lista completa de todos los parámetros.
+
+     <dl>
+<dt><samp><span class="option">:functions</span></samp><dd>Si no se encuentra una función de marcado en la lista de funciones del
+estilo derivado, se consultará a la lista de funciones del estilo
+base.
+
+     <br><dt><samp><span class="option">:regexps</span></samp><dd>Se usarán todas las expresiones regulares del estilo en uso y del
+base.
+
+     <br><dt><samp><span class="option">:strings</span></samp><dd>Si una cadena de marcado no se encuentra en la lista de cadenas del
+estilo derivado, se consultará a la lista de cadenas del estilo base.
+
+   </dl>
+
+   </body></html>
+

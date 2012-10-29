@@ -1,0 +1,110 @@
+<html lang="es">
+<head>
+<title>Multiple Projects - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Projects.html#Projects" title="Projects">
+<link rel="prev" href="Single-Project.html#Single-Project" title="Single Project">
+<link rel="next" href="Projects-and-Subdirectories.html#Projects-and-Subdirectories" title="Projects and Subdirectories">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español `gnu.manticore.es'.
+La empresa cede el copyright a la FSF.
+
+La traducción ha finalizado la fase beta.  Aún le falta revisiones
+técnicas y estilísticas.  Se agradecen las sugerencias.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Multiple-Projects"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Projects-and-Subdirectories.html#Projects-and-Subdirectories">Projects and Subdirectories</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Single-Project.html#Single-Project">Single Project</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Projects.html#Projects">Projects</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">6.2 Ejemplo de múltiples proyectos</h3>
+
+<p><a name="index-proyectos_002c-m_00c3_00baltiples-20"></a>
+También es posible definir múltiples proyectos.  Lo siguiente es un
+ejemplo de tres proyectos: un sitio web genérico, un área de proyectos
+y un planificador diario (la parte del planificador requiere Planner,
+véase <a href="http://wjsullivan.net/PlannerMode.html">http://wjsullivan.net/PlannerMode.html</a> para obtenerlo).
+
+<pre class="lisp">     (setq muse-project-alist
+           '(("Sitio-web" ("~/Páginas" :default "index")
+              (:base "html" :path "~/public_html"))
+             (("Proyectos" ("~/Proyectos" :default "index")
+              (:base "xhtml"
+                     :path "~/public_html/proyectos"
+                     :exclude "/TopSecret")
+              (:base "pdf"
+                     :path "~/public_html/proyectos/pdf"
+                     :exclude "/TopSecret")))
+             ("Plans" ("~/Planes"
+                       :default "BolsaTareas"
+                       :major-mode planner-mode
+                       :visit-link planner-visit-link)
+              (:base "planner-xhtml"
+                     :path "~/public_html/planes"))))
+</pre>
+   <p>El atributo <samp><span class="option">:major-mode</span></samp> especifica qué modo mayor hay que
+usar cuando se visiten los ficheros de este directorio.
+
+   <p>El atributo <samp><span class="option">:visit-link</span></samp> especifica la función que hay que
+llamar cuando se visite enlaces.
+
+   <p>El atributo <samp><span class="option">:exclude</span></samp> tiene una expresión regular que
+concordará con los ficheros que no han de publicarse nunca.
+
+   </body></html>
+

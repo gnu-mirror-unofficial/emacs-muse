@@ -1,0 +1,332 @@
+<html lang="es">
+<head>
+<title>Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="#Top">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software Foundation,
+Inc.  La traducción está realizada por el Departamento de Traducciones
+técnicas de Urban Planet, de la empresa Timijiraque, S.L., en su
+proyecto de Emacs en español `gnu.manticore.es'.  La empresa cede el
+copyright a la FSF.
+
+La traducción ha finalizado la fase beta.  Aún le falta revisiones
+técnicas y estilísticas.  Se agradecen las sugerencias.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being "A GNU Manual", and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     "GNU Free Documentation License" in this manual.
+
+     (a) The FSF's Back-Cover Text is: "You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development."
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  -- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<h1 class="settitle">Muse</h1>
+<div class="contents">
+<h2>Índice de contenidos</h2>
+<ul>
+<li><a name="toc_Top" href="index.html#Top">Muse</a>
+<li><a name="toc_Preface" href="Preface.html#Preface">1 Acerca de la documentación</a>
+<li><a name="toc_Introduction" href="Introduction.html#Introduction">2 ¿Qué es Muse?</a>
+<li><a name="toc_Obtaining-Muse" href="Obtaining-Muse.html#Obtaining-Muse">3 Cómo obtener Muse y los cambios en el desarrollo</a>
+<ul>
+<li><a href="Releases.html#Releases">3.1 Versiones publicadas de Muse</a>
+<li><a href="Development.html#Development">3.2 Últimos cambios en el desarrollo, no publicados</a>
+</li></ul>
+<li><a name="toc_Installation" href="Installation.html#Installation">4 Compilación e instalación de Muse</a>
+<li><a name="toc_Getting-Started" href="Getting-Started.html#Getting-Started">5 Comienzo</a>
+<ul>
+<li><a href="Loading-Muse.html#Loading-Muse">5.1 Cómo cargar Muse</a>
+<li><a href="Using-Muse-Mode.html#Using-Muse-Mode">5.2 Cómo editar ficheros en Muse</a>
+<li><a href="Publishing-Files-Overview.html#Publishing-Files-Overview">5.3 Publicación de un solo fichero o proyecto</a>
+<li><a href="File-Extensions.html#File-Extensions">5.4 Empleo de extensiones de fichero distintas</a>
+</li></ul>
+<li><a name="toc_Projects" href="Projects.html#Projects">6 Creación y gestión de proyectos Muse</a>
+<ul>
+<li><a href="Single-Project.html#Single-Project">6.1 Ejemplo de proyecto en solitario</a>
+<li><a href="Multiple-Projects.html#Multiple-Projects">6.2 Ejemplo de múltiples proyectos</a>
+<li><a href="Projects-and-Subdirectories.html#Projects-and-Subdirectories">6.3 Publicación de sub-directorios de proyectos</a>
+<li><a href="Options-for-Projects.html#Options-for-Projects">6.4 Listado de opciones disponibles para los proyectos</a>
+</li></ul>
+<li><a name="toc_Keystroke-Summary" href="Keystroke-Summary.html#Keystroke-Summary">7 Teclas usadas en el modo Muse</a>
+<li><a name="toc_Markup-Rules" href="Markup-Rules.html#Markup-Rules">8 Reglas de uso del marcado</a>
+<ul>
+<li><a href="Paragraphs.html#Paragraphs">8.1 Párrafos: centrado y citas</a>
+<li><a href="Headings.html#Headings">8.2 Niveles de las cabeceras</a>
+<li><a href="Directives.html#Directives">8.3 Directivas al comienzo de los documentos</a>
+<li><a href="Emphasizing-Text.html#Emphasizing-Text">8.4 Texto en negrita, cursivas y subrayadas</a>
+<li><a href="Footnotes.html#Footnotes">8.5 Notas a pie de página</a>
+<li><a href="Verse.html#Verse">8.6 Indicación de estrofas poéticas</a>
+<li><a href="Lists.html#Lists">8.7 Listas de elementos</a>
+<li><a href="Tables.html#Tables">8.8 Generación de tablas de datos</a>
+<li><a href="Explicit-Links.html#Explicit-Links">8.9 Hiperenlaces y direcciones de correo con descripciones</a>
+<li><a href="Implicit-Links.html#Implicit-Links">8.10 Enlaces a URL desnudas, NombresWiki e InterWiki</a>
+<li><a href="Images.html#Images">8.11 Publicación y visualización de imágenes</a>
+<li><a href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors">8.12 Inserción de líneas horizontales o anclas</a>
+<li><a href="Embedded-Lisp.html#Embedded-Lisp">8.13 Evaluación de código Emacs Lisp en los documentos, para la extensibilidad</a>
+<li><a href="Citations.html#Citations">8.14 Soporte para citar otros recursos</a>
+<li><a href="Comments.html#Comments">8.15 Líneas omitidas en la salida publicada</a>
+<li><a href="Tag-Summary.html#Tag-Summary">8.16 Etiquetas reconocidas por Muse</a>
+</li></ul>
+<li><a name="toc_Publishing-Styles" href="Publishing-Styles.html#Publishing-Styles">9 Publicación de diversos tipos de documentos</a>
+<ul>
+<li><a href="Blosxom.html#Blosxom">9.1 Integración de Muse con pyblosxom.cgi</a>
+<ul>
+<li><a href="Blosxom-Requirements.html#Blosxom-Requirements">9.1.1 Otras herramientas necesarias para el estilo Blosxom</a>
+<li><a href="Blosxom-Entries.html#Blosxom-Entries">9.1.2 Formato de las entradas Blosxom y automoción</a>
+<li><a href="Blosxom-Options.html#Blosxom-Options">9.1.3 Estilos y opciones proporcionados para Blosxom</a>
+</li></ul>
+<li><a href="Book.html#Book">9.2 Publicación de entradas en una compilación</a>
+<li><a href="ConTeXt.html#ConTeXt">9.3 Publicación de documentos ConTeXt</a>
+<li><a href="DocBook.html#DocBook">9.4 Publicación en formato DocBook XML</a>
+<li><a href="HTML.html#HTML">9.5 Publicación en formato HTML o XHTML</a>
+<li><a href="Ikiwiki.html#Ikiwiki">9.6 Integración con ikiwiki</a>
+<li><a href="Journal.html#Journal">9.7 Mantenimiento de un diario o bitácora (o blog)</a>
+<li><a href="LaTeX.html#LaTeX">9.8 Publicación de documentos LaTeX</a>
+<li><a href="Poem.html#Poem">9.9 Publicación de poemas en LaTex o PDF</a>
+<li><a href="Texinfo.html#Texinfo">9.10 Publicación de entradas en formato Texinfo o PDF</a>
+<li><a href="XML.html#XML">9.11 Publicación de entradas en XML</a>
+</li></ul>
+<li><a name="toc_Extending-Muse" href="Extending-Muse.html#Extending-Muse">10 Creación de estilos de publicación propios</a>
+<ul>
+<li><a href="Markup-Functions.html#Markup-Functions">10.1 Especificación de funciones para marcar texto</a>
+<li><a href="Markup-Regexps.html#Markup-Regexps">10.2 Reglas de marcado para la publicación</a>
+<li><a href="Markup-Strings.html#Markup-Strings">10.3 Cadenas específicas de un estilo de publicación</a>
+<li><a href="Markup-Tags.html#Markup-Tags">10.4 Especificaciones de etiquetas para marcados especiales</a>
+<li><a href="Style-Elements.html#Style-Elements">10.5 Parámetros empleados para la definición de estilos</a>
+<li><a href="Deriving-Styles.html#Deriving-Styles">10.6 Derivación de estilos nuevos a partir de otro existente</a>
+</li></ul>
+<li><a name="toc_Miscellaneous" href="Miscellaneous.html#Miscellaneous">11 Complementos misceláneos, por ejemplo un modo menor</a>
+<ul>
+<li><a href="Muse-List-Edit-Minor-Mode.html#Muse-List-Edit-Minor-Mode">11.1 Edición fácil de listas en otros modos mayores</a>
+</li></ul>
+<li><a name="toc_Getting-Help-and-Reporting-Bugs" href="Getting-Help-and-Reporting-Bugs.html#Getting-Help-and-Reporting-Bugs">12 Obtención de ayuda y reporte de fallos</a>
+<li><a name="toc_History" href="History.html#History">13 Historia de este documento</a>
+<li><a name="toc_Contributors" href="Contributors.html#Contributors">14 Contribuidores a esta documentación</a>
+<li><a name="toc_GNU-Free-Documentation-License" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">Apéndice A Licencia de Documentación Libre de GNU</a>
+<ul>
+<li><a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">ADDENDUM: How to use this License for your documents</a>
+</li></ul>
+<li><a name="toc_Concept-Index" href="Concept-Index.html#Concept-Index">Índice</a>
+</li></ul>
+</div>
+
+
+
+<div class="node">
+<a name="Top"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Preface.html#Preface">Preface</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="../index.html#dir">(dir)</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="../index.html#dir">(dir)</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h2 class="unnumbered">Muse</h2>
+
+<p>Este es el manual de Emacs Muse versión 3.20.
+
+   <p>Copyright &copy; 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+   <p>Copyright &copy; de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español <a href="gnu.manticore.es">gnu.manticore.es</a>. 
+La empresa cede el copyright a la FSF.
+
+   <p>La traducción ha finalizado la fase beta.  Aún le falta revisiones
+técnicas y estilísticas.  Se agradecen las sugerencias.
+
+   <blockquote>
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being &ldquo;A GNU
+Manual&rdquo;, and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled &ldquo;GNU Free Documentation
+License&rdquo; in this manual.
+
+   <p>(a) The FSF's Back-Cover Text is: &ldquo;You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development.&rdquo;
+
+   <p>This document is part of a collection distributed under the GNU Free
+Documentation License.  If you want to distribute this document
+separately from the collection, you can do so by adding a copy of the
+license to the document, as described in section 6 of the license.
+
+   <p>Todo el código Emacs Lisp contenido en este documento puede usarse,
+distribuirse y modificarse sin restricciones. 
+&mdash;
+[NdT: Por indicaciones precisas de la FSF, se deja la nota anterior en
+inglés, así como el texto oficial de la Licencia.  La traducción se
+acoge también a los mismos términos.] 
+</blockquote>
+
+<ul class="menu">
+<li><a accesskey="1" href="Preface.html#Preface">Preface</a>:                      Acerca de la documentación
+<li><a accesskey="2" href="Introduction.html#Introduction">Introduction</a>
+<li><a accesskey="3" href="Obtaining-Muse.html#Obtaining-Muse">Obtaining Muse</a>:               Cómo obtener las entregas de Muse y
+                                  los cambios en el desarrollo. 
+<li><a accesskey="4" href="Installation.html#Installation">Installation</a>:                 Compilación e instalación de Muse
+<li><a accesskey="5" href="Getting-Started.html#Getting-Started">Getting Started</a>:              Comienzo
+<li><a accesskey="6" href="Projects.html#Projects">Projects</a>:                     Creación y gestión de proyectos Muse
+<li><a accesskey="7" href="Keystroke-Summary.html#Keystroke-Summary">Keystroke Summary</a>:            Teclas usadas en el modo Muse
+<li><a accesskey="8" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>:                 Reglas de uso del marcado
+<li><a accesskey="9" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>:            Publicación de diversos tipos de documentos
+<li><a href="Extending-Muse.html#Extending-Muse">Extending Muse</a>:               Creación de estilos de publicación propios
+<li><a href="Miscellaneous.html#Miscellaneous">Miscellaneous</a>:                Complementos misceláneos, por ejemplo un modo menor
+<li><a href="Getting-Help-and-Reporting-Bugs.html#Getting-Help-and-Reporting-Bugs">Getting Help and Reporting Bugs</a>
+<li><a href="History.html#History">History</a>:                      Historia de este documento
+<li><a href="Contributors.html#Contributors">Contributors</a>:                 Contribuidores a esta documentación
+<li><a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">GNU Free Documentation License</a>:   Licencia de Documentación Libre de GNU
+<li><a href="Concept-Index.html#Concept-Index">Concept Index</a>:                Índice
+
+</li></ul>
+<p>--- El listado detallados de los nodos ---
+
+<p>Cómo obtener Muse y los cambios en el desarrollo
+
+</p>
+<ul class="menu">
+<li><a href="Releases.html#Releases">Releases</a>:                     Versiones publicadas de Muse
+<li><a href="Development.html#Development">Development</a>:                  Últimos cambios en el desarrollo, no publicados
+
+</li></ul>
+<p>Comienzo
+
+</p>
+<ul class="menu">
+<li><a href="Loading-Muse.html#Loading-Muse">Loading Muse</a>:                 Cómo cargar Muse
+<li><a href="Using-Muse-Mode.html#Using-Muse-Mode">Using Muse Mode</a>:              Cómo editar ficheros en Muse
+<li><a href="Publishing-Files-Overview.html#Publishing-Files-Overview">Publishing Files Overview</a>:    Publicación de un solo fichero o proyecto
+<li><a href="File-Extensions.html#File-Extensions">File Extensions</a>:              Empleo de extensiones de fichero distintas
+
+</li></ul>
+<p>Creación y gestión de proyectos Muse
+
+</p>
+<ul class="menu">
+<li><a href="Single-Project.html#Single-Project">Single Project</a>:               Ejemplo de proyecto simple. 
+<li><a href="Multiple-Projects.html#Multiple-Projects">Multiple Projects</a>:            Ejemplo de múltiples proyectos. 
+<li><a href="Projects-and-Subdirectories.html#Projects-and-Subdirectories">Projects and Subdirectories</a>:   Publicación de sub-directorios de proyectos. 
+<li><a href="Options-for-Projects.html#Options-for-Projects">Options for Projects</a>:         Listado de opciones disponibles para los proyectos.
+
+</li></ul>
+<p>Reglas de uso del marcado
+
+</p>
+<ul class="menu">
+<li><a href="Paragraphs.html#Paragraphs">Paragraphs</a>:                   Párrafos: centrado y citas
+<li><a href="Headings.html#Headings">Headings</a>:                     Niveles de las cabeceras
+<li><a href="Directives.html#Directives">Directives</a>:                   Directivas al comienzo de los documentos
+<li><a href="Emphasizing-Text.html#Emphasizing-Text">Emphasizing Text</a>:             Texto en negrita, cursivas y subrayadas
+<li><a href="Footnotes.html#Footnotes">Footnotes</a>:                    Notas a pie de página
+<li><a href="Verse.html#Verse">Verse</a>:                        Indicación de estrofas poéticas
+<li><a href="Lists.html#Lists">Lists</a>:                        Listas de elementos
+<li><a href="Tables.html#Tables">Tables</a>:                       Generación de tablas de datos
+<li><a href="Explicit-Links.html#Explicit-Links">Explicit Links</a>:               Hiperenlaces y direcciones de correo electrónico con descripciones
+<li><a href="Implicit-Links.html#Implicit-Links">Implicit Links</a>:               Enlaces a URL desnudas, NombresWiki e InterWiki
+<li><a href="Images.html#Images">Images</a>:                       Publicación y visualización de imágenes
+<li><a href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors">Horizontal Rules and Anchors</a>:   Inserción de líneas horizontales o anclas
+<li><a href="Embedded-Lisp.html#Embedded-Lisp">Embedded Lisp</a>:                Evaluación de código Emacs Lisp en los documentos, para la extensibilidad
+<li><a href="Citations.html#Citations">Citations</a>:                    Soporte para citar otros recursos
+<li><a href="Comments.html#Comments">Comments</a>:                     Líneas omitidas en la salida publicada
+<li><a href="Tag-Summary.html#Tag-Summary">Tag Summary</a>:                  Etiquetas reconocidas por Muse
+
+</li></ul>
+<p>Publicación de diversos tipos de documentos
+
+</p>
+<ul class="menu">
+<li><a href="Blosxom.html#Blosxom">Blosxom</a>:                      Integración de Muse con pyblosxom.cgi
+<li><a href="Book.html#Book">Book</a>:                         Publicación de entradas en una compilación
+<li><a href="ConTeXt.html#ConTeXt">ConTeXt</a>:                      Publicación de documentos ConTeXt
+<li><a href="DocBook.html#DocBook">DocBook</a>:                      Publicación en formato DocBook XML
+<li><a href="HTML.html#HTML">HTML</a>:                         Publicación en formato HTML o XHTML
+<li><a href="Ikiwiki.html#Ikiwiki">Ikiwiki</a>:                      Integración con ikiwiki
+<li><a href="Journal.html#Journal">Journal</a>:                      Mantenimiento de un diario o bitácora (o blog)
+<li><a href="LaTeX.html#LaTeX">LaTeX</a>:                        Publicación de documentos LaTeX
+<li><a href="Poem.html#Poem">Poem</a>:                         Publicación de poemas en LaTeX o PDF
+<li><a href="Texinfo.html#Texinfo">Texinfo</a>:                      Publicación de entradas en formato Texinfo o PDF
+<li><a href="XML.html#XML">XML</a>:                          Publicación de entradas en XML
+
+</li></ul>
+<p>Integración de Muse con pyblosxom.cgi
+
+</p>
+<ul class="menu">
+<li><a href="Blosxom-Requirements.html#Blosxom-Requirements">Blosxom Requirements</a>:         Otras herramientas necesarias para el estilo Blosxom
+<li><a href="Blosxom-Entries.html#Blosxom-Entries">Blosxom Entries</a>:              Formato de las entradas Blosxom y automoción
+<li><a href="Blosxom-Options.html#Blosxom-Options">Blosxom Options</a>:              Estilos y opciones proporcionados para Blosxom
+
+</li></ul>
+<p>Creación de estilos de publicación propios
+
+</p>
+<ul class="menu">
+<li><a href="Markup-Functions.html#Markup-Functions">Markup Functions</a>:             Especificación de funciones para marcar texto
+<li><a href="Markup-Regexps.html#Markup-Regexps">Markup Regexps</a>:               Reglas de marcado para la publicación
+<li><a href="Markup-Strings.html#Markup-Strings">Markup Strings</a>:               Cadenas específicas de un estilo de publicación
+<li><a href="Markup-Tags.html#Markup-Tags">Markup Tags</a>:                  Especificaciones de etiquetas para marcados especiales
+<li><a href="Style-Elements.html#Style-Elements">Style Elements</a>:               Parámetros empleados para la definición de estilos
+<li><a href="Deriving-Styles.html#Deriving-Styles">Deriving Styles</a>:              Derivación de estilos nuevos a partir de otro existente
+
+</li></ul>
+<p>Complementos misceláneos, por ejemplo un modo menor
+
+</p>
+<ul class="menu">
+<li><a href="Muse-List-Edit-Minor-Mode.html#Muse-List-Edit-Minor-Mode">Muse List Edit Minor Mode</a>:    Edición fácil de listas en otros modos mayores
+
+   </ul>
+
+   </body></html>
+
+<!--
+
+Local Variables:
+coding: utf-8
+End:
+
+-->

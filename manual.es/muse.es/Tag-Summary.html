@@ -1,0 +1,292 @@
+<html lang="es">
+<head>
+<title>Tag Summary - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Comments.html#Comments" title="Comments">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español `gnu.manticore.es'.
+La empresa cede el copyright a la FSF.
+
+La traducción ha finalizado la fase beta.  Aún le falta revisiones
+técnicas y estilísticas.  Se agradecen las sugerencias.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Tag-Summary"></a>
+<p>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Comments.html#Comments">Comments</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">8.16 Etiquetas reconocidas por Muse</h3>
+
+<p><a name="index-etiquetas-87"></a><a name="index-inserci_00c3_00b3n-de-ficheros-a-la-hora-de-publicar-88"></a><a name="index-publicaci_00c3_00b3n_002c-inclusi_00c3_00b3n-de-marcado-en-cabeceras-y-pies-89"></a><a name="index-publicaci_00c3_00b3n_002c-inserci_00c3_00b3n-de-ficheros-90"></a>
+Muse posee varias etiquetas integradas que pueden ser útiles a la hora
+de la publicación.  See <a href="muse_002dpublish_002dmarkup_002dtags.html#muse_002dpublish_002dmarkup_002dtags">muse-publish-markup-tags</a>, para ver cómo
+personalizar las etiquetas que Muse usa, así como para crear etiquetas
+propias.
+
+   <p>En el texto de cabecera y al pie sólo hay disponible un pequeño
+subconjunto de estas etiquetas.  La opción
+<code>muse-publish-markup-header-footer-tags</code> lista las etiquetas
+permitidas en las cabeceras y pies.
+
+<h4 class="subheading">Sintaxis</h4>
+
+<p>Si una etiqueta toma argumentos, lucirá así:
+
+<pre class="example">     &lt;nombre-etiqueta arg1="cadena1" arg2="cadena2"&gt;
+</pre>
+   <p>Si se quiere que la etiqueta luzca como si viniera directamente de un
+documento XHTML, se puede hacer lo siguiente como alternativa.
+
+<pre class="example">     &lt;nombre-etiqueta arg1="cadena1" arg2="cadena2" /&gt;
+</pre>
+   <p>Si una etiqueta rodea algún texto, se presentará así:
+
+<pre class="example">     &lt;nombre-etiqueta&gt;Algo de texto&lt;/nombre-etiqueta&gt;
+</pre>
+   <p>Si una etiqueta rodea una región larga, se presentará así.
+
+<pre class="example">     &lt;nombre-etiqueta&gt;
+     Algo de texto.
+     Algo más de texto.
+     &lt;/nombre-etiqueta&gt;
+</pre>
+   <h4 class="subheading">Listado de etiquetas</h4>
+
+<p>Esta es la lista completa de etiquetas que Muse acepta, incluyendo
+aquellas mencionadas en secciones anteriores.
+
+     <dl>
+<dt>&lsquo;<samp><span class="samp">&lt;br&gt;</span></samp>&rsquo;<dd>Inserta una ruptura de línea.
+
+     <p>Muse detecta automáticamente los párrafos durante la publicación por
+medio de líneas en blanco, así que esta etiqueta habitualmente es
+innecesaria.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;cite&gt;</span></samp>&rsquo;<dd>Inserta una cita de otra fuente.
+
+     <p>Toma el argumento <samp><span class="option">type</span></samp>, que indica el tipo de cita.  Los
+tipos válidos son "author" y "year".  Si se omite este argumento, se
+incluyen tanto el autor como el año en la cita.
+
+     <p>El uso de una bibliografía para la cita puede especificarse con la
+directiva <samp><span class="option">#bibsource</span></samp>.
+
+     <p>See <a href="Citations.html#Citations">Citations</a>, para información adicional.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;class&gt;</span></samp>&rsquo;<dd>Si se publica en HTML, rodea el texto dado con una etiqueta
+<tt>&lt;span></tt>.  Toma un argumento llamado <var>name</var> que especifica
+el atributo <code>class</code> de la etiqueta <tt>&lt;span></tt>.
+
+     <p>Si se está publicando en un formato diferente, no hace nada extra al
+texto.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;code&gt;</span></samp>&rsquo;<dd>Trata el texto rodeado por la etiqueta como si estuviera incluido
+entre signos de igual, esto es lo convierte en monospace.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;command&gt;</span></samp>&rsquo;<dd>Ejecuta un comando sobre la región, reemplazándola con el resultado
+del comando.  El comando se especifica con el argumento &ldquo;interp&rdquo;. 
+Si no se proporciona un valor para &ldquo;interp&rdquo;, se pasa la región
+entera a la shell.
+
+     <p>El argumento &ldquo;markup&rdquo; controla cómo se marcará la sección.
+
+     <p>Si se omite, se publica la región con las reglas normales de Muse.
+
+     <p>Si es <code>nil</code>, no marca para nada la región, pero previene que Muse
+siga interpretándola.
+
+     <p>Si es <code>example</code>, trata a la región como si estuviera rodeada por
+la etiqueta <tt>&lt;example></tt>.
+
+     <p>Si es <code>src</code>, trata al texto incluido como si estuviera rodeado
+por la etiqueta <tt>&lt;src></tt>.  También se debería especificar el
+atributo &ldquo;lang&rdquo; si se hace esto.
+
+     <p>Si es <code>verse</code>, trata a la región como si estuviera rodeada por la
+etiqueta <tt>&lt;verse></tt>, para preservar las nuevas líneas.
+
+     <p>Por lo demás, debería ser el nombre de una función a la que se
+invoque, con el búfer estrechado a la región.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;comment&gt;</span></samp>&rsquo;<dd>Considera la región entera como comentario.  Si la opción
+<var>muse-publish-comments-p</var> es nil, elimina la región, de lo
+contrario la publica usando la sintaxis de comentario del estilo de
+publicación en uso.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;contents&gt;</span></samp>&rsquo;<dd>Publica una Índice de Contenidos.  Esto se insertará ya sea en ese
+punto o al principio del documento, dependiendo del estilo de
+publicación que se esté usando.  No tiene una etiqueta delimitadora.
+
+     <p>Por omisión, sólo se incluirán 2 niveles de cabeceras en el Índice de
+Contenidos que se genere.  Para modificar esto globalmente, se
+personaliza la opción <var>muse-publish-contents-depth</var>.  Para
+cambiarlo sólo para la etiqueta del momento se usa el argumento
+&ldquo;depth&rdquo;.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;div&gt;</span></samp>&rsquo;<dd>Inserta una etiqueta &lt;div&gt; en los documentos HTML y no inserta nada
+especial para otros formatos de publicación no-HTML.
+
+     <p>Si se proporciona el argumento &ldquo;style&rdquo;, se incluye con la etiqueta
+<tt>&lt;div></tt> publicada.  Igualmente para el argumento &ldquo;id&rdquo;.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;example&gt;</span></samp>&rsquo;<dd>Publica la región en monoespacio, preservando las nuevas líneas en la
+región.  Esto es útil para snippets de código.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;include&gt;</span></samp>&rsquo;<dd>Inserta el fichero dado en la ubicación del momento durante la
+publicación.  El uso básico de esta etiqueta es como sigue,
+reemplazando &ldquo;fichero_incluido&rdquo; por el nombre del fichero que se
+desea incluir.
+
+     <pre class="example">          &lt;include file="fichero_incluido"&gt;
+</pre>
+     <p>El argumento &ldquo;markup&rdquo; controla cómo se marca esta sección.
+
+     <p>Si se omite, publica el texto incluido con las reglas Muse normales.
+
+     <p>Si es "nil", no marca para nada el texto incluido.
+
+     <p>Si es "example", trata al texto incluido como si estuviera rodeado por
+la etiqueta <tt>&lt;example></tt>.
+
+     <p>Si es "src", trata al texto incluido como si estuviera rodeado por la
+etiqueta <tt>&lt;src></tt>.  También se debería especificar el atributo
+&ldquo;lang&rdquo; si se hace esto.
+
+     <p>Si es "verse", trata el texto incluido como si estuviera rodeado por
+la etiqueta <tt>&lt;verse></tt>, para preservar las nuevas líneas.
+
+     <p>De lo contrario, debería ser el nombre de una función a la que invocar
+después de insertar el fichero con el búfer estrechado a la sección
+insertada.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;lisp&gt;</span></samp>&rsquo;<dd>Evalúa las expresiones Emacs Lisp entre las etiquetas inicial y final. 
+El resultado se insertará en el documento, tal que no se necesite
+llamar explícitamente a <code>insert</code>.  Todas las propiedades del
+texto quedan removidas del texto resultante.
+
+     <p>Esta etiqueta toma el argumento &ldquo;markup&rdquo;.  Véase la descripción de
+<tt>&lt;command></tt> para los detalles.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;literal&gt;</span></samp>&rsquo;<dd>Se asegura que el texto rodeado por esta etiqueta se publica sin
+ningún tipo de escape.  Esto es útil para la inserción de marcas
+directamente en el documento publicado, cuando Muse no proporciona la
+funcionalidad deseada.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;markup&gt;</span></samp>&rsquo;<dd>Marca el texto entre las etiquetas de inicio y de fin.  El comando de
+marcado a usar se puede especificar con el argumento &ldquo;function&rdquo;.  Se
+usarán las rutinas estándares de marcado de Muse si no se proporciona
+ningún argumento &ldquo;function&rdquo;.
+
+     <p>Esto es útil para el marcado de regiones en cabeceras y pies.  Un
+ejemplo que vendría a la cabeza es generar un índice publicado de
+todos los ficheros del proyecto haciendo lo siguiente.
+
+     <pre class="example">          &lt;markup&gt;&lt;lisp&gt;(muse-index-as-string t t)&lt;/lisp&gt;&lt;/markup&gt;
+</pre>
+     <br><dt>&lsquo;<samp><span class="samp">&lt;perl&gt;</span></samp>&rsquo;<dd>Ejecuta el intérprete del lenguaje <samp><span class="command">perl</span></samp> en la región,
+reemplazando la región con los resultados del comando.
+
+     <p>Esta etiqueta toma el argumento &ldquo;markup&rdquo;.  Véase la descripción de
+<tt>&lt;command></tt> para los detalles.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;python&gt;</span></samp>&rsquo;<dd>Ejecuta el intérprete del lenguaje <samp><span class="command">python</span></samp> en la región,
+reemplazando la región con los resultados del comando.
+
+     <p>Esta etiqueta toma el argumento &ldquo;markup&rdquo;.  Véase la descripción de
+<tt>&lt;command></tt> para los detalles.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;quote&gt;</span></samp>&rsquo;<dd>Publica la región como una cita.  Esto será insertado ya sea en el
+punto donde se encuentre o al comienzo del documento, dependiendo del
+estilo de publicación.  No tiene una etiqueta delimitadora.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;ruby&gt;</span></samp>&rsquo;<dd>Ejecuta el intérprete del lenguaje <samp><span class="command">ruby</span></samp> en la región,
+reemplazando la región con los resultados del comando.
+
+     <p>Esta etiqueta toma el argumento &ldquo;markup&rdquo;.  Véase la descripción de
+<tt>&lt;command></tt> para los detalles.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;src&gt;</span></samp>&rsquo;<dd>Publica la región empleando <samp><span class="command">htmlize</span></samp>.  El lenguaje a utilizar
+puede especificarse con el atributo <code>lang</code>.
+
+     <p>Muse buscará una función llamada <var>lang</var>-mode, donde <var>lang</var> es
+precisamente el valor del atributo <code>lang</code>.
+
+     <p>Esta etiqueta requiere <code>htmlize</code> 1.34 o posterior para que
+funcione.  Si no se satisface este requisito o el estilo de
+publicación en uso no está basado en HTML, Muse publicará la región
+como una etiqueta <tt>&lt;example></tt>.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;verbatim&gt;</span></samp>&rsquo;<dd>Se usa cuando se quiere prevenir que Muse intente interpretar alguna
+marca.  Se rodea la marca entre <tt>&lt;verbatim></tt> y
+<tt>&lt;/verbatim></tt>, y no será interpretada.
+
+     <p>Esta etiqueta se usó con frecuencia en versiones previas de Muse
+porque no soportaba los escapes especiales en todo el documento. 
+Ahora sólo será necesaria para otras etiquetas, y quizás también para
+notas al pie.
+
+     <br><dt>&lsquo;<samp><span class="samp">&lt;verse&gt;</span></samp>&rsquo;<dd>Preserva las nuevas líneas en la región.  En formatos como HTML, las
+nuevas líneas se remueven por defecto, por ello la necesidad de esta
+etiqueta.  En otros estilos de publicación, esta etiqueta puede causar
+que el texto sea sangrado ligeramente de una manera agradable para la
+poesía y la prosa.
+
+   </dl>
+
+   </body></html>
+

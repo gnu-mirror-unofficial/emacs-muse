@@ -1,0 +1,192 @@
+<html lang="es">
+<head>
+<title>HTML - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="DocBook.html#DocBook" title="DocBook">
+<link rel="next" href="Ikiwiki.html#Ikiwiki" title="Ikiwiki">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español `gnu.manticore.es'.
+La empresa cede el copyright a la FSF.
+
+La traducción ha finalizado la fase beta.  Aún le falta revisiones
+técnicas y estilísticas.  Se agradecen las sugerencias.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="HTML"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Ikiwiki.html#Ikiwiki">Ikiwiki</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="DocBook.html#DocBook">DocBook</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.5 Publicación en formato HTML o XHTML</h3>
+
+<p>Este estilo de publicación es capaz de producir documentos HTML y XHTML.
+
+<h4 class="subheading">Estilos proporcionados para HTML/XHTML</h4>
+
+     
+<a name="index-publicaci_00c3_00b3n-de-estilos_002c-html-102"></a>
+<dl><dt><code>html</code><dd>Admite la publicación en HTML 4.0 y HTML 4.01, estricto o transitorio.
+
+     <br><dt><code>xhtml</code><dd>Admite la publicación en XHTML 1.0 y XHTML 1.1, estricto o
+transitorio.
+
+</dl>
+
+<h4 class="subheading">Opciones proporcionadas para HTML/XHTML</h4>
+
+<p>Si una opción HTML no tiene una opción XHTML correspondiente, será
+empleada para ambos estilos de publicación.
+
+   <p>Estos estilos de publicación usan las mismas opciones para el marcado
+de los caracteres especiales que el estilo de publicación &ldquo;xml&rdquo;. 
+See <a href="XML.html#XML">XML</a>, para los detalles.
+
+     <dl>
+<dt><code>muse-html-extension</code><dd>Extensión de fichero predeterminada para la publicación de ficheros
+HTML.
+
+     <br><dt><code>muse-xhtml-extension</code><dd>Extensión de fichero predeterminada para la publicación de ficheros
+XHTML.
+
+     <br><dt><code>muse-html-style-sheet</code><dd>Aquí se almacenan las definiciones de hojas de estilos.
+
+     <p>Se usa en <code>muse-html-header</code>.  Aquí se puede poner CSS puro o una
+etiqueta <tt>&lt;link></tt> a una hoja de estilos externa.  Este texto
+puede contener etiquetas de marcado <tt>&lt;lisp></tt>.
+
+     <p>Si se está publicando en XHTML, entonces se personaliza la opción
+<code>muse-xhtml-style-sheet</code>.
+
+     <br><dt><code>muse-xhtml-style-sheet</code><dd>Aquí se almacenan las definiciones de la hoja de estilos.
+
+     <p>Se usa en <code>muse-xhtml-header</code>.  Se puede poner CSS en bruto o una
+etiqueta <tt>&lt;link></tt> a una hoja de estilos externa.  Este texto
+puede contener etiquetas de marcado <tt>&lt;lisp></tt>.
+
+     <br><dt><code>muse-html-header</code><dd>Cabecera para la publicación de ficheros HTML.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-html-footer</code><dd>Pie usado para publicar ficheros HTML.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-xhtml-header</code><dd>Cabecera usada para la publicación de ficheros XHTML.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-xhtml-footer</code><dd>Pie usado para la publicación de ficheros XHTML.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-html-anchor-on-word</code><dd>Cuando es cierta, las anclas rodean la palabra más cercana.
+
+     <p>Esto permite seleccionarlas en un navegador (i.e. para su pegado),
+pero tiene el efecto lateral de marcar las cabeceras en colores
+múltiples si el estilo de la cabecera es distinto al estilo del
+enlace.
+
+     <br><dt><code>muse-html-table-attributes</code><dd>Atributo a usar con las etiquetas HTML <tt>&lt;table></tt>.
+
+     <p>Si se quiere hacer tablas más complicadas en HTML, se rodea el HTML
+con la etiqueta <tt>literal</tt>, tal que que no se escapen.
+
+     <br><dt><code>muse-html-markup-regexps</code><dd>Lista de reglas de marcado para la publicación de páginas Muse en
+HTML.
+
+     <br><dt><code>muse-html-markup-functions</code><dd>Una a-lista de tipos de estilos para personalizar funciones para ese
+tipo de texto.
+
+     <br><dt><code>muse-html-markup-strings</code><dd>Cadenas usadas para marcar el texto como HTML.
+
+     <p>Cubren los tipos de marcados más básicos, cuya manipulación difiere
+poco entre los distintos estilos.
+
+     <br><dt><code>muse-xhtml-markup-strings</code><dd>Cadenas usadas para marcar el texto como XHTML.
+
+     <p>Cubren los tipos de marcados más básicos, cuya manipulación difiere
+poco entre los distintos estilos.
+
+     <br><dt><code>muse-html-markup-tags</code><dd>Lista de especificaciones de etiquetas, para el marcado especial en
+HTML.  See <a href="muse_002dpublish_002dmarkup_002dtags.html#muse_002dpublish_002dmarkup_002dtags">muse-publish-markup-tags</a>, para más información.
+
+     <br><dt><code>muse-html-meta-http-equiv</code><dd>El atributo http-equiv usado para la etiqueta HTML <tt>&lt;meta></tt>.
+
+     <br><dt><code>muse-html-meta-content-type</code><dd>El tipo de contenido usado para la etiqueta HTML <tt>&lt;meta></tt>.
+
+     <p>Si uno se está esforzando en mantener la conformidad con XHTML 1.1,
+podría querer cambiar esto a &ldquo;application/xhtml+xml&rdquo;.
+
+     <br><dt><code>muse-html-meta-content-encoding</code><dd>El conjunto de caracteres a añadir a la etiqueta HTML <tt>&lt;meta></tt>.
+
+     <p>Si se pone en el símbolo 'detect, se usa <code>muse-xml-encoding-map</code>
+para probar y determinar el conjunto de caracteres HTML a partir de la
+codificación de Emacs.  Si se establece en una cadena, esta cadena se
+usará para forzar un conjunto de caracteres particular.
+
+     <br><dt><code>muse-html-charset-default</code><dd>El conjunto de caracteres meta predeterminado de HTML a usar si no se
+encuentra ninguna traducción en <code>muse-xml-encoding-map</code>.
+
+     <br><dt><code>muse-html-encoding-default</code><dd>La codificación predeterminada del búfer de Emacs para su empleo en
+los ficheros publicados.  Se usará si no se encuentran caracteres
+especiales.
+
+   </dl>
+
+   </body></html>
+

@@ -1,0 +1,131 @@
+<html lang="es">
+<head>
+<title>Implicit Links - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Explicit-Links.html#Explicit-Links" title="Explicit Links">
+<link rel="next" href="Images.html#Images" title="Images">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español `gnu.manticore.es'.
+La empresa cede el copyright a la FSF.
+
+La traducción ha finalizado la fase beta.  Aún le falta revisiones
+técnicas y estilísticas.  Se agradecen las sugerencias.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Implicit-Links"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Images.html#Images">Images</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Explicit-Links.html#Explicit-Links">Explicit Links</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">8.10 Enlaces a URL desnudas, NombresWiki e InterWiki</h3>
+
+<p><a name="index-enlaces-impl_00c3_00adcitos-63"></a><a name="index-enlaces_002c-en-bruto-64"></a>
+<a name="index-URL-65"></a><a name="index-Correo-electr_00c3_00b3nico_002c-direcciones-66"></a>
+Una dirección URL o de correo electrónico localizada en el texto de
+entrada se publica como hiperenlace.  Este tipo de enlaces se
+denominan <dfn>enlaces implícitos</dfn> porque no quedan separados del
+resto del documento Muse.
+
+   <p>Algunos caracteres en los URL pueden prevenir que Muse los reconozca
+como enlaces implícitos.  Si se quiere enlazar a un URL que contiene
+espacios o cualquiera de los caracteres &ldquo;][,"'`()&lt;&gt;^&rdquo;, habrá que
+convertir el enlace en explícito.  Los caracteres de puntuación
+&ldquo;.,;:&rdquo; tampoco se reconocen como parte de un URL cuando aparecen al
+final.  Para información acerca de cómo hacer un enlace explícito,
+véase <a href="Explicit-Links.html#Explicit-Links">Hyperlinks and email addresses with descriptions</a>.
+
+   <p><a name="index-NombresWiki-67"></a>Si se carga el módulo <samp><span class="command">muse-wiki</span></samp>, quedará disponible otra
+forma de enlace implícito.  Los NombresWiki, que se escriben en
+LetraCamello, son resaltados y publicados como enlaces, dado que
+exista el fichero al que remiten.
+
+   <p>Se puede personalizar el reconocimiento de los NombresWiki editando la
+opción <code>muse-wiki-wikiword-regexp</code> y ejecutando seguidamente
+<code>(muse-configure-highlighting
+'muse-colors-markupmuse-colors-markup)</code>.  Si se usa la interfaz de
+Customize, lo último se hará automáticamente.
+
+   <p><a name="index-InterWiki_002c-enlaces-68"></a><a name="index-enlaces-inter_002dproyectos-69"></a>El módulo <samp><span class="command">muse-wiki</span></samp> también permite los enlaces InterWiki. 
+Estos son similares a las PalabrasWiki, pero en este caso especifican
+tanto el proyecto como la página de un fichero.  Se usará el nombre de
+las entradas de proyecto en <code>muse-project-alist</code> como nombre
+InterWiki predeterminado.  Siguen varios ejemplos.
+
+<pre class="example">     Blog::DocumentarMuse
+     Proyectos#EmacsMuse
+     Sitioweb
+</pre>
+   <p>En el primer caso, el delimitador interwiki es &lsquo;<samp><span class="samp">::</span></samp>&rsquo;, &lsquo;<samp><span class="samp">Blog</span></samp>&rsquo;
+es el nombre del proyecto, y &lsquo;<samp><span class="samp">DocumentingMuse</span></samp>&rsquo; es el nombre de la
+página.  En el segundo ejemplo, &lsquo;<samp><span class="samp">#</span></samp>&rsquo; es el delimitador interwiki. 
+Si el nombre de un proyecto se presenta como tal en el texto, como en
+el tercer caso, quedará colorizado y publicado como enlace a la página
+predeterminada del proyecto dado.
+
+   <p>Se puede conseguir la personalización de los enlaces interwiki
+editando la opción <code>muse-wiki-interwiki-alist</code>.
+
+   <p>También es posible enlazar a un ancla en un documento interwiki.  A
+esto se le denomina un &ldquo;enlace de tres partes&rdquo;.  Siguen ejemplos de
+esto.
+
+<pre class="example">     Blog::DocumentarMuse#anchor1
+     Proyectos#EmacsMuse#anchor2
+</pre>
+   </body></html>
+

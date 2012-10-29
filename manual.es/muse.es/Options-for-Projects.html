@@ -1,0 +1,201 @@
+<html lang="es">
+<head>
+<title>Options for Projects - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Projects.html#Projects" title="Projects">
+<link rel="prev" href="Projects-and-Subdirectories.html#Projects-and-Subdirectories" title="Projects and Subdirectories">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español `gnu.manticore.es'.
+La empresa cede el copyright a la FSF.
+
+La traducción ha finalizado la fase beta.  Aún le falta revisiones
+técnicas y estilísticas.  Se agradecen las sugerencias.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Options-for-Projects"></a>
+<p>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Projects-and-Subdirectories.html#Projects-and-Subdirectories">Projects and Subdirectories</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Projects.html#Projects">Projects</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">6.4 Listado de opciones disponibles para los proyectos</h3>
+
+<p><a name="index-proyectos_002c-opciones-22"></a><a name="index-muse_002dproject_002dalist_002c-referencia-23"></a>
+Este es el listado de todas las opciones (con más precisión:
+atributos) que se pueden especificar en <code>muse-project-alist</code>.
+
+   <p>Cada entrada en <code>muse-project-alist</code> luce así:
+
+<pre class="example">       (NOMBRE-DEL-PROYECTO (ORIGEN)
+         SALIDA)
+</pre>
+   <p>Abajo hablamos de estos nombres.
+
+   <p>Los <dfn>atributos</dfn>, que se componen de SOURCES y de OUTPUTS, son
+pares de valores.  El primer valor es una palabra clave, como
+<samp><span class="option">:default</span></samp>.  La segunda parte es el valor asociado con esa
+palabra clave, como el texto &ldquo;index&rdquo;.  Si se está familiarizado con
+las listas de propiedades de Emacs Lisp, el concepto es similar a
+ellas, excepto que en la sección SOURCES, los directorios pueden
+entreverarse con los atributos de dos valores.
+
+<h4 class="subheading">Nombre del proyecto</h4>
+
+<p>Se trata de una cadena que indica el nombre del proyecto.  Se usa
+principalmente para la publicación de los enlaces interwiki con el
+módulo <samp><span class="file">muse-wiki.el</span></samp>.
+
+<h4 class="subheading">Origen</h4>
+
+<p>Esta parte de una entrada en <code>muse-project-alist</code> consiste en
+atributos de dos valores y también en nombres de directorios.  Si se
+está publicando un libro, el orden de los directorios y de los
+atributos es significativo.
+
+   <p>El contenido mínimo de la sección Origen es una lista de directorios.
+
+     <dl>
+<dt><samp><span class="option">:book-chapter</span></samp><dd>Indica un capítulo nuevo de un libro.  El título del capítulo va
+inmediatamente después de esta palabra clave.
+
+     <br><dt><samp><span class="option">:book-end</span></samp><dd>Indica el final de un libro.  Los directorios listados después se
+ignoran en el momento de la publicación.  El valor <code>t</code> (sin las
+comillas) debería ir inmediatamente después de esta palabra clave.
+
+     <br><dt><samp><span class="option">:book-funcall</span></samp><dd>Función a llamar mientras se publica un libro.  Es útil para hacer
+algo justo después de un capítulo particular.
+
+     <br><dt><samp><span class="option">:book-part</span></samp><dd>Indica el comienzo de una parte nueva del libro.  El texto del título
+ha de ir inmediatamente después de esta palabra clave.
+
+     <br><dt><samp><span class="option">:book-style</span></samp><dd>Indica un estilo de publicación particular a usar para esta parte del
+libro.  Si se especifica, ha de ir justo después de un atributo
+<samp><span class="option">:part</span></samp>.
+
+     <br><dt><samp><span class="option">:default</span></samp><dd>La página predeterminada a visitar cuando se navega por un proyecto. 
+También, si se está usando el módulo <samp><span class="file">muse-wiki.el</span></samp>, la
+publicación de un enlace a nombre de un proyecto causará que dicho
+enlace vaya a este fichero predeterminado.
+
+     <br><dt><samp><span class="option">:force-publish</span></samp><dd>Esto especifica una lista de páginas que deberían publicarse cada vez
+que se publique un proyecto (empleando <kbd>C-c C-p</kbd>, por ejemplo),
+sin considerar si su contenido ha cambiado.  Es útil para la
+actualización de las páginas Index, páginas que usan la etiqueta
+<tt>&lt;include></tt> y otras páginas que tienen contenido generado
+dinámicamente.
+
+     <br><dt><samp><span class="option">:major-mode</span></samp><dd>Especifica el modo mayor a usar cuando se visita ficheros en este
+proyecto.  Lo predeterminado es <code>muse-mode</code>.
+
+     <br><dt><samp><span class="option">:nochapters</span></samp><dd>Esto indica que, mientras se publica un libro, no se crean
+automáticamente los capítulos.  Los valores que pueden seguir son
+<code>nil</code> (el predeterminado, que significa que los capítulos se
+crearán automáticamente), o no-<code>nil</code>, que significa que
+especificaremos manualmente los capítulos con el atributo
+<samp><span class="option">:book-chapter</span></samp>.
+
+     <br><dt><samp><span class="option">:publish-project</span></samp><dd>Indica la función que habrá de llamarse cuando se publique un
+proyecto.
+
+     <br><dt><samp><span class="option">:set</span></samp><dd>Especifica una lista de variables y valores a poner cuando se publique
+un proyecto.  La lista debería ser una lista de propiedades, con la
+forma:
+
+     <pre class="example">          (VAR1 VALOR1 VAR2 VALOR2 ...)
+</pre>
+     <br><dt><samp><span class="option">:visit-link</span></samp><dd>Especifica la función a llamar cuando se visite un enlace.  La
+predeterminada es <code>muse-visit-link-default</code>.  Los argumentos de
+esa función deberían ser (1) el enlace y (2) si hay que visitarlo en
+una ventana nueva.
+
+   </dl>
+
+<h4 class="subheading">Salida</h4>
+
+<p>Esta parte de una entrada en <code>muse-project-alist</code> se compone de
+listas de atributos.  Cada lista se denomina un &ldquo;estilo de salida&rdquo;.
+
+   <p>El contenido mínimo para un estilo de salida es un atributo
+<samp><span class="option">:base</span></samp> y un atributo <samp><span class="option">:path</span></samp>.
+
+     <dl>
+<dt><samp><span class="option">:base</span></samp><dd>Estilo de publicación a usar, como &ldquo;html&rdquo;, &ldquo;docbook&rdquo; o &ldquo;pdf&rdquo;.
+
+     <br><dt><samp><span class="option">:base-url</span></samp><dd>Un URL externo que se pueda usar para acceder a los ficheros
+publicados.  Esto se usa principalmente por el módulo <samp><span class="file">muse-wiki</span></samp>
+cuando publica enlaces entre dos proyectos separados, si los proyectos
+se sirven en dominios diferentes.
+
+     <p>También lo usa el módulo <samp><span class="file">muse-journal</span></samp> para crear la salida RSS
+o RDF.
+
+     <br><dt><samp><span class="option">:exclude</span></samp><dd>Excluye la publicación de los elementos que coincidan con una
+expresión regular.  La expresión regular debería empezar habitualmente
+con "/".
+
+     <br><dt><samp><span class="option">:include</span></samp><dd>Sólo incluye los elementos que coincidan con un expresión regular
+cuando se produzca la publicación.  La expresión regular debería
+comenzar habitualmente con "/".
+
+     <br><dt><samp><span class="option">:path</span></samp><dd>El directorio en el que almacenar los ficheros publicados.
+
+     <br><dt><samp><span class="option">:timestamps</span></samp><dd>Fichero que contiene las marcas de tiempo de los ficheros del
+proyecto.  Puede usarla el módulo <samp><span class="file">muse-blosxom</span></samp>, pero esta
+opción no está en uso en ninguna parte del código Muse.
+
+   </dl>
+
+   </body></html>
+

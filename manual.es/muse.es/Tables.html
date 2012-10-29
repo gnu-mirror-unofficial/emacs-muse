@@ -1,0 +1,130 @@
+<html lang="es">
+<head>
+<title>Tables - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Lists.html#Lists" title="Lists">
+<link rel="next" href="Explicit-Links.html#Explicit-Links" title="Explicit Links">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español `gnu.manticore.es'.
+La empresa cede el copyright a la FSF.
+
+La traducción ha finalizado la fase beta.  Aún le falta revisiones
+técnicas y estilísticas.  Se agradecen las sugerencias.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Tables"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Explicit-Links.html#Explicit-Links">Explicit Links</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Lists.html#Lists">Lists</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">8.8 Generación de tablas de datos</h3>
+
+<p><a name="index-tablas-58"></a>
+<a name="index-tablas-simples-59"></a>Sólo se admiten tablas muy simples.  La sintaxis es como sigue.
+
+<pre class="example">     Barras dobles  || Separan campos de cabecera
+     
+     Barras simples   | Separan campos de cuerpo
+     Aquí hay más | campos de cuerpo
+     
+     Barras tripes ||| Separan campos al pie
+</pre>
+   <p>Algunos estilos de publicación requieren que primero se proporcionen
+los campos de cabecera, después los campos al pie, y después los
+campos del cuerpo.  Se puede usar cualquier orden que se desee para
+estas secciones y Muse las reordenará en el momento de la publicación.
+
+   <p>Si se desea desactivar la generación de tablas en un fichero Muse, se
+añade la directiva &lsquo;<samp><span class="samp">#disable-tables t</span></samp>&rsquo; al comienzo del fichero.
+
+<h4 class="subheading">Otros formatos de tablas</h4>
+
+<p><a name="index-tablas-al-estilo-orgtbl_002dmode-60"></a>Es posible publicar tablas muy básicas al estilo de Orgtbl-mode.
+
+<pre class="example">     | org  | estilo | tabla |
+     |------+--------+-------|
+     | uno  |        | uno   |
+     | dos  | dos    |       |
+     |      | tres   | tres  |
+     |------+--------+-------|
+     | más  | cosas  |       |
+</pre>
+   <p>Si el lector está acostumbrado a la manera en que el modo Org publica
+estas tablas, entonces puede personalizar
+<code>muse-html-table-attributes</code> en lo siguiente, para obtener un
+tipo de salida similar.
+
+<pre class="example">     border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"
+</pre>
+   <p><a name="index-tablas-al-estilo-table_002eel-61"></a>También se admiten las tablas al estilo de <samp><span class="file">table.el</span></samp>, en la
+medida en que <samp><span class="file">table.el</span></samp> en sí le de soporte a la salida de
+tablas para un estilo de publicación en particular.  En el momento de
+escribir esto, los estilos &ldquo;html&rdquo;, &ldquo;latex&rdquo; y &ldquo;docbook&rdquo; tienen
+soporte en <samp><span class="file">table.el</span></samp>.  Los estilos derivados de estos otros
+también funcionarán.
+
+<pre class="example">     +---+-----+---+
+     |   | uno | 1 |
+     +---+-----+---+
+     | b | dos |   |
+     +---+-----+---+
+     | c |     | 3 |
+     +---+-----+---+
+</pre>
+   </body></html>
+

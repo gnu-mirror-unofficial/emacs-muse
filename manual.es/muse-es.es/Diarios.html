@@ -1,0 +1,274 @@
+<html lang="es">
+<head>
+<title>Diarios - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Estilos-de-publicaci_00c3_00b3n.html#Estilos-de-publicaci_00c3_00b3n" title="Estilos de publicación">
+<link rel="prev" href="Ikiwiki.html#Ikiwiki" title="Ikiwiki">
+<link rel="next" href="LaTeX.html#LaTeX" title="LaTeX">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Diarios"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="LaTeX.html#LaTeX">LaTeX</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Ikiwiki.html#Ikiwiki">Ikiwiki</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Estilos-de-publicaci_00c3_00b3n.html#Estilos-de-publicaci_00c3_00b3n">Estilos de publicación</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.7 Mantenimiento de un diario o bitácora (o blog)</h3>
+
+<p><a name="index-diarios-104"></a><a name="index-blog_002c-estilo-de-diario-105"></a><a name="index-bit_00c3_00a1coras-106"></a>
+El módulo facilita la conservación y publicación de diarios.  Cuando
+se publica en HTML, asume la forma de una bitácora o blog.
+
+   <p>El formato de entrada para cada entrada de diario es como sigue.
+
+<pre class="example">     * 20040317: Título de la entrada
+     
+     texto de la entrada.
+     
+     &lt;qotd&gt;
+     "El teatro es poesía que se sale del libro para hacerse humana." --
+     Federico García Lorca
+     &lt;/qotd&gt;
+</pre>
+   <p>La "qotd", o Cita del día, es completamente optativa.  Cuando se
+genere en HTML, esta entrada se procesa como sigue.
+
+<pre class="example">     &lt;div class="entry"&gt;
+       &lt;div class="entry-qotd"&gt;
+         &lt;h3&gt;Frase del día:&lt;/h3&gt;
+         &lt;p&gt;"El teatro es poesía que se sale del libro para
+             hacerse humana." -- Federico García Lorca
+         &lt;/p&gt;
+       &lt;/div&gt;
+       &lt;div class="entry-body"&gt;
+         &lt;div class="entry-head"&gt;
+           &lt;div class="entry-date"&gt;
+             &lt;span class="date"&gt;17 de Marzo de 2004&lt;/span&gt;
+           &lt;/div&gt;
+           &lt;div class="entry-title"&gt;
+             &lt;h2&gt;Título de la entrada&lt;/h2&gt;
+           &lt;/div&gt;
+         &lt;/div&gt;
+         &lt;div class="entry-text"&gt;
+           &lt;p&gt;Texto de la entrada.&lt;/p&gt;
+         &lt;/div&gt;
+       &lt;/div&gt;
+     &lt;/div&gt;
+</pre>
+   <p>La diversidad de etiquetas "div" posibilita mostrar las entradas en la
+forma que se desee, usando estilos CSS.
+
+   <p>También se puede generar un fichero .RDF a partir del diario, mediante
+su publicación en estilo "rdf".  Emplea las dos primeras frases del
+primer párrafo de cada entrada como su "descripción" y auto-genera las
+etiquetas para el enlazado a las distintas entradas.
+
+<h4 class="subheading">consideraciones respecto a <code>muse-project-alist</code></h4>
+
+<p>Si se desea publicar una canal RDF o RSS, es importante incluir el
+atributo <samp><span class="option">:base-url</span></samp> en la entrada <code>muse-project-alist</code>
+para los proyectos personales de Bitácora.  Sigue un ejemplo.
+
+<pre class="example">     (setq muse-project-alist
+           '(("Diario" ("~/Diario/"
+                         :default "diario")
+             (:base "journal-rss"
+                    :base-url "http://ejemplo.org/diario/"
+                    :path "~/public_html/diario"))))
+</pre>
+   <h4 class="subheading">Estilos proporcionados para bitácoras</h4>
+
+     
+<a name="index-publicaci_00c3_00b3n-de-estilos_002c-journal_002dhtml-107"></a>
+<dl><dt><code>journal-html</code><dd>Publica las entradas de diario como documento HTML.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-journal_002dxhtml-108"></a><br><dt><code>journal-xhtml</code><dd>Publica las entradas de diario como documento XHTML.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-journal_002dlatex-109"></a><br><dt><code>journal-latex</code><dd>Publica las entradas de diario como documento LaTeX.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-journal_002dpdf-110"></a><br><dt><code>journal-pdf</code><dd>Publica las entradas de diario como documento PDF.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-journal_002dbook_002dlatex-111"></a><br><dt><code>journal-book-latex</code><dd>Publica las entradas de diario como libro LaTeX.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-journal_002dbook_002dpdf-112"></a><br><dt><code>journal-book-pdf</code><dd>Publica las entradas de diario como libro PDF.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-journal_002drdf-113"></a><a name="index-publicaci_00c3_00b3n-de-estilos_002c-RSS-1_002e0-114"></a><br><dt><code>journal-rdf</code><dd>Publica las entradas de diario como fichero RDF (RSS 1.0).
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-journal_002drss-115"></a><a name="index-publicaci_00c3_00b3n-de-estilos_002c-RSS-2_002e0-116"></a><br><dt><code>journal-rss</code><dd>Publica las entradas de diario como fichero RSS (RSS 2.0).
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-journal_002drss_002dentry-117"></a><br><dt><code>journal-rss-entry</code><dd>Usado internamente por <code>journal-rss</code> y <code>journal-rdf</code> para la
+publicación de entradas individuales.
+
+</dl>
+
+<h4 class="subheading">Opciones proporcionadas para bitácoras</h4>
+
+     <dl>
+<dt><code>muse-journal-heading-regexp</code><dd>Expresión regular que concuerde con la cabecera del diario.
+
+     <p>El grupo 1 es la fecha ISO; el grupo 2 es la categoría optativa y el
+grupo 3 es la cabecera optativa para la entrada.
+
+     <br><dt><code>muse-journal-date-format</code><dd>Formato de fecha para las entradas del diario.
+
+     <br><dt><code>muse-journal-html-heading-regexp</code><dd>Expresión regular que concuerde con una cabecera de diario de un
+documento HTML.
+
+     <p>El grupo 1 es la fecha ISO; el grupo 2 es la categoría optativa y el
+grupo 3 es la cabecera optativa para la entrada.
+
+     <br><dt><code>muse-journal-html-entry-template</code><dd>Plantilla para la publicación de entradas individuales de diario en
+HTML.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-journal-latex-section</code><dd>Plantilla para la publicación de una sección LaTeX.
+
+     <br><dt><code>muse-journal-latex-subsection</code><dd>Plantilla para la publicación de una sub-sección LaTeX.
+
+     <br><dt><code>muse-journal-markup-tags</code><dd>Lista de especificaciones de etiquetas, para el marcado especial de
+LaTeX.
+
+     <p>See <a href="muse_002dpublish_002dmarkup_002dtags.html#muse_002dpublish_002dmarkup_002dtags">muse-publish-markup-tags</a>, para más información.
+
+     <p>Esto lo usan <code>journal-latex</code> y sus estilos relacionados, así como
+el estilo <code>journal-rss-entry</code>, empleado por <code>journal-rdf</code> y
+<code>journal-rss</code>.
+
+     <br><dt><code>muse-journal-rdf-extension</code><dd>Extensión predeterminada de fichero para la publicación de ficheros
+RDF (RSS 1.0).
+
+     <br><dt><code>muse-journal-rdf-base-url</code><dd>El URL base del sitio web referenciado por el fichero RDF.
+
+     <br><dt><code>muse-journal-rdf-header</code><dd>Cabecera para la publicación de ficheros RDF (RSS 1.0).
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-journal-rdf-footer</code><dd>Pie para la publicación de ficheros RDF (RSS 1.0).
+
+     <p>Puede ser texto o el nombre de un fichero.
+
+     <br><dt><code>muse-journal-rdf-date-format</code><dd>Formato de fecha para las entradas RDF.
+
+     <br><dt><code>muse-journal-rdf-entry-template</code><dd>Plantilla para publicar entradas individuales de diario como RDF.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-journal-rdf-summarize-entries</code><dd>Si es no-<code>nil</code>, incluye sólo los sumarios en el fichero RDF, no
+los datos completos.
+
+     <p>Lo predeterminado es <code>nil</code>, porque esto molesta a algunos
+suscriptores.
+
+     <br><dt><code>muse-journal-rss-heading-regexp</code><dd>Expresión regular que concuerde con una cabecera de diario a partir de
+un documento HTML.
+
+     <p>El grupo 1 es la fecha ISO, el 2 es la categoría optativa y el 3 es
+cabecera optativa para la entrada.
+
+     <br><dt><code>muse-journal-rss-extension</code><dd>Extensión de fichero predeterminada para la publicación de ficheros
+RSS 2.0.
+
+     <br><dt><code>muse-journal-rss-base-url</code><dd>El URL base del sitio web referenciado por el fichero RSS.
+
+     <br><dt><code>muse-journal-rss-header</code><dd>Cabecera para la publicación de ficheros RSS 2.0.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-journal-rss-footer</code><dd>Pie para la publicación de ficheros RSS 2.0.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-journal-rss-date-format</code><dd>Formato de fecha para las entradas RSS 2.0.
+
+     <br><dt><code>muse-journal-rss-entry-template</code><dd>Plantilla para publicar entradas individuales de diario como RSS 2.0.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-journal-rss-enclosure-types-alist</code><dd>Tipos de ficheros que se aceptan como envoltorios RSS.
+
+     <p>Se trata de una a-lista que mapea extensiones de ficheros a tipos de
+contenidos.
+
+     <p>Útil para podcasting.
+
+     <br><dt><code>muse-journal-rss-summarize-entries</code><dd>Si es no-<code>nil</code>, sólo incluye los sumarios en el fichero RSS, no
+los datos completos.
+
+     <p>Lo predeterminado es <code>nil</code>, porque esto molesta a algunos
+suscriptores.
+
+     <br><dt><code>muse-journal-rss-markup-regexps</code><dd>Lista de reglas de marcado para la publicación de páginas de diario
+Muse en RSS.
+
+     <p>Para más información acerca de la estructura de esta lista,
+See <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>.
+
+     <br><dt><code>muse-journal-rss-markup-functions</code><dd>Una a-lista de tipos de estilo para personalizar funciones para ese
+tipo de texto.
+
+     <p>Para más acerca de la estructura de esta lista,
+See <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>.
+
+</dl>
+
+   </body></html>
+

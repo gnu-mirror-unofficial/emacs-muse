@@ -1,0 +1,101 @@
+<html lang="es">
+<head>
+<title>Funciones de marcado - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extensi_00c3_00b3n-de-Muse.html#Extensi_00c3_00b3n-de-Muse" title="Extensión de Muse">
+<link rel="next" href="Regexps-de-marcado.html#Regexps-de-marcado" title="Regexps de marcado">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Funciones-de-marcado"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Regexps-de-marcado.html#Regexps-de-marcado">Regexps de marcado</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extensi_00c3_00b3n-de-Muse.html#Extensi_00c3_00b3n-de-Muse">Extensión de Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">10.1 Especificación de funciones para marcar texto</h3>
+
+<p><a name="index-publicaci_00c3_00b3n_002c-funciones-de-marcado-135"></a>
+<a name="muse_002dpublish_002dmarkup_002dfunctions"></a><code>muse-publish-markup-functions</code>
+
+   <p>Una a-lista de tipos de estilo para personalizar funciones para este
+tipo de texto.
+
+   <p>Se usa por los estilos de publicación para intentar minimizar la
+cantidad de expresiones regulares que uno tenga que definir. 
+<samp><span class="file">muse-publish</span></samp> proporciona reglas para los tipos más comunes de
+marcado.
+
+   <p>Cada miembro de la lista es de la siguiente forma.
+
+<pre class="example">     (SÍMBOLO FUNCIÓN)
+</pre>
+     <ul>
+<li>SÍMBOLO
+Describe el tipo de texto a asociar a esta regla. 
+<code>muse-publish-markup-regexps</code> mapea las expresiones regulares a
+estos símbolos.
+
+     <li>FUNCIÓN
+Función a usar para marcar este tipo de regla si no se encuentra una
+función adecuada en la etiqueta <samp><span class="option">:functions</span></samp> del estilo en uso. 
+</ul>
+
+   </body></html>
+

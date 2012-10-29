@@ -1,0 +1,147 @@
+<html lang="es">
+<head>
+<title>Imágenes - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Reglas-de-marcado.html#Reglas-de-marcado" title="Reglas de marcado">
+<link rel="prev" href="Enlaces-impl_00c3_00adcitos.html#Enlaces-impl_00c3_00adcitos" title="Enlaces implícitos">
+<link rel="next" href="Reglas-horizontales-y-anclas.html#Reglas-horizontales-y-anclas" title="Reglas horizontales y anclas">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Im%c3%a1genes"></a>
+<a name="Im_00c3_00a1genes"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Reglas-horizontales-y-anclas.html#Reglas-horizontales-y-anclas">Reglas horizontales y anclas</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Enlaces-impl_00c3_00adcitos.html#Enlaces-impl_00c3_00adcitos">Enlaces implícitos</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Reglas-de-marcado.html#Reglas-de-marcado">Reglas de marcado</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">8.11 Publicación y visualización de imágenes</h3>
+
+<p><a name="index-im_00c3_00a1genes-70"></a><a name="index-enlaces-con-im_00c3_00a1genes-71"></a>
+
+<h4 class="subheading">Enlaces a imágenes</h4>
+
+<p>Se pueden usar enlaces a imágenes tanto en el destino como en la
+descripción o en ambos.  Así, el siguiente código se publicará como
+imagen pulsable que apunte a <a href="http://gnu.manticore.es/">http://gnu.manticore.es/</a>.
+
+<pre class="example">     [[http://gnu.manticore.es/][/themes/chameleon/marvin/logo.png]]
+</pre>
+   <p>Normalmente, las imágenes en la parte del enlace estarán
+internalizadas.
+
+   <p>Si se quiere que estas imágenes se publiquen como enlaces, se pone el
+texto &ldquo;URL:&rdquo; inmediatamente al frente del texto del enlace.  Sigue
+un ejemplo.
+
+<pre class="example">     [[URL:http://gnu.manticore.es/themes/chameleon/marvin/logo.png]]
+</pre>
+   <p><a name="index-im_00c3_00a1genes_002c-visualizaci_00c3_00b3n-72"></a><a name="index-im_00c3_00a1genes_002c-locales-73"></a>
+
+<h4 class="subheading">Visualización de imágenes en el modo Muse</h4>
+
+<p>Si se encuentra en la descripción del enlace el vínculo a una imagen
+disponible localmente, el modo Muse intentará mostrarla si la versión
+de Emacs lo permite.
+
+   <p>Este comportamiento puede conmutarse con <kbd>C-c C-i</kbd>, o desactivarse
+permanentemente estableciendo la opción
+<code>muse-colors-inline-images</code> en <code>nil</code>.
+
+   <p>Es posible alterar el método para localizar imágenes personalizando la
+opción <code>muse-colors-inline-image-method</code>.  Un valor útil para
+esta opción es <code>muse-colors-use-publishing-directory</code>, que le
+dice al modo Muse que mire en el directorio donde el fichero en uso
+será publicado.  Lo predeterminado en mirar en el directorio en uso. 
+Las rutas relativas como &lsquo;<samp><span class="samp">../pics/</span></samp>&rsquo; deberían funcionar para
+cualquier configuración.
+
+   <p>Se espera que Muse sea capaz de copiar imágenes desde el directorio de
+&ldquo;origen&rdquo; al directorio de publicación personalizando
+<code>muse-project-alist</code>, pero esto aún no se ha implementado.
+
+   <p><a name="index-im_00c3_00a1genes_002c-sin-descripciones-74"></a><a name="index-im_00c3_00a1genes_002c-insertas-75"></a>
+
+<h4 class="subheading">Publicación simple de imágenes</h4>
+
+<p>El siguiente ejemplo se mostrará y publicará correctamente si un
+fichero <acronym>PNG</acronym> llamado <samp><span class="file">TestLogo.png</span></samp> existe en el
+directorio <samp><span class="file">../pics/</span></samp>.  Si hay texto en la misma línea que la
+imagen, también se mantendrá en la salida.
+
+<pre class="example">     [[../mi-imagen.png]]
+</pre>
+   <p><a name="index-im_00c3_00a1genes_002c-t_00c3_00adtulos-76"></a>
+
+<h4 class="subheading">Publicación de imágenes con títulos</h4>
+
+<p>Si se quiere añadir un pie de foto a una imagen, se usa la siguiente
+sintaxis.  Esto centrará la imagen (si el formato de salida lo admite)
+y añadirá un pie centrado debajo de la foto.  Los formatos que no
+admitan el centrado de la imagen la dejarán en el margen izquierdo.
+
+<pre class="example">     [[../pics/mi-gato.png][Mi gato Derbe]]
+</pre>
+   <p>Las imágenes con pies solo pueden presentarse en sus propios párrafos,
+sin texto en la misma línea.  De lo contrario, la salida publicada no
+será sintácticamente correcta.
+
+   </body></html>
+

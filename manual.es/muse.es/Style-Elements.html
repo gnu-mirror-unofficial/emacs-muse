@@ -1,0 +1,173 @@
+<html lang="es">
+<head>
+<title>Style Elements - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extending-Muse.html#Extending-Muse" title="Extending Muse">
+<link rel="prev" href="Markup-Tags.html#Markup-Tags" title="Markup Tags">
+<link rel="next" href="Deriving-Styles.html#Deriving-Styles" title="Deriving Styles">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español `gnu.manticore.es'.
+La empresa cede el copyright a la FSF.
+
+La traducción ha finalizado la fase beta.  Aún le falta revisiones
+técnicas y estilísticas.  Se agradecen las sugerencias.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Style-Elements"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Deriving-Styles.html#Deriving-Styles">Deriving Styles</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Markup-Tags.html#Markup-Tags">Markup Tags</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extending-Muse.html#Extending-Muse">Extending Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">10.5 Parámetros empleados para la definición de estilos</h3>
+
+<p><a name="index-publicaci_00c3_00b3n_002c-elementos-de-estilo-140"></a>
+Los elementos de estilo son etiquetas que definen un estilo.  Se usa o
+bien <code>muse-define-style</code> o <code>muse-derive-style</code>
+(see <a href="Deriving-Styles.html#Deriving-Styles">Deriving Styles</a>) para crear estilos nuevos.
+
+<div class="defun">
+&mdash; Function: <b>muse-define-style</b><var> name &amp;rest elements<a name="index-muse_002ddefine_002dstyle-141"></a></var><br>
+        </div>
+
+<h4 class="subheading">Elementos utilizables</h4>
+
+     <dl>
+<dt><samp><span class="option">:suffix</span></samp><dd>Extensión de fichero a usar para la publicación de ficheros con este
+estilo.
+
+     <br><dt><samp><span class="option">:link-suffix</span></samp><dd>Extensión de fichero a usar para la publicación de enlaces a ficheros
+Muse con este estilo.
+
+     <br><dt><samp><span class="option">:osuffix</span></samp><dd>Extensión de fichero a usar para la publicación de ficheros de segunda
+etapa con este estilo.
+
+     <p>Por ejemplo, la publicación en PDF genera primero un fichero LaTeX y
+después un PDF a partir del fichero LaTeX.
+
+     <br><dt><samp><span class="option">:regexps</span></samp><dd>Listado de reglas de marcado para la publicación de páginas con Muse. 
+See <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>.
+
+     <br><dt><samp><span class="option">:functions</span></samp><dd>Una a-lista de tipos de estilos para personalizar funciones para ese
+tipo de texto.  See <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>.
+
+     <br><dt><samp><span class="option">:strings</span></samp><dd>Cadenas usadas para el marcado de texto con este estilo.
+
+     <p>Cubren los tipos de marcado más básicos, cuya manipulación difiere
+poco entre los distintos estilos.
+
+     <br><dt><samp><span class="option">:tags</span></samp><dd>Lista de especificaciones de etiquetas, usada para manejar etiquetas
+extra.  See <a href="muse_002dpublish_002dmarkup_002dtags.html#muse_002dpublish_002dmarkup_002dtags">muse-publish-markup-tags</a>.
+
+     <br><dt><samp><span class="option">:specials</span></samp><dd>Tabla de los caracteres que deban ser representados de manera
+especial.
+
+     <br><dt><samp><span class="option">:before</span></samp><dd>Función a ejecutar en el búfer de publicación recién creado (o en la
+región activa) antes de que ocurra ningún trabajo de publicación.
+
+     <p>Se usa para establecer parámetros extra que dirijan el proceso de
+publicación.
+
+     <br><dt><samp><span class="option">:before-end</span></samp><dd>Función a ejecutar en el búfer de publicación (o en la región activa)
+inmediatamente después de aplicar todas las expresiones regulares de
+marcado.
+
+     <p>Se usa para modificar el orden de los elementos de la tabla (cabecera,
+pie, cuerpo) en los estilos XML-ados.
+
+     <br><dt><samp><span class="option">:after</span></samp><dd>Función a ejecutar en el búfer de publicación después de
+<code>:before-end</code> e inmediatamente después de haber insertado la
+cabecera y el pie.
+
+     <p>Se usa para generar el índice de contenidos así como para establecer
+el sistema de codificación del fichero.
+
+     <br><dt><samp><span class="option">:final</span></samp><dd>Función a ejecutar después de guardar el fichero publicado, pero
+mientras aún está en su búfer.
+
+     <p>Se usa para generar la segunda etapa de los documentos, como los
+ficheros PDF a partir de los ficheros LaTeX recién publicados.
+
+     <p>La función debe aceptar tres argumentos: el nombre del fichero fuente
+muse, el nombre del fichero recién publicado y el nombre del fichero
+destino de segunda etapa.  Éste último es el mismo que el recién
+publicado si no se requieren segundas etapas en la publicación.
+
+     <br><dt><samp><span class="option">:header</span></samp><dd>Cabecera usada para la publicación de los ficheros de este estilo.
+
+     <p>Puede ser una variable, un texto o el nombre de un fichero.  Se
+inserta al comienzo del fichero, después de evaluar el marcado de
+publicación.
+
+     <br><dt><samp><span class="option">:footer</span></samp><dd>Pie usado para la publicación de los ficheros de este estilo.
+
+     <p>Puede ser una variable, un texto o el nombre de un fichero.  Se
+inserta al final del fichero, después de evaluar el marcado de
+publicación.
+
+     <br><dt><samp><span class="option">:style-sheet</span></samp><dd>Hoja de estilos usada para la publicación de los ficheros de este
+estilo.
+
+     <p>Puede ser una variable o un texto.  Se usa en la cabecera de los
+estilos de publicación basados en HTML y XHTML.
+
+     <br><dt><samp><span class="option">:browser</span></samp><dd>Función usada para navegar el resultado publicado de los ficheros de
+este estilo.
+
+</dl>
+
+   </body></html>
+

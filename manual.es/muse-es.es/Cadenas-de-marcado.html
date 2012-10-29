@@ -1,0 +1,316 @@
+<html lang="es">
+<head>
+<title>Cadenas de marcado - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extensi_00c3_00b3n-de-Muse.html#Extensi_00c3_00b3n-de-Muse" title="Extensión de Muse">
+<link rel="prev" href="Regexps-de-marcado.html#Regexps-de-marcado" title="Regexps de marcado">
+<link rel="next" href="Etiquetas-de-marcado.html#Etiquetas-de-marcado" title="Etiquetas de marcado">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+La traducción está en fase beta.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español
+`http://gnu.manticore.es'.  La empresa cede el copyright a la FSF.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="Cadenas-de-marcado"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Etiquetas-de-marcado.html#Etiquetas-de-marcado">Etiquetas de marcado</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Regexps-de-marcado.html#Regexps-de-marcado">Regexps de marcado</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Extensi_00c3_00b3n-de-Muse.html#Extensi_00c3_00b3n-de-Muse">Extensión de Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">10.3 Cadenas específicas de un estilo de publicación</h3>
+
+<p><a name="index-publicaci_00c3_00b3n_002c-cadenas-de-marcado-138"></a>
+Las <dfn>cadenas de marcado</dfn> son cadenas empleadas para el marcado de
+texto para un estilo particular.
+
+   <p>Cubren los tipos de marcado más básicos, cuya manipulación difiere
+poco entre los distintos estilos.
+
+<h4 class="subheading">Cadenas de marcado disponibles</h4>
+
+     <dl>
+<dt><code>image-with-desc</code><dd>Una imagen con una descripción.
+
+     <p>Argumento 1: imagen sin extensión.  Argumento 2: extensión de la
+imagen.  Argumento 3: descripción.
+
+     <br><dt><code>image</code><dd>Una imagen incrustada.
+
+     <p>Argumento 1: imagen sin extensión.  Argumento 2: extensión de la
+imagen.
+
+     <br><dt><code>image-link</code><dd>Imagen con un enlace en torno a ella.
+
+     <p>Argumento 1: enlace.  Argumento 2: imagen sin extensión.  Argumento 3:
+extensión de la imagen.
+
+     <br><dt><code>anchor-ref</code><dd>Referencia a un ancla en la página en curso.
+
+     <p>Argumento 1: nombre del ancla.  Argumento 2: descripción en el caso de
+existir o el enlace original de lo contrario.
+
+     <br><dt><code>url</code><dd>Un URL sin descripción.
+
+     <p>Argumento 1: URL.
+
+     <br><dt><code>link</code><dd>Enlace a una página Muse con una descripción.
+
+     <p>Argumento 1: enlace.  Argumento 2: descripción en caso de existir o el
+enlace original de lo contrario.
+
+     <br><dt><code>link-and-anchor</code><dd>Enlace a una página Muse con ancla y una descripción.
+
+     <p>Argumento 1: enlace.  Argumento 2: nombre del ancla.  Argumento 3: su
+descripción en el caso de existir o el enlace original de lo
+contrario.  Argumento 4: enlace sin extensión.
+
+     <br><dt><code>email-addr</code><dd>Enlace a una dirección de correo electrónico.
+
+     <p>Argumento 1: dirección de correo.  Argumento 2: dirección de correo.
+
+     <br><dt><code>anchor</code><dd>Ancla.
+
+     <p>Argumento 1: nombre del ancla.
+
+     <br><dt><code>emdash</code><dd>Guión doble.
+
+     <p>Argumento 1: espacio en blanco inicial.  Argumento 2: terminación del
+espacio en blanco.
+
+     <br><dt><code>comment-begin</code><dd>Comienzo de comentario.
+
+     <br><dt><code>comment-end</code><dd>Final de comentario.
+
+     <br><dt><code>rule</code><dd>Línea horizontal o espacio.
+
+     <br><dt><code>no-break-space</code><dd>Espacio que separa dos palabras que no han de ser separadas.
+
+     <br><dt><code>footnote</code><dd>Comienzo de nota al pie de página.
+
+     <br><dt><code>footnote-end</code><dd>Final de nota al pie de página.
+
+     <br><dt><code>footnotemark</code><dd>Marca una referencia para la nota al pie en curso.
+
+     <p>Argumento 1: número de esta nota al pie.
+
+     <br><dt><code>footnotemark-end</code><dd>Final de la referencia para la nota al pie en curso.
+
+     <br><dt><code>footnotetext</code><dd>Indica el texto de la nota al pie en curso.
+
+     <p>Argumento 1: número de esta nota al pie.
+
+     <br><dt><code>footnotetext-end</code><dd>Línea de final del texto de la nota al pie.
+
+     <br><dt><code>fn-sep</code><dd>Texto usado para reemplazar la línea &ldquo;Footnotes:&rdquo;.
+
+     <br><dt><code>dots</code><dd>3 puntos.
+
+     <br><dt><code>enddots</code><dd>4 puntos.
+
+     <br><dt><code>part</code><dd>Línea indicadora del comienzo de una parte.  Se usa para la
+publicación de libros.
+
+     <br><dt><code>part-end</code><dd>Línea indicadora del final de una parte.  Se usa para la publicación
+de libros.
+
+     <br><dt><code>chapter</code><dd>Comienzo de una línea indicadora de capítulo.  Se usa para la
+publicación de libros.
+
+     <br><dt><code>chapter-end</code><dd>Línea indicadora de final de capítulo.  Se usa para la publicación de
+libros.
+
+     <br><dt><code>section</code><dd>Línea indicadora de inicio de sección de nivel 1.
+
+     <p>Argumento 1: nivel de la sección; siempre 1.
+
+     <br><dt><code>section-end</code><dd>Línea indicadora de final de sección de nivel 1.
+
+     <p>Argumento 1: nivel de la sección; siempre 1.
+
+     <br><dt><code>subsection</code><dd>Línea indicadora de comienzo de sección de nivel 2.
+
+     <p>Argumento 1: nivel de la sección; siempre 2.
+
+     <br><dt><code>subsection-end</code><dd>Línea indicadora de final de sección de nivel 2.
+
+     <p>Argumento 1: nivel de la sección; siempre 2.
+
+     <br><dt><code>subsubsection</code><dd>Línea indicadora de comienzo de sección de nivel 3.
+
+     <p>Argumento 1: nivel de la sección; siempre 3.
+
+     <br><dt><code>subsubsection-end</code><dd>Línea indicadora de final de sección de nivel 3.
+
+     <p>Argumento 1: nivel de la sección; siempre 3.
+
+     <br><dt><code>section-other</code><dd>Línea indicadora de comienzo de sección, donde el nivel sea superior
+al 3.
+
+     <p>Argumento 1: nivel de la sección.
+
+     <br><dt><code>section-other-end</code><dd>Línea indicadora de final de sección, donde el nivel sea superior al
+3.
+
+     <p>Argumento 1: nivel de la sección.
+
+     <br><dt><code>begin-underline</code><dd>Comienzo de texto subrayado.
+
+     <br><dt><code>end-underline</code><dd>Final de texto subrayado.
+
+     <br><dt><code>begin-literal</code><dd>Comienzo de texto literal.  Esto incluye las etiquetas <tt>&lt;code></tt>
+y =teletype text=.
+
+     <br><dt><code>end-literal</code><dd>Final de texto literal.  Esto incluye las etiquetas <tt>&lt;code></tt> y
+=teletype text=.
+
+     <br><dt><code>begin-emph</code><dd>Comienzo del primer nivel de texto enfatizado.
+
+     <br><dt><code>end-emph</code><dd>Final del primer nivel de texto enfatizado.
+
+     <br><dt><code>begin-more-emph</code><dd>Comienzo del segundo nivel de texto enfatizado.
+
+     <br><dt><code>end-more-emph</code><dd>Final del segundo nivel de texto enfatizado.
+
+     <br><dt><code>begin-most-emph</code><dd>Comienzo del tercer (y último) nivel de texto enfatizado.
+
+     <br><dt><code>end-most-emph</code><dd>Final del tercer (y último) nivel de texto enfatizado.
+
+     <br><dt><code>begin-verse</code><dd>Comienzo de texto de verso.
+
+     <br><dt><code>verse-space</code><dd>Cadena usada para cada espacio que está más sangrado que el comienzo
+del verso.
+
+     <br><dt><code>begin-verse-line</code><dd>Comienzo de una línea en verso.
+
+     <br><dt><code>empty-verse-line</code><dd>Final de una línea en verso.
+
+     <br><dt><code>begin-last-stanza-line</code><dd>Comienzo de la última línea de una estrofa de versos.
+
+     <br><dt><code>end-last-stanza-line</code><dd>Final de la última línea de una estrofa de versos.
+
+     <br><dt><code>end-verse</code><dd>Final de texto en verso.
+
+     <br><dt><code>begin-example</code><dd>Comienzo de una región de ejemplo.  Para hacer uso de esto, hace falta
+una etiqueta &lsquo;<samp><span class="samp">&lt;example&gt;</span></samp>&rsquo;.
+
+     <br><dt><code>end-example</code><dd>Final de una región de ejemplo.  Para hacer uso de esto, hace falta
+una etiqueta &lsquo;<samp><span class="samp">&lt;/example&gt;</span></samp>&rsquo;.
+
+     <br><dt><code>begin-center</code><dd>Comienzo de una línea centrada.
+
+     <br><dt><code>end-center</code><dd>Final de una línea centrada.
+
+     <br><dt><code>begin-quote</code><dd>Comienzo de una región de texto citado.
+
+     <br><dt><code>end-quote</code><dd>Final de una región de texto citado.
+
+     <br><dt><code>begin-quote-item</code><dd>Comienzo de un párrafo de texto citado.
+
+     <br><dt><code>end-quote-item</code><dd>Final de un párrafo de texto citado.
+
+     <br><dt><code>begin-uli</code><dd>Comienzo de una lista sin ordenar.
+
+     <br><dt><code>end-uli</code><dd>Final de una lista sin ordenar.
+
+     <br><dt><code>begin-uli-item</code><dd>Comienzo de un elemento de lista sin ordenar.
+
+     <br><dt><code>end-uli-item</code><dd>Final de un elemento de lista sin ordenar.
+
+     <br><dt><code>begin-oli</code><dd>Comienzo de lista ordenada.
+
+     <br><dt><code>end-oli</code><dd>Final de lista ordenada.
+
+     <br><dt><code>begin-oli-item</code><dd>Comienzo de elemento de lista ordenada.
+
+     <br><dt><code>end-oli-item</code><dd>Final de elemento de lista ordenada.
+
+     <br><dt><code>begin-dl</code><dd>Comienzo de lista de definiciones.
+
+     <br><dt><code>end-dl</code><dd>Final de lista de definiciones.
+
+     <br><dt><code>begin-dl-item</code><dd>Comienzo de elemento de lista de definiciones.
+
+     <br><dt><code>end-dl-item</code><dd>Final de elemento de lista de definiciones.
+
+     <br><dt><code>begin-ddt</code><dd>Comienza un término de lista de definiciones.
+
+     <br><dt><code>end-ddt</code><dd>Finaliza un término de lista de definiciones.
+
+     <br><dt><code>begin-dde</code><dd>Comienza una entrada de lista de definiciones.
+
+     <br><dt><code>end-dde</code><dd>Finaliza una entrada de lista de definiciones.
+
+     <br><dt><code>begin-table</code><dd>Comienzo de tabla.
+
+     <br><dt><code>end-table</code><dd>Final de tabla.
+
+     <br><dt><code>begin-table-group</code><dd>Comienza un agrupamiento de tabla.
+
+     <br><dt><code>end-table-group</code><dd>Finaliza un agrupamiento de tabla.
+
+     <br><dt><code>begin-table-row</code><dd>Comienzo de fila de tabla.
+
+     <br><dt><code>end-table-row</code><dd>Final de fila de tabla.
+
+     <br><dt><code>begin-table-entry</code><dd>Comienzo de entrada de tabla.
+
+     <br><dt><code>end-table-entry</code><dd>Final de entrada de tabla.
+
+</dl>
+
+   </body></html>
+

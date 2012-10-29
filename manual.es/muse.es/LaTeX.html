@@ -1,0 +1,244 @@
+<html lang="es">
+<head>
+<title>LaTeX - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.13">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="Journal.html#Journal" title="Journal">
+<link rel="next" href="Poem.html#Poem" title="Poem">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+Este es el manual de Emacs Muse versión 3.20.
+
+Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Free
+Software Foundation, Inc.
+
+Copyright (C) de la traducción, 2009, 2010 Free Software
+Fundation, Inc.  La traducción está realizada por el Departamento de
+Traducciones técnicas de Urban Planet, de la empresa Timijiraque,
+S.L., en su proyecto de Emacs en español `gnu.manticore.es'.
+La empresa cede el copyright a la FSF.
+
+La traducción ha finalizado la fase beta.  Aún le falta revisiones
+técnicas y estilísticas.  Se agradecen las sugerencias.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.2 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with the Front-Cover texts
+     being ``A GNU Manual'', and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     ``GNU Free Documentation License'' in this manual.
+
+     (a) The FSF's Back-Cover Text is: ``You have freedom to copy and
+     modify this GNU Manual, like GNU software.  Copies published by
+     the Free Software Foundation raise funds for GNU development.''
+
+     This document is part of a collection distributed under the GNU
+     Free Documentation License.  If you want to distribute this
+     document separately from the collection, you can do so by adding a
+     copy of the license to the document, as described in section 6 of
+     the license.
+
+     Todo el código Emacs Lisp contenido en este documento puede usarse,
+     distribuirse y modificarse sin restricciones.  --- [NdT: Por
+     indicaciones precisas de la FSF, se deja la nota anterior en
+     inglés, así como el texto oficial de la Licencia.  La traducción se
+     acoge también a los mismos términos.]
+   -->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<a name="LaTeX"></a>
+<p>
+Next:&nbsp;<a rel="next" accesskey="n" href="Poem.html#Poem">Poem</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="Journal.html#Journal">Journal</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h3 class="section">9.8 Publicación de documentos LaTeX</h3>
+
+<p>Este estilo de publicación es capaz de producir documentos LaTeX y
+PDF.
+
+   <p>Si se desea publicar documentos PDF, hará falta una buena instalación
+TeX.  Para Debian y Ubuntu, se puede conseguir instalando los paquetes
+&ldquo;tetex-bin&rdquo; y &ldquo;tetex-extra&rdquo;.  También son obligatorios los tipos
+de letras TeX.
+
+   <p>Si la instalación de LaTeX tiene un fichero <samp><span class="file">grffile.sty</span></samp>, que
+puede encontrarse en el paquete <samp><span class="file">texlive-latex-recommended</span></samp> para
+Debian y Ubuntu, entonces será bueno considerar su uso añadiendo lo
+siguiente al fichero cabecera.  Esto permite que funcionen los
+espacios en los nombres de ficheros.
+
+<pre class="example">     \usepackage{grffile}
+</pre>
+   <h4 class="subheading">Estilos proporcionados para LaTeX</h4>
+
+     
+<a name="index-publicaci_00c3_00b3n-de-estilos_002c-latex-118"></a>
+<dl><dt><code>latex</code><dd>Publica documentos LaTeX.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-pdf-119"></a><br><dt><code>pdf</code><dd>Publica documentos PDF, empleando una herramienta externa de
+conversión de documentos LaTeX.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-latexcjk-120"></a><br><dt><code>latexcjk</code><dd>Publica documentos LaTeX con codificación CJK (China).
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-pdfcjk-121"></a><br><dt><code>pdfcjk</code><dd>Publica documentos PDF en codificación CJK (China), con el empleo de
+una herramienta externa de conversión de documentos LaTeX.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-slides-122"></a><br><dt><code>slides</code><dd>Publica un documento LaTeX que emplea la extensión Beamer.  Esto es
+adecuado para la producción de pases.
+
+     <p>Este es un ejemplo de pase.
+
+     <pre class="example">          &lt;slide title="Primer pase"&gt;
+          Todo lo que hay entre las etiquetas slide compone el pase.
+          
+          [[Una-imagen-guapa-aquí.png]]
+          
+           - Una entrada.
+           - Otra entrada.
+          &lt;/slide&gt;
+</pre>
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-slides_002dpdf-123"></a><br><dt><code>slides-pdf</code><dd>Publica un documento PDF o pase, empleando la extensión Beamer.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-lecture_002dnotes-124"></a><br><dt><code>lecture-notes</code><dd>Publica un documento LaTeX que emplea la extensión Beamer.  Es
+adecuado para la producción de notas de lecciones.
+
+     <p>También puede usar la etiqueta <tt>&lt;slide></tt>.
+
+     <p><a name="index-publicaci_00c3_00b3n-de-estilos_002c-lecture_002dnotes_002dpdf-125"></a><br><dt><code>lecture-notes-pdf</code><dd>Publica un documento PDF o notas de lecciones, empleando la extensión
+Beamer.
+
+</dl>
+
+<h4 class="subheading">Opciones proporcionadas para LaTeX</h4>
+
+     <dl>
+<dt><code>muse-latex-extension</code><dd>Extensión predeterminada de fichero para la publicación de ficheros
+LaTeX.
+
+     <br><dt><code>muse-latex-pdf-extension</code><dd>Extensión predeterminada de fichero para publicar ficheros LaTeX en
+PDF.
+
+     <br><dt><code>muse-latex-pdf-browser</code><dd>El programa a usar cuando se navegue un fichero PDF publicado.
+
+     <p>Debe ser una cadena de formato.
+
+     <br><dt><code>muse-latex-pdf-program</code><dd>El programa al que se llama para generar el contenido PDF a partir del
+LaTeX.
+
+     <br><dt><code>muse-latex-pdf-cruft</code><dd>Extensiones de los ficheros a remover después de generar correctamente
+la salida en PDF.
+
+     <br><dt><code>muse-latex-header</code><dd>Cabecera usada para la publicación de ficheros LaTeX.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-latex-footer</code><dd>Pie usado para la publicación de ficheros LaTeX.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-latexcjk-header</code><dd>Cabecera usada para la publicación de ficheros LaTeX (CJK).
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-latexcjk-footer</code><dd>Pie usado para la publicación de ficheros LaTeX (CJK).
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <br><dt><code>muse-latex-slides-header</code><dd>Cabecera para la publicación de pases usando LaTeX.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <p>Se debe tener instalada la extensión Beamer para LaTeX para que esto
+funcione.
+
+     <br><dt><code>muse-latex-lecture-notes-header</code><dd>Cabecera para la publicación de notas de lecciones usando LaTeX.
+
+     <p>Puede ser texto o un nombre de fichero.
+
+     <p>Se debe tener instalada la extensión Beamer para LaTeX para que esto
+funcione.
+
+     <br><dt><code>muse-latex-markup-regexps</code><dd>Lista de expresiones regulares de marcado para identificar regiones en
+una página Muse.
+
+     <p>Para más acerca de la estructura de esta lista,
+See <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>.
+
+     <br><dt><code>muse-latex-markup-functions</code><dd>Una a-lista de tipos de estilos para personalizar funciones para ese
+tipo de texto.
+
+     <p>Para más acerca de la estructura de esta lista,
+See <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>.
+
+     <br><dt><code>muse-latex-markup-strings</code><dd>Cadenas usadas para marcar el texto.
+
+     <p>Estas cubren los tipos de marcado más básicos, cuya manipulación
+difiere poco entre los distintos estilos.
+
+     <br><dt><code>muse-latex-slides-markup-tags</code><dd>Lista de especificaciones de etiquetas, para el marcado especial de
+pases LaTeX.
+
+     <br><dt><code>muse-latexcjk-encoding-map</code><dd>Una a-lista que mapea los sistemas de codificación de Emacs en las
+codificaciones apropiadas en CJK.  Se usa el nombre base del sistema
+de codificación (ie, sin el -unix).
+
+     <br><dt><code>muse-latexcjk-encoding-default</code><dd>La codificación predeterminada del búfer de Emacs para su uso en los
+ficheros publicados.
+
+     <p>Se empleará si no se encuentran caracteres especiales.
+
+     <br><dt><code>muse-latex-markup-specials-document</code><dd>Tabla de los caracteres que deban ser representados especialmente.  Se
+aplican al documento entero, sin regiones ya escapadas.
+
+     <br><dt><code>muse-latex-markup-specials-example</code><dd>Tabla de los caracteres que deban ser representados de manera
+especial.  Se aplican a las regiones <tt>example></tt>.
+
+     <p>Con la interpretación predeterminada de las regiones
+<tt>&lt;example></tt>, no hay necesidad de escapar ninguna cosa especial.
+
+     <br><dt><code>muse-latex-markup-specials-literal</code><dd>Tabla de los caracteres que deban ser representados de manera
+especial.  Se aplican al =monospaced text= y a las regiones
+<tt>&lt;code></tt>.
+
+     <br><dt><code>muse-latex-markup-specials-url</code><dd>Tabla de los caracteres que deban ser representados de manera
+especial.  Se aplican a los URL.
+
+     <br><dt><code>muse-latex-markup-specials-image</code><dd>Tabla de los caracteres que deban representarse de manera especial. 
+Se aplican a los nombres de ficheros de imágenes.
+
+     <br><dt><code>muse-latex-permit-contents-tag</code><dd>Si es <code>nil</code>, ignora las etiquetas <tt>&lt;contents></tt>.  De lo
+contrario, inserta el índice de contenidos.
+
+     <p>Casi siempre es mejor tener un índice de contenidos en la primera
+página, siguiéndole inmediatamente una página nueva.  Para hacer que
+esto funcione con documentos publicados tanto en HTML como en LaTeX,
+necesitamos ignorar la etiqueta <tt>&lt;contents></tt>.
+
+     <p>Si el usuario no está de acuerdo con esto, podrá poner esta opción en
+no-<code>nil</code> y hará lo que se espera.
+
+</dl>
+
+   </body></html>
+
