@@ -1,0 +1,12 @@
+<!-- begin translist file -->
+<!--#set var="TRANSLATION_LIST"
+value='<div id="translations">
+<p>
+<span dir="ltr" class="original"><a lang="en" hreflang="en" href="/software/emacs-muse/index.en.html">English</a>&nbsp;[en]</span> &nbsp;
+<span dir="ltr"><a lang="es" hreflang="es" href="/software/emacs-muse/index.es.html">español</a>&nbsp;[es]</span> &nbsp;
+</p>
+</div>' -->
+<link rel="alternate" type="text/html" href="/software/emacs-muse/emacs-muse.html" hreflang="x-default" />
+<link rel="alternate" type="text/html" lang="en" hreflang="en" href="/software/emacs-muse/index.en.html" title="English" />
+<link rel="alternate" type="text/html" lang="es" hreflang="es" href="/software/emacs-muse/index.es.html" title="español" />
+<!-- end translist file -->
